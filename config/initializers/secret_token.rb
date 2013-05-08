@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-TgnAgain::Application.config.secret_token = 'dead4c579c5a1b521e1a00a4ff7dfb610b4c8479e97290e05604d99f60e67ffbca42aec8d6e4c1ee1f12730040c0f7685f5b9ae162b1ff12c24931260ab18473'
+TgnAgain::Application.config.secret_token = 'bd0591a58d74fcbb1d0f0108cac794189ca91906ceaa827417e35f5e3c238863bf3c7f8f21d6715d44c7cd523c61f313407cc71ef43bf49c864831597a92f35a'
