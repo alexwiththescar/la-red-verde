@@ -1,9 +1,12 @@
 
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span7">
+  <aside class="span4">
     <section><center>
-      <%= image_tag @user.avatar %>
+      <%= image_tag current_user.avatar.url %><br><br>
+
+
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=10&markers=#{@user.latitude}%2C#{@user.longitude}" %> 
       <h1>
        
   
@@ -18,18 +21,15 @@
    
 
   </aside>
-  <div class="span4">
+  <div class="span7">
 
 <h1>
 <%= @user.name %></h1>
 
-     <center><h4><u><%= @user %></h4></u><br>
+     
   <center> <h2>Location</h2><p> <%= @user.region %></p><br>
    <center> <h2>Contact</h2><p> <%= @user.email %></p><br></center>
-  <center><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=10&markers=#{@user.latitude}%2C#{@user.longitude}" %> 
+  <center>
   </div>
 </div>
-<section>
   
-    
-    </section>

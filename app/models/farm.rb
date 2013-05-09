@@ -1,9 +1,14 @@
 class Farm < ActiveRecord::Base
-  attr_accessible :content, :name, :user_id, :description
+  attr_accessible :content, :name, :user_id, :description, :street_name, :bldg_name, :region, :post_code, 
+  						:province, :contact_number, :farmtype, :swap, :organic, :deliver, :farmpic
   belongs_to :user
   has_many :products
 
   validates :user_id, presence: true
+
+  has_attached_file :farmpic, :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
+  		:url  => "/assets/farms/:id/:style/:basename.:extension",
+                  :path => ":rails_root/public/assets/farms/:id/:style/:basename.:extension"
 
 end
 # == Schema Information

@@ -1,15 +1,32 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :region, :password, :password_confirmation
+  attr_accessible :email, :name, :region, :password, :password_confirmation, :description, :avatar, :street_name, :bldg_name, :post_code, :province, :contact_number
   has_many :farms
   has_secure_password
 
-before_save { |user| user.email = email.downcase }
-before_save :create_remember_token
+#attr_accessor :avatar_file_name, :avatar_file_size, :avatar_content_type
+
 
 has_attached_file :avatar, :styles => { :thumb => "75x75>" },
-                  :url  => "/assets/products/:id/:style/:basename.:extension",
-                  :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
+                  :url  => "/assets/users/:id/:style/:basename.:extension",
+                  :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
 
+  #validates_attachment_presence :avatar
+  
+  validates_attachment_size :avatar, :less_than => 5.megabytes
+  validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
+  
+  geocoded_by :region
+  after_validation :geocode, :if => :region_changed?
+
+  before_save { email.downcase! }
+  before_save :create_remember_token
+
+  validates :name, presence: true, length: { maximum: 50 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  #validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
+   #                 uniqueness: { case_sensitive: false }
+  validates :password, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
 private
 def create_remember_token
 self.remember_token = SecureRandom.urlsafe_base64

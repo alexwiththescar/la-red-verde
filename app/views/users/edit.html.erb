@@ -1,19 +1,41 @@
 
 <% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
-<aside class="span5">
+<div class="span2"></div>
+
+<div class="span7"><br><br><br><br>
 <br>   
-<%= form_for(@user) do |f| %>
+<%= form_for @user,  :html => { :multipart => true }) do |f| %>
+
 <%= render 'shared/error_messages', object: f.object %>
-<%= f.label :name %>
-<%= f.text_field :name %>
+<div class="field"><br><br>
+    <%= f.label "Your Name" %><br />
+    <%= f.text_field :name %>
+    <%= f.label "email" %><br />
+    <%= f.text_field :email %>
+  </div>
+  
+  <br>
+  <br>
+<div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :size => "30x10" %>
+  </div>
+  <div class="field">
+    <%= f.label 'Attach a profile picture for your account' %>
+<%= f.file_field :avatar %>
 
-<%= f.label :email %>
-<%= f.text_field :email %>
 
-<%= f.label  :region %>
-
-<%= f.select :region, options_for_select(%w[Alameda
+</div>
+   <div class="field">
+    <%= f.label :street_name %>
+    <%= f.text_field :street_name %>
+  </div>
+   <div class="field">
+    <%= f.label :bldg_name,:style => "display:inline" %>
+    <%= f.text_field :bldg_name,:style => "display:inline"  %>
+  </div>
+   <div class="field">
+    <%= f.label :region %><%= f.select :region, options_for_select(%w[Alameda
 Alcaucín 
 Alfarnate 
 Alfarnatejo 
@@ -113,30 +135,36 @@ Villanueva-del-Rosario
 Villanueva-del-Trabuco 
 Viñuela 
 Yunquera ] ) %>
-<%= f.select :location_state, options_for_select(%w[Malaga,España]) %>
+  </div>
+  <div class="field">
+    <%= f.label :post_code %>
+    <%= f.number_field :post_code %>
+  </div>
+  <div class="field">
+    <%= f.label :province %>
+   <%= f.select :province, options_for_select(%w[Malaga,España]) %>
+  </div>
+  
+  
+  <div class="field">
+    <%= f.label :contact_number %><br />
+    <%= f.number_field :contact_number %>
+  </div>
 <%= f.label :password %>
 <%= f.password_field :password %>
 
-<%= f.label :password_confirmation, "Confirmation" %>
+<%= f.label :password_confirmation, "Password Confirmation" %>
 <%= f.password_field :password_confirmation %>
 
-<%= f.label 'Attach a profile picture for your account' %>
-<%= f.file_field :avatar %>
-<%= f.submit "Update My Profile", class: "btn btn-large btn-primary" %>
-	</section>
-  </aside>
-	<div class="span6"><br>
-  <p> <%='Would you like to sell your produce?    ' %><br>
- <%= f.radio_button :seller, false %><%= f.label "No, I Just want to buy fresh local produce!", :style => "display:inline"%><br>
-  <%= f.radio_button :seller, true %><%= f.label "Yes, I Grow Produce", :style => "display:inline"%><br>
-  <br />
+
+  <%= f.submit "Update my account", class: "btn btn-large btn-primary" %>
+
+
+
 <br><br>
-<%= f.label 'Farm Name (optional)'  %>
-<%= f.text_field :farm_name %>
-
-<%= f.label 'Describe What you Grow! (optional)' %>
-<%= f.text_area :description, :size => "30x10" %></p>
-
-
+    
+  </div>
+  <div class="span2"></div>
+</center>
 <% end %>
-</div>
+

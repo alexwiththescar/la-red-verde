@@ -1,134 +1,182 @@
-<%= provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
-<span class="span2"></span>
-<div class="span5">
+<%= provide(:title, 'Register...') %>
+
+
+<div class="span4"><br><br><br><br>
 <br>   
-<%= form_for(@user) do |f| %>
+<%= form_for(@farm) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
-<%= f.label :name %>
-<%= f.text_field :name %>
 
-<%= f.label :email %>
-<%= f.text_field :email %>
-
-<%= f.label  :region %>
-
-<%= f.select :region, options_for_select(%w[Alameda
-Alcaucín
-Alfarnate
-Alfarnatejo
-Algarrobo
-Algatocín
-Alhaurín-de-la-Torre
-Alhaurín-el-Grande
-Almáchar
-Almargen
-Almogía
-Álora
-Alozaina
-Alpandeire
-Antequera
-Árchez
-Archidona
-Ardales
-Arenas
-Arriate
-Atajate
-Benadalid
-Benahavís
-Benalauría
-Benalmádena
-Benamargosa
-Benamocarra
-Benaoján
-Benarrabá
-El-Borge
-El-Burgo
-Campillos
-Canillas-de-Aceituno
-Canillas-de-Albaida
-Cañete-la-Real
-Carratraca
-Cartajima
-Cártama
-Casabermeja
-Casarabonela
-Casares
-Coín
-Colmenar-(Málaga)
-Comares
-Cómpeta
-Cortes-de-la-Frontera
-Cuevas-Bajas
-Cuevas-de-San-Marcos
-Cuevas-del-Becerro
-Cútar
-Estepona
-Faraján
-Frigiliana
-Fuengirola
-Fuente-de-Piedra
-Gaucín
-Genalguacil
-Guaro
-Humilladero
-Igualeja
-Istán
-Iznate
-Jimera-de-Líbar
-Jubrique
-Júzcar
-Macharaviaya
-Málaga
-Manilva
-Marbella
-Mijas
-Moclinejo
-Mollina
-Monda
-Montejaque
-Nerja
-Ojén
-Parauta
-Periana
-Pizarra
-Pujerra
-Rincón-de-la-Victoria
-Riogordo
-Ronda
-Salares
-Sayalonga
-Sedella
-Sierra-de-Yeguas
-Teba
-Tolox
-Torremolinos
-Torrox
-Totalán
-Valle-de-Abdalajís
-Vélez-Málaga
-Villanueva-de-Algaidas
-Villanueva-de-Tapia
-Villanueva-del-Rosario
-Villanueva-del-Trabuco
-Viñuela
-Yunquera]) %>
-
+   <div class="field">
+    <%= f.label :street_name %><br />
+    <%= f.text_field :street_name %>
+  </div>
+   <div class="field">
+    <%= f.label :bldg_name %><br />
+    <%= f.text_field :bldg_name %>
+  </div>
+   <div class="field">
+    <%= f.label :region %><br />
+    <%= f.select :region, options_for_select(%w[Alameda
+Alcaucín 
+Alfarnate 
+Alfarnatejo 
+Algarrobo 
+Algatocín 
+Alhaurín-de-la-Torre 
+Alhaurín-el-Grande 
+Almáchar 
+Almargen 
+Almogía 
+Álora 
+Alozaina 
+Alpandeire 
+Antequera 
+Árchez 
+Archidona 
+Ardales 
+Arenas 
+Arriate 
+Atajate 
+Benadalid 
+Benahavís 
+Benalauría 
+Benalmádena 
+Benamargosa 
+Benamocarra 
+Benaoján 
+Benarrabá 
+El-Borge 
+El-Burgo 
+Campillos 
+Canillas-de-Aceituno 
+Canillas-de-Albaida 
+Cañete-la-Real 
+Carratraca 
+Cartajima 
+Cártama 
+Casabermeja 
+Casarabonela 
+Casares 
+Coín 
+Colmenar-(Málaga) 
+Comares 
+Cómpeta 
+Cortes-de-la-Frontera 
+Cuevas-Bajas 
+Cuevas-de-San-Marcos 
+Cuevas-del-Becerro 
+Cútar 
+Estepona 
+Faraján 
+Frigiliana 
+Fuengirola 
+Fuente-de-Piedra 
+Gaucín 
+Genalguacil 
+Guaro 
+Humilladero 
+Igualeja 
+Istán 
+Iznate 
+Jimera-de-Líbar 
+Jubrique 
+Júzcar 
+Macharaviaya 
+Málaga 
+Manilva 
+Marbella 
+Mijas 
+Moclinejo 
+Mollina 
+Monda 
+Montejaque 
+Nerja 
+Ojén 
+Parauta 
+Periana 
+Pizarra 
+Pujerra 
+Rincón-de-la-Victoria 
+Riogordo 
+Ronda 
+Salares 
+Sayalonga 
+Sedella 
+Sierra-de-Yeguas 
+Teba 
+Tolox 
+Torremolinos 
+Torrox 
+Totalán 
+Valle-de-Abdalajís 
+Vélez-Málaga 
+Villanueva-de-Algaidas 
+Villanueva-de-Tapia 
+Villanueva-del-Rosario 
+Villanueva-del-Trabuco 
+Viñuela 
+Yunquera ] ) %>
+  </div>
+  <div class="field">
+    <%= f.label :post_code %><br />
+    <%= f.number_field :post_code %>
+  </div>
+  <div class="field">
+    <%= f.label :province %><br />
+   <%= f.select :province, options_for_select(%w[Malaga,España]) %>
+  </div>
+  
+  
+  <div class="field">
+    <%= f.label :contact_number %><br />
+    <%= f.number_field :contact_number %>
+  </div>
 <%= f.label :password %>
 <%= f.password_field :password %>
 
-<%= f.label :password_confirmation, "Confirmation" %>
+<%= f.label :password_confirmation, "Password Confirmation" %>
 <%= f.password_field :password_confirmation %>
 
-<%= f.label 'Attach a profile picture for your account' %>
-<%= f.file_field :avatar %>
-<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+
   </section>
   </aside>
   
 
 
-<% end %>
-</div>
-<span class="span2"></span>
 
+</div>
+<span class="span6"><br><br>
+    <div class="field"><br><br>
+    <%= f.label "Your Name" %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <br>
+  <div class="field">
+  <%='Is it Organicly Grown?    ' %><br>
+  <%= f.radio_button :organic, 'organic', :checked => true %> 
+  <%= label :organic_yes, 'Yes', :style => "display:inline" %>
+  <%= f.radio_button :organic, 'No', :style => "display:inline" %>
+  <%= label :organic_no, 'No', :style => "display:inline" %>
+</div><br>
+<div style="display:inline"><div class="field">
+  
+  <%='Can you Deliver Locally?    ' %><br>
+  <%= f.radio_button :deliver, 'Yes', :checked => true %>
+  <%= label :deliver_yes, 'Yes',:style => "display:inline" %>
+  <%= f.radio_button :deliver, 'No', :style => "display:inline" %>
+  <%= label :deliver_no, 'No',  :style => "display:inline" %>
+</div></div><br>
+<div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :size => "30x10" %>
+  </div>
+  <div class="field">
+    <%= f.label 'Attach a profile picture for your account' %>
+<%= f.file_field :avatar %>
+<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+
+
+  </div>
+</span>
+<% end %>

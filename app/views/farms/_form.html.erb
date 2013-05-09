@@ -1,7 +1,7 @@
 <%= provide(:title, 'Register Your Farm...') %>
 
 
-<div class="span4"><br><br>
+<div class="span4"><br><br><br><br>
 <br>   
 <%= form_for(@farm) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
@@ -131,11 +131,7 @@ Yunquera ] ) %>
     <%= f.label :contact_number %><br />
     <%= f.number_field :contact_number %>
   </div>
-<%= f.label :password %>
-<%= f.password_field :password %>
 
-<%= f.label :password_confirmation, "Confirmation" %>
-<%= f.password_field :password_confirmation %>
 
 
   </section>
@@ -145,14 +141,14 @@ Yunquera ] ) %>
 
 
 </div>
-<span class="span6">
+<span class="span6"><br><br>
     <div class="field"><br><br>
-    <%= f.label :name %><br />
+    <%= f.label "Farm Name" %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :type %><br />
-   <%= f.select :type, options_for_select(["Private Grower","Farm"]) %>
+    <%= f.label "Type of Farm?" %><br />
+   <%= f.select :farmtype, options_for_select(["Private Grower","Farm"]) %>
   </div>
   <div class="field">
   <%='Are You Willing To Swap For other Fresh Produce?    ' %><br>
@@ -178,12 +174,12 @@ Yunquera ] ) %>
 </div></div><br>
 <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :size => "30x10" %>
   </div>
   <div class="field">
     <%= f.label 'Attach a profile picture for your account' %>
-<%= f.file_field :avatar %>
-<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+<%= f.file_field :farmpic %><br /><br /><br /><br /><br /><br />
+<%= f.submit "Create Farm", class: "btn btn-large btn-primary" %>
 
 
   </div>

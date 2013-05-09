@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509132513) do
+ActiveRecord::Schema.define(:version => 20130509165707) do
 
   create_table "farms", :force => true do |t|
     t.string   "name"
@@ -33,10 +33,14 @@ ActiveRecord::Schema.define(:version => 20130509132513) do
     t.boolean  "organic"
     t.boolean  "deliver"
     t.boolean  "swap"
-    t.boolean  "delta",            :default => true, :null => false
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-    t.string   "type"
+    t.boolean  "delta",                :default => true, :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "farmtype"
+    t.string   "farmpic_file_name"
+    t.string   "farmpic_content_type"
+    t.float    "farmpic_file_size"
+    t.datetime "farmpic_updated_at"
   end
 
   create_table "products", :force => true do |t|
@@ -63,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20130509132513) do
     t.string   "description"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           :default => true
+    t.boolean  "admin",               :default => true
     t.string   "avatar"
     t.string   "street_name"
     t.string   "bldg_name"
@@ -73,9 +77,13 @@ ActiveRecord::Schema.define(:version => 20130509132513) do
     t.integer  "contact_number"
     t.float    "longitude"
     t.float    "latitude"
-    t.boolean  "delta",           :default => true, :null => false
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.boolean  "delta",               :default => true, :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.float    "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
 end

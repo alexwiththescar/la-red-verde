@@ -1,20 +1,21 @@
 <p id="notice"><%= notice %></p>
+<div class="span6">
 
-<p>
-  <b>Name:</b>
-  <%= @farm.name %>
-</p>
-
+<%= image_tag @farm.farmpic.url %>
 <p>
   <b>Content:</b>
   <%= @farm.description %>
 </p>
-
+</div>
+<div class="span4">
+<p>
+  <b>Name:</b>
+  <%= @farm.name %>
+</p>
 <p>
   <b>User:</b>
   <%= @farm.user_id %>
 </p>
-
-
+</div>
 <%= link_to 'Edit', edit_farm_path(@farm) %> |
 <%= link_to 'Back', farms_path %>
