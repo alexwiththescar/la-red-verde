@@ -1,0 +1,15 @@
+<div class="container">
+<div class="row">
+	
+<div class="span4"><%= image_tag farm.farmpic.url(:medium) %></div>
+<div class="span4"><span class="content"><h2><%= farm.name %></h2></span>
+ 
+  <span class="content"><%=  "   Is it Organic  ::  " %><%= farm.organic ? 'Yes' : 'No'  %></span>
+  <span class="content"><%=  "   Can it be delivered  ::  " %><%= farm.deliver ? 'No' : 'Yes' %></span><span class="timestamp">
+
+
+
+Posted <%= time_ago_in_words(farm.created_at) %> ago.
+
+</span>
+</div></div></div></div><hr>

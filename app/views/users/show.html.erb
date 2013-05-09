@@ -21,7 +21,7 @@
    
 
   </aside>
-  <div class="span7">
+  <div class="span6">
 
 <h1>
 <%= @user.name %></h1>
@@ -30,6 +30,14 @@
   <center> <h2>Location</h2><p> <%= @user.region %></p><br>
    <center> <h2>Contact</h2><p> <%= @user.email %></p><br></center>
   <center>
-  </div>
-</div>
+  </div>  </div>
+  <hr>
+ 
+ <aside class="span4">
+  <aside class="span6">
+    <hr> <h1>My Farms</h1>
+  <ul class="users">
+<%= render @user.farms %>
+</ul>
+</aside>
   
