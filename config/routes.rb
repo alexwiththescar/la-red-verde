@@ -1,15 +1,30 @@
 TgnAgain::Application.routes.draw do
-  get "static_pages/home"
 
-  get "static_pages/help"
 
-  get "static_pages/about"
-
-  resources :products
-
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :products, only: [:create, :destroy]
   resources :farms
-
+  
   resources :users
+
+  
+
+
+  root to: "static_pages#home"
+  
+
+  match '/signup', to: "users#new"
+  match '/signin', to: "sessions#new"
+  match '/signout', to: "sessions#destroy", via: :delete
+
+  match '/products', to: 'products#index'
+  match '/farms', to: 'farms#index'
+  
+  match '/sell', to: "static_pages#sell"
+  match '/search', to: "static_pages#search"
+  match '/help', to: "static_pages#help"
+  match '/about', to: "static_pages#about"
+  match '/contact', to: "static_pages#contact"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

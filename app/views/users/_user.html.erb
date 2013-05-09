@@ -1,0 +1,22 @@
+<div class="container">
+<div class="row">
+<li><div class="span5 ">
+<%= image_tag user.avatar.url(:thumb) %>
+<%= link_to user.name, user %>
+
+<% if current_user.admin? && !current_user?(user) %>
+| <%= link_to "delete", user, method: :delete, confirm: "You sure?" %>
+<% end %>
+</div>
+
+
+
+
+<div class="span6">
+
+  
+ </div>
+
+</li>
+</div>
+</div>

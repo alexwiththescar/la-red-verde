@@ -1,6 +1,8 @@
 class FarmsController < ApplicationController
-  # GET /farms
-  # GET /farms.json
+  
+  before_filter :signed_in_user, only: [:create, :destroy]
+  before_filter :correct_user, only: :destroy
+
   def index
     @farms = Farm.all
 
@@ -40,7 +42,8 @@ class FarmsController < ApplicationController
   # POST /farms
   # POST /farms.json
   def create
-    @farm = Farm.new(params[:farm])
+   
+@farm = current_user.farms.build(params[:farm])
 
     respond_to do |format|
       if @farm.save
@@ -80,4 +83,6 @@ class FarmsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  
 end

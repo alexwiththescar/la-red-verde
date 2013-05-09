@@ -1,15 +1,35 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span7">
+    <section><center>
+      <%= image_tag @user.avatar %>
+      <h1>
+       
+  
+      </h1>
+    </section>
+    <section>
+      
+    </section>
+    <% unless @user.description.blank? %><div>
+  <center>
+   <h2>About Us</h2><p> <%= @user.description %></p><br></div><% end %>
+   
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+  </aside>
+  <div class="span4">
 
+<h1>
+<%= @user.name %></h1>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+     <center><h4><u><%= @user %></h4></u><br>
+  <center> <h2>Location</h2><p> <%= @user.region %></p><br>
+   <center> <h2>Contact</h2><p> <%= @user.email %></p><br></center>
+  <center><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=10&markers=#{@user.latitude}%2C#{@user.longitude}" %> 
+  </div>
+</div>
+<section>
+  
+    
+    </section>
