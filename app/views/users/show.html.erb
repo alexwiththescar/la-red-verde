@@ -1,8 +1,8 @@
 
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="span4">
-    <section><center>
+<br><br>
+  <div class="span3">
+    <section>
       <%= image_tag current_user.avatar.url %><br><br>
 
 
@@ -12,32 +12,38 @@
   
       </h1>
     </section>
-    <section>
-      
-    </section>
-    <% unless @user.description.blank? %><div>
-  <center>
-   <h2>About Us</h2><p> <%= @user.description %></p><br></div><% end %>
+  
+    
+  
+   
    
 
-  </aside>
-  <div class="span6">
+  </div> 
+  <div class="span7">
 
 <h1>
 <%= @user.name %></h1>
 
      
-  <center> <h2>Location</h2><p> <%= @user.region %></p><br>
+   <center><h2>Location</h2><p> <%= @user.region %></p><br>
    <center> <h2>Contact</h2><p> <%= @user.email %></p><br></center>
-  <center>
-  </div>  </div>
+  <% if @user.description.blank? %><% else %>
+   <center><h2>About Us</h2><p> <%= @user.description %></p><br></div>
+  <% end %>
   <hr>
+   </div> 
+ <div class="span1">
+
+  <div class="btn-group btn-group-vertical">
+<%= link_to "Visit Farm", farms_path, class: "btn btn-small btn-secondary"  %>
+ </div>  </div> 
  
- <aside class="span4">
+ </div>
+
   <aside class="span6">
     <hr> <h1>My Farms</h1>
   <ul class="users">
 <%= render @user.farms %>
 </ul>
-</aside>
+  </div> 
   

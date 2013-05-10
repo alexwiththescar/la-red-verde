@@ -2,8 +2,10 @@ TgnAgain::Application.routes.draw do
 
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :products, only: [:create, :destroy]
-  resources :farms
+  resources :products
+  resources :farms, :shallow => true do 
+  resources :products
+end
   
   resources :users
 
@@ -20,7 +22,7 @@ TgnAgain::Application.routes.draw do
   match '/products', to: 'products#index'
   match '/farms', to: 'farms#index'
   
-  match '/sell', to: "static_pages#sell"
+  
   match '/search', to: "static_pages#search"
   match '/help', to: "static_pages#help"
   match '/about', to: "static_pages#about"

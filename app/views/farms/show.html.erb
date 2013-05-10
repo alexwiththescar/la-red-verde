@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
-<div class="span6">
+<br><br>
+<div class="span7">
 
-<%= image_tag @farm.farmpic.url %>
+
 <p>
   <b>Content:</b>
   <%= @farm.description %>
 </p>
 </div>
-<div class="span4">
-<p>
+<div class="span3">
+	<%= image_tag @farm.farmpic.url %>
+<p> 
   <b>Name:</b>
   <%= @farm.name %>
 </p>
@@ -17,5 +18,21 @@
   <%= @farm.user_id %>
 </p>
 </div>
-<%= link_to 'Edit', edit_farm_path(@farm) %> |
-<%= link_to 'Back', farms_path %>
+<div class="span1">
+	
+	<% if signed_in? %><div class="btn-group btn-group-vertical">
+<% if current_user?(@farm.user) %>
+<%= link_to 'Edit', edit_farm_path(@farm), class: "btn btn-small btn-secondary" %> 
+
+<%= link_to 'Sell Product', new_product_path, class: "btn btn-small btn-secondary" %> 
+
+<%= link_to 'Back', farms_path, class: "btn btn-small btn-secondary"  %>
+<% else %>
+<%= link_to 'Contact Farmer', edit_farm_path(@farm), class: "btn btn-small btn-secondary" %> 
+<% end %>
+</div><% end %>
+
+</div>
+
+</div>
+

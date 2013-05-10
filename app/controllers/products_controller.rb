@@ -39,24 +39,19 @@ class ProductsController < ApplicationController
 
   # POST /products
   # POST /products.json
-  def create
-    @product = Product.new(params[:product])
 
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render json: @product, status: :created, location: @product }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+
+
+  def create
+    @farm = Farm.find(params[:farm_id])
+    @product = @farm.products.create(params[:product])
+    redirect_to farm_path(@farm)
+end
 
   # PUT /products/1
   # PUT /products/1.json
   def update
-    @product = Product.find(params[:id])
+  
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
