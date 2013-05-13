@@ -3,9 +3,9 @@ TgnAgain::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :products
-  resources :farms, :shallow => true do 
-  resources :products
-end
+  resources :farms do 
+    resources :products
+  end
   
   resources :users
 

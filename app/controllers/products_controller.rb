@@ -24,7 +24,10 @@ class ProductsController < ApplicationController
   # GET /products/new
   # GET /products/new.json
   def new
-    @product = Product.new
+   # @product = Product.new
+
+  @farm =  Farm.find(params[:farm_id])    
+  @products = @farm.products.build 
 
     respond_to do |format|
       format.html # new.html.erb
