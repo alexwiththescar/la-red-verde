@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :region, :password, :password_confirmation, :description, :avatar, :street_name, :bldg_name, :post_code, :province, :contact_number
   has_many :farms
+  has_many :swaps
   has_secure_password
 
 #attr_accessor :avatar_file_name, :avatar_file_size, :avatar_content_type

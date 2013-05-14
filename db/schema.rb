@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509165707) do
+ActiveRecord::Schema.define(:version => 20130514172151) do
 
   create_table "farms", :force => true do |t|
     t.string   "name"
@@ -59,6 +59,19 @@ ActiveRecord::Schema.define(:version => 20130509165707) do
     t.boolean  "delta",                                           :default => true, :null => false
     t.datetime "created_at",                                                        :null => false
     t.datetime "updated_at",                                                        :null => false
+  end
+
+  create_table "swaps", :force => true do |t|
+    t.string   "name"
+    t.string   "plant_type"
+    t.string   "description"
+    t.integer  "user_id"
+    t.string   "swap_file_name"
+    t.string   "swap_content_type"
+    t.float    "swap_file_size"
+    t.datetime "swap_updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "users", :force => true do |t|

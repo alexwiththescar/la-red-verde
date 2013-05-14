@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @swap.name %>
+</p>
+
+<p>
+  <b>Plant type:</b>
+  <%= @swap.plant_type %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @swap.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_swap_path(@swap) %> |
+<%= link_to 'Back', swaps_path %>

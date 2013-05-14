@@ -1,13 +1,17 @@
 TgnAgain::Application.routes.draw do
 
 
+  resources :swaps
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :products
   resources :farms do 
     resources :products
   end
   
-  resources :users
+  resources :users 
+    resources :swaps
+
 
   
 
