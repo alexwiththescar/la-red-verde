@@ -6,8 +6,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '~> 1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
-gem 'flying-sphinx'
-gem 'thinking-sphinx', :require => 'thinking_sphinx'
+
 
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
               
@@ -17,7 +16,8 @@ gem 'geocoder'
 group :development do
 
 gem 'mysql2'
-
+gem 'flying-sphinx'
+gem 'thinking-sphinx', :require => 'thinking_sphinx'
  	
 gem 'annotate', '~> 2.4.1.beta'
 end
