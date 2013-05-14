@@ -16,8 +16,7 @@ gem 'geocoder'
 group :development do
 
 gem 'mysql2'
-gem 'flying-sphinx'
-gem 'thinking-sphinx', :require => 'thinking_sphinx'
+
  	
 gem 'annotate', '~> 2.4.1.beta'
 end
