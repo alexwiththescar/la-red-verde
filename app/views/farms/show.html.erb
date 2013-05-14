@@ -1,35 +1,35 @@
 <br><br>
-<div class="span7">
+<h1><%= @farm.name %></h1>
+<div class="span3">
 
 
 <p>
   <%= image_tag @farm.farmpic.url(:medium) %>
-  <%= @farm.description %>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=650x400&sensor=false&zoom=10&markers=#{@farm.latitude}%2C#{@farm.longitude}" %> 
 </p>
 </div>
-<div class="span3">
-	
+<div class="span6">
+	<h2>About Us...</h2><%= @farm.description %>
 <p> 
-  <b>Name:</b>
-  <%= @farm.name %>
+
+  
 </p>
 <p>
-  <b>User:</b>
-  <%= @farm.user_id %>
+
 </p>
 </div>
 <div class="span1">
 	
 	<% if signed_in? %><div class="btn-group btn-group-vertical">
 <% if current_user?(@farm.user) %>
-<%= link_to 'Edit', edit_farm_path(@farm), class: "btn btn-small btn-secondary" %> 
+<%= link_to 'Edit Farm Details', edit_farm_path(@farm), class: "btn btn-small btn-secondary" %> 
 
 <%= link_to 'Sell Product', new_farm_product_path(@farm), class: "btn btn-small btn-secondary" %> 
 
 
-<%= link_to 'Back', farms_path, class: "btn btn-small btn-secondary"  %>
+<%= link_to 'Back to my Profile', current_user, class: "btn btn-small btn-secondary"  %>
 <% else %>
-<%= link_to 'Contact Farmer', edit_farm_path(@farm), class: "btn btn-small btn-secondary" %> 
+<%= link_to 'Contact Farmer', @farm.user, class: "btn btn-small btn-secondary" %> 
 <% end %>
 </div><% end %>
 

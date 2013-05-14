@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :farm_id, :name, :ammount, :price, :category, :pic
+  attr_accessible :description, :farm_id, :name, :ammount, :price, :category, :pic, :longitude, :latitude
   belongs_to :farm
 
 

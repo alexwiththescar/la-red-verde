@@ -1,19 +1,49 @@
+<div class="span12">
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
+<center><%= image_tag @product.pic.url %></center>
+<h1>
+  
   <%= @product.name %>
-</p>
+</h1>
 
-<p>
-  <b>Description:</b>
+<center><h5>
   <%= @product.description %>
-</p>
+</h5></center>
 
-<p>
-  <b>Farm:</b>
-  <%= @product.farm_id %>
-</p>
+
+       <div class="span5"><br><br>
+   <center>
+
+<h2>Price/Kilo ::
+<%= @product.price %> Euros</h2>
+
+<h4>Ammount Available ::
+<%= @product.ammount %> Kilos</strong></h4>
+<span class="timestamp">
+<% distance = Geocoder::Calculations.distance_between([product.user.latitude, product.user.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
+<%= number_with_precision(distance, :precision => 0) %> Kilometers away from you</span>
+
+
+
+</div>
+<div class="span5"><br><br>
+   <center>
+<br><br>
+<center>
+<td><center><strong>Produced By</strong></center></td>
+<td></td>
+<td><%= @product.farm.name %></td><br><br>
+
+
+<td><center><strong>Located in</strong></center></td>
+
+<td><%= @product.farm.region %></td><br><br>
+
+
+<td><center><strong>Willing to Swap?</strong></center></td>
+<td><%= @product.farm.swap? %></td>
+</div>
+</div>
 
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

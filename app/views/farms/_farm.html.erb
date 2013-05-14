@@ -12,7 +12,7 @@
          <div class="span6 pull-right">
          	<h2><%= farm.name %></h2>
   <span class="content"><%=  "   Is it Organic  ::  " %><%= farm.organic ? 'Yes' : 'No'  %></span>
-  <span class="content"><%=  "   Can it be delivered  ::  " %><%= farm.deliver ? 'No' : 'Yes' %></span><span class="timestamp">Posted <%= time_ago_in_words(farm.created_at) %> ago.</span>
+  <span class="content"><%=  "   Can it be delivered  ::  " %><%= farm.deliver ? 'No' : 'Yes' %></span><span class="timestamp">Listed on <%= farm.created_at.strftime("%d %b. %Y") %> </span>
 </div>
 
           <div class="span3"><%= image_tag farm.farmpic.url(:medium) %></div>
@@ -37,3 +37,4 @@
     </div><!-- end parent row-->
 
  </div><!-- end container -->  
+ <hr>

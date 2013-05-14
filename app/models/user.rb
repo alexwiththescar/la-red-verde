@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 #attr_accessor :avatar_file_name, :avatar_file_size, :avatar_content_type
 
 
-has_attached_file :avatar, :styles => { :thumb => "75x75>" },
+has_attached_file :avatar, :styles => { :thumb => "75x75>", :medium => "200x200>" },
                   :url  => "/assets/users/:id/:style/:basename.:extension",
                   :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
 

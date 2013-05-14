@@ -10,11 +10,11 @@ class Farm < ActiveRecord::Base
   		:url  => "/assets/farms/:id/:style/:basename.:extension",
                   :path => ":rails_root/public/assets/farms/:id/:style/:basename.:extension"
 
-geocoded_by :region
+geocoded_by :address
   after_validation :geocode, :if => :region_changed?
 
 def address
-[region, province].compact.join(', ')
+[street_name, bldg_name, region, province].compact.join(', ')
 end
 
 end

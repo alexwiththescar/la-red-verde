@@ -7,14 +7,24 @@
 
        <div class="span9">
            <div class="row">
-         <div class="span4 pull-left"><%= image_tag product.pic.url(:thumb) %></div>
+         <div class="span4 pull-left"><%= image_tag product.pic.url %></div>
 
-          <div class="span4"><center><h1><br><%= product.name %></h1><p><%= product.description %></p></center></div>
+          <div class="span3"><center><h1><br><%= product.name %></h1><p><%= product.description %></p>
+<span class="timestamp">
+<% distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
+<%= number_with_precision(distance, :precision => 0) %> Kilometers away from you</span>
+<center> 
+ <%= link_to "Contact Seller", product.farm.user, class: "btn btn-small btn-secondary"  %>
+ <%= link_to "View Farm", product.farm, class: "btn btn-small btn-secondary"  %>
+ <%= link_to "View Product", product, class: "btn btn-small btn-secondary"  %>
+  </center>
+
+          </center></div>
            </div><!-- end nested row -->
     </div><!-- end span9 -->
 
         <div class="span3"><br><br>
-   
+   <center>
 <table>
 <tr>
 <td><strong>Ammount ::</strong></td>
@@ -34,9 +44,31 @@
 <td><strong><%= product.category %></strong></td>
 
 </tr>
-</table> 
+</table> <br><br>
+<center>
+<td><center><strong>Produced By</strong></center></td>
+<td></td>
+<td><%= product.farm.name %></td><br><br>
+
+
+<td><center><strong>Located in</strong></center></td>
+
+<td><%= product.farm.region %></td><br><br>
+
+
+<td><center><strong>Willing to Swap?</strong></center></td>
+<td><%= product.farm.swap ? 'Yes' : 'No'%></td>
+
+
+
+
         	</div>
 
     </div><!-- end parent row-->
 
- </div><!-- end container -->    <br><hr>
+ </div><!-- end container -->  <br><hr>
+
+
+
+
+

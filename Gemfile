@@ -10,8 +10,9 @@ gem 'flying-sphinx'
 gem 'thinking-sphinx', :require => 'thinking_sphinx'
 
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
-                 
+              
 gem 'geocoder'
+
 
 group :development do
 
