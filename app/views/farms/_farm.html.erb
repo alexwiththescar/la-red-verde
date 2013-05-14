@@ -1,15 +1,39 @@
+
+
+
+
+
 <div class="container">
+
 <div class="row">
-	
-<div class="span4"><%= image_tag farm.farmpic.url(:medium) %></div>
-<div class="span4"><span class="content"><h2><%= farm.name %></h2></span>
- 
+
+       <div class="span9">
+           <div class="row">
+         <div class="span6 pull-right">
+         	<h2><%= farm.name %></h2>
   <span class="content"><%=  "   Is it Organic  ::  " %><%= farm.organic ? 'Yes' : 'No'  %></span>
-  <span class="content"><%=  "   Can it be delivered  ::  " %><%= farm.deliver ? 'No' : 'Yes' %></span><span class="timestamp">
+  <span class="content"><%=  "   Can it be delivered  ::  " %><%= farm.deliver ? 'No' : 'Yes' %></span><span class="timestamp">Posted <%= time_ago_in_words(farm.created_at) %> ago.</span>
+</div>
+
+          <div class="span3"><%= image_tag farm.farmpic.url(:medium) %></div>
+           </div><!-- end nested row -->
+    </div><!-- end span9 -->
+
+        <div class="span3">
+<div class="btn-group btn-group-vertical">
+
+<%= link_to 'View Farm', farm, class: "btn btn-small btn-secondary" %> 
 
 
 
-Posted <%= time_ago_in_words(farm.created_at) %> ago.
 
-</span>
-</div></div></div></div><hr>
+
+</div>
+
+
+
+        </div>
+
+    </div><!-- end parent row-->
+
+ </div><!-- end container -->  

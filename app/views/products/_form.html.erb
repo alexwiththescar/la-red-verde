@@ -1,3 +1,7 @@
+<div class="container">
+
+<div class="row">
+<div class="span6">
 <%= form_for [@farm, Product.new]  do |f| %>
 
  
@@ -6,15 +10,44 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+ 
   <div class="field">
+    <%= f.label :ammount, 'How much do you have to sell?' %><br />
+    <%= f.number_field :ammount %>
+  </div>
+  <div class="field">
+    <%= f.label :price, 'Price per Kilo?' %><br />
+    <%= f.number_field :price %>
+  </div>
+
+
+
+ 
+</div>
+<div class="span4">
+
+ <div class="field">
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
-
-  <div class="field">
+    <div class="field">
+    <%= f.label :category %><br />
+   <%= f.select :category, options_for_select(%w[ Vegatables
+   Fruit
+   Vegatables
+   Herbs
+   Edible Flowers
+   Seeds ] )%>
+  </div>
+  <%= f.label 'Attach a profile picture for your account' %>
+<%= f.file_field :pic %>
+ <div class="field">
 
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
+</div>
+

@@ -3,12 +3,12 @@
 
 
 <p>
-  <b>Content:</b>
+  <%= image_tag @farm.farmpic.url(:medium) %>
   <%= @farm.description %>
 </p>
 </div>
 <div class="span3">
-	<%= image_tag @farm.farmpic.url %>
+	
 <p> 
   <b>Name:</b>
   <%= @farm.name %>
@@ -39,5 +39,9 @@
 
 
 
-</div></div>
-
+</div></div><br><br><br><br><br>
+<hr size=10>
+<h2>Our products</h2>
+<ul class="users">
+<%= render @farm.products %>
+</ul>

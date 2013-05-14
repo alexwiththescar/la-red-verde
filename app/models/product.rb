@@ -1,6 +1,21 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :farm_id, :name
+  attr_accessible :description, :farm_id, :name, :ammount, :price, :category, :pic
   belongs_to :farm
+
+
+  
+
+has_attached_file :pic, :styles => { :thumb => "150x150>" },
+                  :url  => "/assets/products/:id/:style/:basename.:extension",
+                  :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
+
+#validates_attachment_presence :pic
+#validates_attachment_size :pic, :less_than => 5.megabytes
+#validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png']
+
+
+
+
 end
 # == Schema Information
 #

@@ -15,7 +15,7 @@ has_attached_file :avatar, :styles => { :thumb => "75x75>" },
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
   
-  geocoded_by :region
+  geocoded_by :address
   after_validation :geocode, :if => :region_changed?
 
   before_save { email.downcase! }
@@ -27,6 +27,12 @@ has_attached_file :avatar, :styles => { :thumb => "75x75>" },
    #                 uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+
+def address
+[street_name, bldg_name, region, province].compact.join(', ')
+end
+
 private
 def create_remember_token
 self.remember_token = SecureRandom.urlsafe_base64

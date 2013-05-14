@@ -13,13 +13,12 @@
       </h1>
     </section>
   
-    
-  
+
    
    
 
   </div> 
-  <div class="span7">
+  <div class="span6">
 
 <h1>
 <%= @user.name %></h1>
@@ -28,22 +27,36 @@
    <center><h2>Location</h2><p> <%= @user.region %></p><br>
    <center> <h2>Contact</h2><p> <%= @user.email %></p><br></center>
   <% if @user.description.blank? %><% else %>
-   <center><h2>About Us</h2><p> <%= @user.description %></p><br></div>
-  <% end %>
+   <center><h2>About Us</h2><p> <%= @user.description %></p><br>
+<% end %>
+  
   <hr>
    </div> 
  <div class="span1">
+<% if signed_in? %>
+<% if current_user?(@farm) %>
 
   <div class="btn-group btn-group-vertical">
-<%= link_to "Visit Farm", farms_path, class: "btn btn-small btn-secondary"  %>
- </div>  </div> 
+<%= link_to "View", show_farm_path, class: "btn btn-small btn-secondary"  %>
+
+<% else %>
+<%= link_to "Add Farm", new_farm_path, class: "btn btn-small btn-secondary"  %>
+<% end %></div>
+<% end %>
+
+
+
+
  
+ </div>  
  </div>
 
-  <aside class="span6">
-    <hr> <h1>My Farms</h1>
+
+
+ 
+   <h2>My Farms</h2>
   <ul class="users">
 <%= render @user.farms %>
 </ul>
-  </div> 
+
   
