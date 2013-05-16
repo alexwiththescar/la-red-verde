@@ -10,7 +10,7 @@
          <div class="span4 pull-left"><%= image_tag swap.swappic.url(:medium) %><br><br>
 </div>
 
-          <div class="span3"><center><h1><br><%= swap.name %></h1><p><%= swap.description %></p>
+          <div class="span3"><center><h2><br><%= swap.name %></h2><p><%= swap.description %></p>
 <span class="timestamp">
 <% if signed_in? %><span class="timestamp">
 <% distance = Geocoder::Calculations.distance_between([swap.user.latitude, swap.user.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
@@ -18,6 +18,8 @@
 <center> <% end %>
  <%= link_to "Contact Me", swap.user, class: "btn btn-small btn-secondary"  %>
  <%= link_to "View Plant", swap, class: "btn btn-small btn-secondary"  %>
+ <% if current_user?(swap.user) %>
+  <%= link_to "delete", swap, class: "btn btn-small btn-secondary", method: :delete, confirm: "You sure?" %><% end %>
   </center>
 
           </center></div>

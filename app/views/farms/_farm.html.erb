@@ -23,7 +23,8 @@
 <div class="btn-group btn-group-vertical">
 
 <%= link_to 'View Farm', farm, class: "btn btn-small btn-secondary" %> 
-
+<% if current_user?(farm.user) %>
+  <%= link_to "delete", farm, class: "btn btn-small btn-secondary", method: :delete, confirm: "You sure?" %><% end %>
 
 
 
