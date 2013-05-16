@@ -1,5 +1,20 @@
 @import "bootstrap";
 
+/* menu */
+.navbar {
+    background-color: #006633;
+    background-image: -moz-linear-gradient(top, #006633, #006633);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#006633), to(#006633));
+    background-image: -webkit-linear-gradient(top, #006633, #006633);
+    background-image: -o-linear-gradient(top, #006633, #006633);
+    background-image: linear-gradient(to bottom, #006633, #006633);
+    border-color: #006633;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff006633', endColorstr='#ff006633', GradientType=0);
+}
+.navbar-inverse .navbar-inner {
+background-color: #586214;
+background-image: none;
+}
 
 /* universal */
 html {
@@ -24,12 +39,14 @@ margin-bottom: 10px;
 /* typography */
 h1, h2, h3, h4, h5, h6 {
 line-height: 1;
+
 }
 h1 {
 font-size: 3em;
 letter-spacing: -2px;
 margin-bottom: 30px;
 text-align: center;
+text-color: #006633;
 }
 h2 {
 font-size: 1.7em;

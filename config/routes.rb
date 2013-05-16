@@ -9,8 +9,9 @@ TgnAgain::Application.routes.draw do
     resources :products
   end
   
-  resources :users 
+  resources :users do
     resources :swaps
+  end
 
 
   

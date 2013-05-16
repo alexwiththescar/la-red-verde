@@ -1,4 +1,4 @@
-<div class="span12">
+<div class="span12"><br><br><br><br>
 <p id="notice"><%= notice %></p>
 <center><%= image_tag @product.pic.url %></center>
 <h1>
@@ -20,7 +20,7 @@
 <h4>Ammount Available ::
 <%= @product.ammount %> Kilos</strong></h4>
 <span class="timestamp">
-<% distance = Geocoder::Calculations.distance_between([product.user.latitude, product.user.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
+<% distance = Geocoder::Calculations.distance_between([@product.latitude, @product.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
 <%= number_with_precision(distance, :precision => 0) %> Kilometers away from you</span>
 
 
@@ -41,7 +41,7 @@
 
 
 <td><center><strong>Willing to Swap?</strong></center></td>
-<td><%= @product.farm.swap? %></td>
+<td><%= @product.farm.swap ? 'Yes' : 'No' %></td>
 </div>
 </div>
 

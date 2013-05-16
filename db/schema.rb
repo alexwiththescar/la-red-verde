@@ -66,12 +66,12 @@ ActiveRecord::Schema.define(:version => 20130514172151) do
     t.string   "plant_type"
     t.string   "description"
     t.integer  "user_id"
-    t.string   "swap_file_name"
-    t.string   "swap_content_type"
-    t.float    "swap_file_size"
-    t.datetime "swap_updated_at"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.string   "swappic_file_name"
+    t.string   "swappic_content_type"
+    t.float    "swappic_file_size"
+    t.datetime "swappic_updated_at"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "users", :force => true do |t|

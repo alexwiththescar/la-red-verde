@@ -5,10 +5,10 @@ class CreateSwaps < ActiveRecord::Migration
       t.string :plant_type
       t.string :description
       t.integer :user_id
-       t.string :swap_file_name
-      t.string :swap_content_type
-      t.float :swap_file_size
-      t.datetime :swap_updated_at
+       t.string :swappic_file_name
+      t.string :swappic_content_type
+      t.float :swappic_file_size
+      t.datetime :swappic_updated_at
 
       t.timestamps
     end

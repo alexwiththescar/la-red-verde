@@ -1,27 +1,5 @@
-<h1>Listing swaps</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Plant type</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @swaps.each do |swap| %>
-  <tr>
-    <td><%= swap.name %></td>
-    <td><%= swap.plant_type %></td>
-    <td><%= swap.description %></td>
-    <td><%= link_to 'Show', swap %></td>
-    <td><%= link_to 'Edit', edit_swap_path(swap) %></td>
-    <td><%= link_to 'Destroy', swap, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Swap', new_swap_path %>
+<% provide(:title, 'Plants to Swap') %>
+<br><h1>Seeds & Cuttings</h1><hr>
+<ul class="users">
+<%= render @swaps = Swap.find(:all) %>
+</ul>

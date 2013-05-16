@@ -1,0 +1,58 @@
+
+
+<% if signed_in? %>
+<div class="container">
+
+<div class="row">
+
+       <div class="span9">
+           <div class="row">
+         <div class="span4 pull-left"><%= image_tag swap.swappic.url(:medium) %><br><br>
+</div>
+
+          <div class="span3"><center><h1><br><%= swap.name %></h1><p><%= swap.description %></p>
+<span class="timestamp">
+
+<center> 
+ <%= link_to "Contact Me", swap.user, class: "btn btn-small btn-secondary"  %>
+ <%= link_to "View Plant", swap, class: "btn btn-small btn-secondary"  %>
+  </center>
+
+          </center></div>
+           </div><!-- end nested row -->
+    </div><!-- end span9 -->
+
+        <div class="span3"><br><br>
+   <center>
+
+</tr>
+<tr>
+<td><strong>Category </strong></td>
+<td><center></center></td>
+<td><%= swap.plant_type %></td>
+
+</tr>
+</table> <br><br>
+<center>
+<td><center><strong>Produced By</strong></center></td>
+<td><%= swap.user.name %></td>
+<td><%= %></td><br><br>
+
+
+<td><center><strong>Located in</strong></center></td>
+
+<td><%= swap.user.region %></td><br><br>
+
+
+
+
+        	</div>
+
+    </div><!-- end parent row-->
+
+ </div><!-- end container -->  <br><hr>
+<% end %>
+
+
+
+
