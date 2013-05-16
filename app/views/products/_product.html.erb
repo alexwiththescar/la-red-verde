@@ -10,10 +10,11 @@
          <div class="span4 pull-left"><%= image_tag product.pic.url %></div>
 
           <div class="span3"><center><h1><br><%= product.name %></h1><p><%= product.description %></p>
+<% if signed_in? %>
 <span class="timestamp">
 <% distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
 <%= number_with_precision(distance, :precision => 0) %> Kilometers away from you</span>
-<center> 
+<center> <% end %>
  <%= link_to "Contact Seller", product.farm.user, class: "btn btn-small btn-secondary"  %>
  <%= link_to "View Farm", product.farm, class: "btn btn-small btn-secondary"  %>
  <%= link_to "View Product", product, class: "btn btn-small btn-secondary"  %>

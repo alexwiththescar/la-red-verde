@@ -60,6 +60,12 @@
 
 
 <hr>
+<% if @user.swaps.any? %>
+   <center><h4>My Swaps</h4></center><hr>
+  <ul class="users">
+<%= render @user.swaps %>
+</ul>
+<% else %><% end %>
  <% if @user.farms.any? %>
    <center><h4>My Farms</h4></center><hr>
   <ul class="users">

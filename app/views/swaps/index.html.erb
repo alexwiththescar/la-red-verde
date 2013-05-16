@@ -1,5 +1,8 @@
 <% provide(:title, 'Plants to Swap') %>
-<br><h1>Seeds & Cuttings</h1><hr>
+<br> <h1>Exchange Seeds & Cuttings</h1><br>
+
+   <p>For swaping or giveing away Seeds and Plants only. To sell produce please <%= link_to "Visit Your Farm", @farm %>, <%= link_to "Or Create One", new_farm_path %></p><hr> 
+<%= link_to "Share my Own Plant", new_swap_path, class: "btn btn-small btn-secondary"  %><hr>
 <ul class="users">
 <%= render @swaps = Swap.find(:all) %>
 </ul>
