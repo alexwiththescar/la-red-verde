@@ -15,7 +15,7 @@ gem 'geocoder'
 
 group :development do
 
-gem 'mysql2'
+gem 'pg'
 
  	
 gem 'annotate', '~> 2.4.1.beta'
@@ -41,5 +41,5 @@ gem 'cucumber-rails', '1.2.1', require: false
 gem 'database_cleaner', '0.7.0'
 end
 group :production do
-gem 'pg', '0.12.2'
+gem 'pg'
 end

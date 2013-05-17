@@ -124,7 +124,6 @@ GEM
     method_source (0.8.1)
     mime-types (1.23)
     multi_json (1.7.3)
-    mysql2 (0.3.11)
     nokogiri (1.5.9)
     pg (0.12.2)
     polyglot (0.3.3)
@@ -224,9 +223,8 @@ DEPENDENCIES
   guard-rspec (= 0.5.5)
   guard-spork (= 0.3.2)
   jquery-rails
-  mysql2
   paperclip!
-  pg (= 0.12.2)
+  pg
   rails (= 3.2.3)
   rspec-rails (= 2.10.0)
   sass-rails (= 3.2.4)

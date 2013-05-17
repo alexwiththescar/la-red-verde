@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(:version => 20130514172151) do
     t.string   "name"
     t.string   "description"
     t.integer  "farm_id"
-    t.decimal  "ammount",          :precision => 10, :scale => 0
-    t.decimal  "price",            :precision => 10, :scale => 0
+    t.decimal  "ammount"
+    t.decimal  "price"
     t.string   "category"
     t.string   "pic_file_name"
     t.string   "pic_content_type"
@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(:version => 20130514172151) do
     t.datetime "pic_updated_at"
     t.float    "longitude"
     t.float    "latitude"
-    t.boolean  "delta",                                           :default => true, :null => false
-    t.datetime "created_at",                                                        :null => false
-    t.datetime "updated_at",                                                        :null => false
+    t.boolean  "delta",            :default => true, :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "swaps", :force => true do |t|
