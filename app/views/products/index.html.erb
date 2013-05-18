@@ -1,5 +1,25 @@
 <% provide(:title, 'All the Products') %>
 <br><h1>All the Fresh Produce</h1><hr>
-<ul class="users">
-<%= render @products = Product.find(:all) %>
-</ul>
+
+
+
+
+<%= form_tag products_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], :class => "search-box" %>
+    <%= submit_tag "Search All Products", name: nil, :class => "btn btn-search" %>
+<% end %>
+
+
+
+
+
+<div id="search_results">
+  <% if @products.any? %>
+    <%= render @products %>
+  <% else %>
+    <p>
+      Oh dear. Your search matched nothing in the database, or there there is simply
+      nothing in the database.
+    </p>
+  <% end %>
+</div>

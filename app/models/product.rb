@@ -2,8 +2,16 @@ class Product < ActiveRecord::Base
   attr_accessible :description, :farm_id, :name, :ammount, :price, :category, :pic, :longitude, :latitude
   belongs_to :farm
 
-
+include PgSearch
+  multisearchable :against => [:name, :description]
   
+  def self.search(query)
+  if query.present?
+    search(query)
+  else
+    scoped
+  end
+end
 
 has_attached_file :pic, :styles => { :medium => "300x300>", :thumb => "150x150>", :large => "500x500>" },
                   :url  => "/assets/products/:id/:style/:basename.:extension",

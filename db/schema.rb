@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130514172151) do
+ActiveRecord::Schema.define(:version => 20130518143606) do
 
   create_table "farms", :force => true do |t|
     t.string   "name"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(:version => 20130514172151) do
     t.string   "farmpic_content_type"
     t.float    "farmpic_file_size"
     t.datetime "farmpic_updated_at"
+  end
+
+  create_table "pg_search_documents", :force => true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "products", :force => true do |t|
