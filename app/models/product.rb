@@ -3,14 +3,21 @@ class Product < ActiveRecord::Base
   belongs_to :farm
 
 include PgSearch
-  multisearchable :against => [:name, :description]
+  pg_search_scope :search_by_name, :against => [:name, :description]
+  multisearchable :against => [:name, :description, :farm]
   
-  def self.search(query)
+def self.search(query)
   if query.present?
     search(query)
   else
     scoped
   end
+end
+
+def self.get_products(params)
+  conditions = ['']
+  conditions = ['product = ?', params[:swap]] if params[:swap]
+  self.where(conditions)
 end
 
 has_attached_file :pic, :styles => { :medium => "300x300>", :thumb => "150x150>", :large => "500x500>" },

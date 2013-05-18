@@ -2,15 +2,22 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-   
-   @products = Product.where("name LIKE ?", "%#{params[:query]}%")
+
+
+
+
+
+   @products = Product.where("name LIKE ?", "%#{params[:query]}%").order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }
     end
   end
-
+def swap_product 
+  product.farm.swap
+   
+end
   # GET /products/1
   # GET /products/1.json
   def show

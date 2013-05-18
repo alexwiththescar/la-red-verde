@@ -1,3 +1,5 @@
+<div class="<%= cycle("even", "odd") %>">
+ 
 
 
 
@@ -6,7 +8,7 @@
 <div class="row">
 
        <div class="span9">
-           <div class="row">
+           <div class="row"><br><br><br><center>
          <div class="span4 pull-left"><%= image_tag product.pic.url %></div>
 
           <div class="span3"><center><h1><br><%= product.name %></h1><p><%= product.description %></p>
@@ -63,15 +65,15 @@
 <td><%= product.farm.swap ? 'Yes' : 'No'%></td>
 
 
-
+<br><br>
 
         	</div>
 
     </div><!-- end parent row-->
 
- </div><!-- end container -->  <br><hr>
+ </div><!-- end container -->  
 
 
-
+</div>
 
 

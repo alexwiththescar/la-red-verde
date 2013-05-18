@@ -1,25 +1,29 @@
 <% provide(:title, 'All the Products') %>
-<br><h1>All the Fresh Produce</h1><hr>
+<br>
+  
 
 
 
-
+<h1>All the Fresh Produce</h1><hr>
+<div class='search'>Search All Products...
 <%= form_tag products_path, method: :get do %>
-    <%= text_field_tag :query, params[:query], :class => "search-box" %>
-    <%= submit_tag "Search All Products", name: nil, :class => "btn btn-search" %>
+    <%= text_field_tag :query, params[:query], :class => "search-query" %>
+
+   <center> <%= submit_tag "Search", name: nil, :class => "btn btn-large btn-primary", :style => 'inline' %>
+   	<%= select_tag 'swap', options_for_select(%w[ Yes No Both ] ), :selected => params[:swap_product] %>
 <% end %>
 
+<br><br>
+</div>
+filter :swap, :as => :select
 
-
-
-
+<hr>
 <div id="search_results">
-  <% if @products.any? %>
+ <% if @products.any? %>
     <%= render @products %>
-  <% else %>
+<% else %>
     <p>
-      Oh dear. Your search matched nothing in the database, or there there is simply
-      nothing in the database.
+      We are sorry, No products matched your search.
     </p>
-  <% end %>
+<% end %>
 </div>

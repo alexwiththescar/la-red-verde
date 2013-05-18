@@ -1,4 +1,4 @@
-
+<div class="<%= cycle("even", "odd") %>">
 
 
 
@@ -11,15 +11,15 @@
            <div class="row">
          <div class="span6 pull-right">
          	<h2><%= farm.name %></h2>
-  <span class="content"><%=  "   Is it Organic  ::  " %><%= farm.organic ? 'Yes' : 'No'  %></span>
-  <span class="content"><%=  "   Can it be delivered  ::  " %><%= farm.deliver ? 'No' : 'Yes' %></span><span class="timestamp">Listed on <%= farm.created_at.strftime("%d %b. %Y") %> </span>
+  <span><%=  "   Is it Organic  ::  " %><%= farm.organic ? 'Yes' : 'No'  %></span><br>
+  <span><%=  "   Can it be delivered  ::  " %><%= farm.deliver ? 'No' : 'Yes' %></span><br><span class="timestamp">Listed on <%= farm.created_at.strftime("%d %b. %Y") %> </span>
 </div>
 
           <div class="span3"><%= image_tag farm.farmpic.url(:medium) %></div>
            </div><!-- end nested row -->
     </div><!-- end span9 -->
 
-        <div class="span3">
+        <div class="span3"><br><br>
 <div class="btn-group btn-group-vertical">
 
 <%= link_to 'View Farm', farm, class: "btn btn-small btn-secondary" %> 
@@ -38,4 +38,5 @@
     </div><!-- end parent row-->
 
  </div><!-- end container -->  
+        </div>
  <hr>

@@ -5,6 +5,12 @@
 
 <% provide(:title, 'All The Farms') %>
 <br><h1>All The Farms...</h1><hr>
+<div class='search'>Search All Farms...
+<%= form_tag farms_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], :class => "search-query" %><br><br>
+   <center> <%= submit_tag "Search", name: nil, :class => "btn btn-large btn-primary", :style => 'inline' %>
+<% end %><br><br>
+</div>
 <ul class="users">
 <%= render @farms %>
 </ul>
