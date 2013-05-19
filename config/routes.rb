@@ -6,8 +6,10 @@ TgnAgain::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :products
   resources :farms do 
-    resources :products
+    resources :products do
+    collection { post :search, to: 'products#index' }
   end
+end
   
   resources :users do
     resources :swaps

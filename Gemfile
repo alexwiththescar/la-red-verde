@@ -12,7 +12,7 @@ gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
               
 gem 'geocoder'
 gem 'pg_search'
-
+gem "ransack"
 
 group :development do
 

@@ -15,7 +15,17 @@
 
 <br><br>
 </div>
-filter :swap, :as => :select
+
+
+<%= search_form_for @q, url: 'search_farm_products', method: :post do |f|%>
+  <p>
+    <%= f.label :name_contains %>
+    <%= f.text_field :name_contains %>
+  </p>
+  <p class="button"><%= f.submit "Search" %></p>
+<% end %>
+
+
 
 <hr>
 <div id="search_results">

@@ -3,12 +3,12 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
 
+@q = Product.search(params[:q])
+  @products = @q.all
 
 
 
-
-   @products = Product.where("name LIKE ?", "%#{params[:query]}%").order('created_at DESC')
-
+   #@products = Product.where("name LIKE ?", "%#{params[:query]}%").order('created_at DESC')
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }
