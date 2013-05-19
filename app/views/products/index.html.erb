@@ -8,21 +8,24 @@
 
 <h3><center>
 
-<%= define_grid(@products_grid, :show_filters => :always) do |g|
+<%= grid(@products_grid, :show_filters => :always) do |g|
 
   g.column :name => 'Photo' do |product|
     image_tag product.pic.url(:thumb)
   end
 
-   g.column name:  'Name', attribute: 'name', :detach_with_id => :name_filter
+   g.column name:  'Name', attribute: 'name'
 
-
-
-  g.column  :name => 'Ammount', :attribute => 'ammount',  :detach_with_id => :ammount_filter do |product|
+  g.column  :name => 'Ammount', :attribute => 'ammount'do |product|
     product.ammount
   end
 
-  g.column  :name => 'Swap', :model => 'Farm', :attribute => 'swap', :detach_with_id => :swap_filter do |product|
+  g.column  :name => 'Price', :attribute => 'price'do |product|
+    product.price
+  end
+
+
+  g.column  :name => 'Swap', :model => 'Farm', :attribute => 'swap' do |product|
     product.farm.swap? ? 'Yes' : 'No'
   end
 
@@ -30,7 +33,3 @@
     link_to('View', product_path(product))
   end
 end %>
-
-
-
-<%= define_grid(@grid) %>
