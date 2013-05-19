@@ -5,7 +5,10 @@ class ProductsController < ApplicationController
 
 @q = Product.search(params[:q])
   @products = @q.all
-
+@products_grid = initialize_grid(Product,
+  :include => :farm
+  
+)
 
 
    #@products = Product.where("name LIKE ?", "%#{params[:query]}%").order('created_at DESC')

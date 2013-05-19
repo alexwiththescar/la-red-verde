@@ -5,35 +5,32 @@
 
 
 <h1>All the Fresh Produce</h1><hr>
-<div class='search'>Search All Products...
-<%= form_tag products_path, method: :get do %>
-    <%= text_field_tag :query, params[:query], :class => "search-query" %>
 
-   <center> <%= submit_tag "Search", name: nil, :class => "btn btn-large btn-primary", :style => 'inline' %>
-   	<%= select_tag 'swap', options_for_select(%w[ Yes No Both ] ), :selected => params[:swap_product] %>
-<% end %>
+<h3><center>
 
-<br><br>
-</div>
+<%= define_grid(@products_grid, :show_filters => :always) do |g|
 
+  g.column :name => 'Photo' do |product|
+    image_tag product.pic.url(:thumb)
+  end
 
-<%= search_form_for @q, url: 'search_farm_products', method: :post do |f|%>
-  <p>
-    <%= f.label :name_contains %>
-    <%= f.text_field :name_contains %>
-  </p>
-  <p class="button"><%= f.submit "Search" %></p>
-<% end %>
+   g.column name:  'Name', attribute: 'name', :detach_with_id => :name_filter
 
 
 
-<hr>
-<div id="search_results">
- <% if @products.any? %>
-    <%= render @products %>
-<% else %>
-    <p>
-      We are sorry, No products matched your search.
-    </p>
-<% end %>
-</div>
+  g.column  :name => 'Ammount', :attribute => 'ammount',  :detach_with_id => :ammount_filter do |product|
+    product.ammount
+  end
+
+  g.column  :name => 'Swap', :model => 'Farm', :attribute => 'swap', :detach_with_id => :swap_filter do |product|
+    product.farm.swap? ? 'Yes' : 'No'
+  end
+
+  g.column   do |product|
+    link_to('View', product_path(product))
+  end
+end %>
+
+
+
+<%= define_grid(@grid) %>
