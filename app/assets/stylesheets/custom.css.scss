@@ -12,17 +12,15 @@ margin-left: auto ;
   margin-right: auto ;
 }
 
-.odd {
--moz-border-radius: 15px;
-border-radius: 15px;
+.even {
+
 background-color: #BCEE68; 
 background-opacity: 0.4;
 box-shadow: 10px 10px 5px #888888;
 }
 
-.even {
--moz-border-radius: 15px;
-border-radius: 15px;
+.odd {
+
 background-color: #556B2F;
 box-shadow: 10px 10px 5px #888888;
 }
@@ -49,7 +47,7 @@ margin: 0px auto;
 padding-right:24px;
 padding-top:24px;
 padding-left:24px;
-width: 90%;
+width: 70%;
 box-shadow: 10px 10px 5px #888888;
 }
 

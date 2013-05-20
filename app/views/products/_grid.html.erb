@@ -1,6 +1,7 @@
-<% #distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
 
 <%= define_grid(@products_grid, hide_submit_button: true, hide_reset_button: true) do |g|
+
+g.blank_slate partial:  "empty_grid"
 
 g.column :name => 'Photo' do |product|
     image_tag product.pic.url(:thumb)
@@ -24,12 +25,12 @@ g.column :name => 'Status', :attribute => 'category',  detach_with_id: :category
   g.column  name:  'Location', :model => 'Farm', attribute: 'region', detach_with_id: :location_filter do |product|
     product.farm.region
   end
-  
+  if signed_in?
   g.column  name:  "Distance  (in KM)", attribute: 'distance', html: {style: 'font-weight: bold; text-align: center'},  detach_with_id: :distance_filter do |product|
 
 distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 })
   number_with_precision(distance, :precision => 0) 
-    
+    end
 end
 
 g.column name:  'Added', attribute: 'distance', detach_with_id: :added_filter do |product|
