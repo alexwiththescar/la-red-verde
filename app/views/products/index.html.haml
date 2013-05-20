@@ -1,0 +1,44 @@
+
+<br><h1>Produce</h1><hr> 
+
+  
+      
+
+
+
+= render partial:  'grid'
+
+
+.row-fluid
+  .span2
+    Product Name:
+  .span3
+    = grid_filter @products_grid, :name_filter
+
+.row-fluid
+  .span2
+    Product Category:
+  .span3
+    = grid_filter @products_grid, :category_filter
+
+
+.row-fluid
+  .span2
+    Willing to trade?:
+  .span2
+    = grid_filter @products_grid, :swap_filter
+
+
+
+
+
+.row-fluid
+  .span12
+    .external-buttons
+      %button.btn.btn-primary.wg-external-submit-button{'data-grid-name' => 'grid'} Submit
+      %button.btn.wg-external-reset-button{'data-grid-name' => 'grid'} Reset
+
+.row-fluid
+  .span12
+
+    = render_grid(@products_grid)

@@ -1,0 +1,53 @@
+<% #distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
+
+<%= define_grid(@products_grid, hide_submit_button: true, hide_reset_button: true) do |g|
+
+g.column :name => 'Photo' do |product|
+    image_tag product.pic.url(:thumb)
+
+  end
+
+
+  g.column name:  'Name', attribute: 'name', detach_with_id: :name_filter
+  g.column  name:  'Price per Kilo', attribute: 'price', detach_with_id: :price_filter, filter_type: :range, html: {style: 'font-weight: bold; text-align: center'} do |product|
+    p = product.price
+    number_to_currency(p, :unit => "€")
+    end
+  g.column name:  'Ammount Available', attribute: 'ammount', detach_with_id: :ammount_filter
+
+
+ # g.column  name:  'Category', attribute: 'category',  detach_with_id: :category_filter 
+
+g.column :name => 'Status', :attribute => 'category',  detach_with_id: :category_filter, 
+           custom_filter: :auto
+
+  g.column  name:  'Location', :model => 'Farm', attribute: 'region', detach_with_id: :location_filter do |product|
+    product.farm.region
+  end
+  
+  g.column  name:  "Distance  (in KM)", :model => 'Farm', attribute: 'longitude', detach_with_id: :distance_filter do |product|
+
+distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 })
+  number_with_precision(distance, :precision => 0) 
+    
+end
+
+
+
+  g.column :name => 'Swap', :model => 'Farm', :attribute => 'swap', detach_with_id: :swap_filter do |product|
+    product.farm.swap? ? 'Yes' : 'No'
+  end
+
+
+  
+
+  g.column   do |product|
+    link_to('Edit', edit_product_path(product))
+
+    link_to "Contact Seller", product.farm, class: "btn btn-small btn-secondary"  
+    link_to "View Farm", product.farm, class: "btn btn-small btn-secondary"  
+    link_to "View Product", product, class: "btn btn-small btn-secondary" 
+ 
+  end
+
+end -%>

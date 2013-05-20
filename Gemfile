@@ -13,7 +13,7 @@ gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'geocoder'
 gem 'pg_search'
 gem "wice_grid"
-
+gem 'haml-rails'
 group :development do
 
 gem 'pg'
