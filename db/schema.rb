@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518143606) do
+ActiveRecord::Schema.define(:version => 20130520120930) do
 
   create_table "farms", :force => true do |t|
     t.string   "name"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20130518143606) do
     t.boolean  "delta",            :default => true, :null => false
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+    t.integer  "distance"
   end
 
   create_table "swaps", :force => true do |t|
