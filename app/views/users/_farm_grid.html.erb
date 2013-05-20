@@ -1,0 +1,20 @@
+<%= grid(@farms_grid) do |g|
+
+  g.column :name => 'farm' do |farm|
+    image_tag farm.farmpic.url(:thumb)
+
+  end
+
+
+  g.column name:  'Name', attribute: 'name', detach_with_id: :name_filter
+
+
+  g.column   do |farm|
+    
+
+      
+    link_to "View Farm", farm, class: "btn btn-small btn-secondary"  
+    
+ 
+  end
+end -%>

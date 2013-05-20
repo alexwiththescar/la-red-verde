@@ -1,4 +1,4 @@
-<br><br><div class="content">
+<br><br><div class="">
 <h1><%= @farm.name %></h1>
 
 
@@ -39,13 +39,25 @@
 
   </div></div>
 
-  </div>
+
 
 
 </div></div><br><br><br><br><br>
-<hr size=10>
-<h2>Our products</h2>
-<ul class="users">
+<hr>
+<div class='span12'>
+<% if @farm.products.any? %>
+<center><h3>Our products</h3>
+<%= link_to 'Add Another Product', new_farm_product_path(@farm), class: "btn btn-small btn-secondary" %> </center>
+   <hr>
+   <ul class="users">
 <%= render @farm.products %>
 </ul>
+
+<% else %><CENTER>
+<h5>To begin selling your own produce, list it here!</h5>
+<%= link_to 'Sell Product', new_farm_product_path(@farm), class: "btn btn-small btn-secondary" %> 
+<% end %></CENTER>
+
   </div>
+  
+ 

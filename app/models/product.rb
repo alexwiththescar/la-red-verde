@@ -22,7 +22,8 @@ end
 
 has_attached_file :pic, :styles => { :medium => "300x300>", :thumb => "150x150>", :large => "500x500>" },
                   :url  => "/assets/products/:id/:style/:basename.:extension",
-                  :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
+                  :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension",
+                  :default_url => "/images/thumb/missing.png"
 
 #validates_attachment_presence :pic
 #validates_attachment_size :pic, :less_than => 5.megabytes

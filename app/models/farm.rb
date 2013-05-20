@@ -8,7 +8,8 @@ class Farm < ActiveRecord::Base
 
   has_attached_file :farmpic, :styles => { :medium => "300x300>", :thumb => "150x150>", :large => "500x500>" }, 
   		:url  => "/assets/farms/:id/:style/:basename.:extension",
-                  :path => ":rails_root/public/assets/farms/:id/:style/:basename.:extension"
+                  :path => ":rails_root/public/assets/farms/:id/:style/:basename.:extension",
+                  :default_url => "/images/thumb/missing_farm.png"
 
 geocoded_by :address
   after_validation :geocode, :if => :region_changed?

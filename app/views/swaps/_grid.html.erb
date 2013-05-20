@@ -1,0 +1,13 @@
+<%= define_grid(@swaps_grid) do |g|
+
+  g.column :name => 'Photo' do |swap|
+    image_tag swap.swappic.url(:thumb)
+
+  end
+
+
+  g.column name:  'Name', attribute: 'name', detach_with_id: :name_filter
+g.column :name => 'Type', :attribute => 'plant_type',  detach_with_id: :type_filter, 
+           custom_filter: :auto
+  
+end -%>

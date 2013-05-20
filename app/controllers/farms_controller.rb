@@ -5,7 +5,10 @@ class FarmsController < ApplicationController
 
   def index
     @farms = Farm.all
-
+@farms_grid = initialize_grid(Farm,
+  :order => 'created_at',
+  :order_direction => 'asc'
+)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @farms }

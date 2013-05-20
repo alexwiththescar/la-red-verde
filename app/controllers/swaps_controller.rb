@@ -6,6 +6,7 @@ before_filter :signed_in_user, only: [:create, :destroy]
   # GET /swaps.json
   def index
     @swaps = Swap.all
+@swaps_grid = initialize_grid(Swap)
 
     respond_to do |format|
       format.html # index.html.erb

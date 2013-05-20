@@ -19,7 +19,6 @@
 <div class="btn-group btn-group-vertical">
   <%= link_to "View Latest Product Listings", products_path, class: "btn btn-small btn-secondary"  %>
 <%= link_to "View All Farms", farms_path, class: "btn btn-small btn-secondary"  %>
-<%= link_to "Register a Farm", new_farm_path, class: "btn btn-small btn-secondary"  %>
 <%= link_to "Share a Plant", new_swap_path, class: "btn btn-small btn-secondary"  %></div>
 <% else %>
   <div class="btn-group btn-group-vertical">
@@ -56,24 +55,54 @@
     </div><!-- end parent row-->
        
 
- </div><!-- end container -->  
+ 
       
 
 
 
 
 <hr>
+<div class="span6 pull-left">
 <% if @user.swaps.any? %>
-   <center><h4>My Swaps</h4></center><hr>
-  <ul class="users">
-<%= render @user.swaps %>
-</ul>
-<% else %><% end %>
- <% if @user.farms.any? %>
-   <center><h4>My Farms</h4></center><hr>
-  <ul class="users">
-<%= render @user.farms %>
-</ul>
-<% else %><% end %>
+   
+ 
+  
+    <center><h4>My Swaps</h4>
+<%= link_to "Share Another Plant", new_swap_path, class: "btn btn-small btn-secondary"  %>
 
+    </center><hr>
+
+<%= render 'swap_grid' %>
+</ul>
+
+
+<% else %>
+
+<h5>To share and swap your favourite plants, click here!</h5>
+
+<%= link_to "Share a Plant", new_swap_path, class: "btn btn-small btn-secondary"  %>
+<% end %>
+</div>
+
+<div class="span5">
+ 
+
+ <% if @user.farms.any? %>
+   <center><h4>My Farms</h4>
+<%= link_to "Register Another Farm", new_farm_path, class: "btn btn-small btn-secondary"  %>
+</center>
+   <hr>
+<%= render 'farm_grid' %>
+<% else %>
+<h5>To begin selling your own produce, even from your garden or allotment, please register a farm!</h5>
+<%= link_to "Register a Farm", new_farm_path, class: "btn btn-small btn-secondary"  %>
+
+<% end %>
+</div>  
+</div>  
+
+
+
+
+  
   

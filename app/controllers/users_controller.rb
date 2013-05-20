@@ -6,7 +6,11 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    
+    @swaps_grid = initialize_grid(Swap,
+       :conditions => {:user_id => current_user.id}
+      )
+    @farms_grid = initialize_grid(Farm,
+       :conditions => {:user_id => current_user.id})
   end
 
   def new

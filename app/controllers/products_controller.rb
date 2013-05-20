@@ -6,6 +6,8 @@ class ProductsController < ApplicationController
 @q = Product.search(params[:q])
   @products = @q.all
 @products_grid = initialize_grid(Product,
+  :order => 'created_at',
+  :order_direction => 'asc',
   :include => :farm
   
 )

@@ -4,7 +4,8 @@ class Swap < ActiveRecord::Base
 
 has_attached_file :swappic, :styles => { :medium => "300x300>", :thumb => "150x150>", :large => "500x500>" }, 
   		:url  => "/assets/swaps/:id/:style/:basename.:extension",
-                  :path => ":rails_root/public/assets/swaps/:id/:style/:basename.:extension"
+                  :path => ":rails_root/public/assets/swaps/:id/:style/:basename.:extension",
+                  :default_url => "/images/thumb/missing.png"
 
 end
 # == Schema Information

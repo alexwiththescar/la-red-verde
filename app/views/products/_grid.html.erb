@@ -10,7 +10,7 @@ g.column :name => 'Photo' do |product|
 
 
   g.column name:  'Name', attribute: 'name', detach_with_id: :name_filter
-  g.column  name:  'Price per Kilo', attribute: 'price', detach_with_id: :price_filter, filter_type: :range, html: {style: 'font-weight: bold; text-align: center'} do |product|
+  g.column  name:  'Price per Kilo', attribute: 'price', filter: false, filter_type: :range, html: {style: 'font-weight: bold; text-align: center'} do |product|
     p = product.price
     number_to_currency(p, :unit => "€")
     end
@@ -26,14 +26,14 @@ g.column :name => 'Status', :attribute => 'category',  detach_with_id: :category
     product.farm.region
   end
   if signed_in?
-  g.column  name:  "Distance  (in KM)", attribute: 'distance', html: {style: 'font-weight: bold; text-align: center'},  detach_with_id: :distance_filter do |product|
+  g.column  name:  "Distance  (in KM)", attribute: 'distance', html: {style: 'font-weight: bold; text-align: center'},  filter: false do |product|
 
 distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 })
   number_with_precision(distance, :precision => 0) 
     end
 end
 
-g.column name:  'Added', attribute: 'distance', detach_with_id: :added_filter do |product|
+g.column name:  'Added', attribute: 'distance', filter: false do |product|
     product.created_at.to_s(:short)
   end
 
