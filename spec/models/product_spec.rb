@@ -7,12 +7,12 @@ end
 #
 # Table name: products
 #
-#  id               :integer(4)      not null, primary key
+#  id               :integer         not null, primary key
 #  name             :string(255)
 #  description      :string(255)
-#  farm_id          :integer(4)
-#  ammount          :integer(10)
-#  price            :integer(10)
+#  farm_id          :integer
+#  ammount          :decimal(, )
+#  price            :decimal(, )
 #  category         :string(255)
 #  pic_file_name    :string(255)
 #  pic_content_type :string(255)
@@ -20,8 +20,9 @@ end
 #  pic_updated_at   :datetime
 #  longitude        :float
 #  latitude         :float
-#  delta            :boolean(1)      default(TRUE), not null
+#  delta            :boolean         default(TRUE), not null
 #  created_at       :datetime        not null
 #  updated_at       :datetime        not null
+#  distance         :integer
 #
 

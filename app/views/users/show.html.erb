@@ -23,7 +23,8 @@
 <% else %>
   <div class="btn-group btn-group-vertical">
 
-<%= link_to "Message Me", new_farm_path, class: "btn btn-small btn-secondary"  %>
+<%= link_to "Message Me", new_mailboxes_path(:user_id => @user.id), class: "btn btn-small btn-secondary"  %>
+
 
 
 </div>

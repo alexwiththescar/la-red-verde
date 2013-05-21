@@ -3,7 +3,7 @@
   <div class="navbar-inner">
 
     <div class="container">
-      <%= link_to "LVV Plataforma Communitaria ", root_path, id: "logo" %>
+      <%= link_to "La Red Verde", root_path, id: "logo" %>
           
       <nav>
 
@@ -13,7 +13,7 @@
           <li><%= link_to "Seeds and Cuttings to Swap", swaps_path %></li>
           <% if signed_in? %>
             <li><%= link_to "Visit Farms", farms_path %></li>
-            <li><%= link_to "About", help_path %></li>
+            <li><%= link_to "Inbox", mailboxes_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 My Account <b class="caret"></b>

@@ -14,6 +14,7 @@ gem 'geocoder'
 gem 'pg_search'
 gem "wice_grid"
 gem 'haml-rails'
+gem "has_mailbox"
 group :development do
 
 gem 'pg'

@@ -15,6 +15,7 @@ end
     resources :swaps
   end
 
+mailboxes_for :users
 
   
 
