@@ -32,7 +32,7 @@
 
 <%= link_to 'Back to my Profile', current_user, class: "btn btn-small btn-secondary"  %>
 <% else %>
-<%= link_to 'Contact Farmer', @farm.user, class: "btn btn-small btn-secondary" %> 
+<%= link_to 'Contact Farmer', new_mailboxes_path(:user_id => @farm.user.id), class: "btn btn-small btn-secondary" %> 
 <% end %>
 <% end %>
 

@@ -17,6 +17,10 @@ class UsersController < ApplicationController
   @user = User.new
   end
 
+def has_unread_messages?
+  inbox.exists?(:opened => false)
+end
+
     def create
     @user = User.new(params[:user])
     if @user.save

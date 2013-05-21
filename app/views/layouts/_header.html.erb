@@ -8,6 +8,9 @@
       <nav>
 
         <ul class="nav pull-right">
+          <% if current_user.has_unread_messages? %>
+          <h5><%= link_to 'You have a new message! Please see inbox.', mailboxes_path %></h5>
+          <% end %>
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Fresh Products", products_path %></li>
           <li><%= link_to "Seeds and Cuttings to Swap", swaps_path %></li>
