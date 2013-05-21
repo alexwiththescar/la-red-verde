@@ -117,14 +117,7 @@ GEM
     has_mailbox (1.5.5)
       jquery-rails
       will_paginate
-    heroku (2.39.3)
-      heroku-api (~> 0.3.7)
-      launchy (>= 0.3.2)
-      netrc (~> 0.7.7)
-      rest-client (~> 1.6.1)
-      rubyzip
-    heroku-api (0.3.10)
-      excon (~> 0.21.0)
+   
     hike (1.2.2)
     i18n (0.6.4)
     journey (1.0.4)
@@ -258,7 +251,7 @@ DEPENDENCIES
   guard-spork (= 0.3.2)
   haml-rails
   has_mailbox
-  heroku
+
   jquery-rails
   paperclip!
   pg
