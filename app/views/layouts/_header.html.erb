@@ -8,11 +8,16 @@
       <nav>
 
         <ul class="nav pull-right">
-          
+           <% if signed_in? %>
+          <% if current_user.has_unread_messages? %>
+          <h5><%= link_to 'You have a new message! Please see inbox.', mailboxes_path %></h5>
+          <% end %>
+          <% end %>
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Fresh Products", products_path %></li>
           <li><%= link_to "Seeds and Cuttings to Swap", swaps_path %></li>
           <% if signed_in? %>
+        
             <li><%= link_to "Visit Farms", farms_path %></li>
             <li><%= link_to "Inbox", mailboxes_path %></li>
             <li id="fat-menu" class="dropdown">
