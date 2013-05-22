@@ -1,8 +1,13 @@
 <br><br><div class="">
 <h1><%= @farm.name %></h1>
 <center><p>Being followed by <%= @farm.followers_count %> people</p>
-<%= link_to "Follow", follow_farm_path(@user) %>
-<%= link_to "Unfollow", unfollow_farm_path(@user) %>
+
+<% if signed_in? %>
+
+
+
+
+
 </center><br><br><br>
 <div class="content">
 <div class="span3">
@@ -25,7 +30,7 @@
 </div>
 <div class="span1">
 	
-	<% if signed_in? %><div class="btn-group btn-group-vertical">
+	<div class="btn-group btn-group-vertical">
 <% if current_user?(@farm.user) %>
 <%= link_to 'Edit Farm Details', edit_farm_path(@farm), class: "btn btn-small btn-secondary" %> 
 
@@ -34,9 +39,15 @@
 
 <%= link_to 'Back to my Profile', current_user, class: "btn btn-small btn-secondary"  %>
 <% else %>
+<% if @farm.followed_by?(current_user)  %>
+
+<%= link_to "Unfollow", unfollow_farm_path(@user), class: "btn btn-small btn-secondary" %>
+<% else %>
+<%= link_to "Follow", follow_farm_path(@user), class: "btn btn-small btn-secondary" %>
+<% end %>
 <%= link_to 'Contact Farmer', new_mailboxes_path(:user_id => @farm.user.id), class: "btn btn-small btn-secondary" %> 
 <% end %>
-<% end %>
+
 
 
   </div></div>
@@ -62,4 +73,4 @@
 
   </div>
   
- 
+ <% end %>
