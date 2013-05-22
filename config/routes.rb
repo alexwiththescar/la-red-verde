@@ -14,7 +14,12 @@ end
   resources :users do
     resources :swaps
   end
-
+resources :farms do
+  member do
+    get :follow
+    get :unfollow
+  end
+end
 mailboxes_for :users
 
   

@@ -3,7 +3,7 @@ class Farm < ActiveRecord::Base
   						:province, :contact_number, :farmtype, :swap, :organic, :deliver, :farmpic
   belongs_to :user
   has_many :products
-
+ acts_as_followable
   validates :user_id, presence: true
 
   has_attached_file :farmpic, :styles => { :medium => "300x300>", :thumb => "150x150>", :large => "500x500>" }, 

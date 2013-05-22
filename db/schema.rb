@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130521113504) do
+ActiveRecord::Schema.define(:version => 20130522150345) do
 
   create_table "farms", :force => true do |t|
     t.string   "name"
@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(:version => 20130521113504) do
     t.datetime "farmpic_updated_at"
   end
 
+  create_table "follows", :force => true do |t|
+    t.integer  "followable_id",                      :null => false
+    t.string   "followable_type",                    :null => false
+    t.integer  "follower_id",                        :null => false
+    t.string   "follower_type",                      :null => false
+    t.boolean  "blocked",         :default => false, :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
+  add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
+
   create_table "message_copies", :force => true do |t|
     t.integer  "sent_messageable_id"
     t.string   "sent_messageable_type"
@@ -61,12 +74,10 @@ ActiveRecord::Schema.define(:version => 20130521113504) do
     t.integer  "sender_id"
     t.string   "subject"
     t.text     "body"
-    t.boolean  "opened",                     :default => false
-    t.boolean  "deleted",                    :default => false
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
-    t.boolean  "recipient_permanent_delete", :default => false
-    t.boolean  "sender_permanent_delete",    :default => false
+    t.boolean  "opened",                    :default => false
+    t.boolean  "deleted",                   :default => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
   end
 
   add_index "messages", ["received_messageable_id", "sender_id"], :name => "inbox_idx"

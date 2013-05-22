@@ -1,7 +1,9 @@
 <br><br><div class="">
 <h1><%= @farm.name %></h1>
-
-
+<center><p>Being followed by <%= @farm.followers_count %> people</p>
+<%= link_to "Follow", follow_farm_path(@user) %>
+<%= link_to "Unfollow", unfollow_farm_path(@user) %>
+</center><br><br><br>
 <div class="content">
 <div class="span3">
 
@@ -46,7 +48,7 @@
 <hr>
 <div class='span12'>
 <% if @farm.products.any? %>
-<center><h3>Our products</h3>
+<center><h3>Our products(<%= @farm.products.count %>)</h3>
 <%= link_to 'Add Another Product', new_farm_product_path(@farm), class: "btn btn-small btn-secondary" %> </center>
    <hr>
    <ul class="users">

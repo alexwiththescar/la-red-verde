@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :swaps
   has_secure_password
   has_mailbox
+   acts_as_follower
 #attr_accessor :avatar_file_name, :avatar_file_size, :avatar_content_type
 
 
@@ -29,6 +30,9 @@ has_attached_file :avatar, :styles => { :thumb => "75x75>", :medium => "200x200>
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+def feed
+Product.from_farms_followed_by(self)
+end
 
 def address
 [street_name, bldg_name, region, province].compact.join(', ')

@@ -11,7 +11,7 @@
 
 <div class="row"><br>
 <h1>
-<%= @user.name %>'s Profile</h1><hr>
+<%= @user.name %>'s Profile</h1><%= @user.follow_count %><hr>
        <div class="span9">
            <div class="row">
   <% if signed_in? %>
@@ -68,7 +68,7 @@
    
  
   
-    <center><h4>My Swaps</h4>
+    <center><h4>My Swaps(<%= @user.swaps.count %>)</h4>
 <%= link_to "Share Another Plant", new_swap_path, class: "btn btn-small btn-secondary"  %>
 
     </center><hr>
@@ -89,7 +89,7 @@
  
 
  <% if @user.farms.any? %>
-   <center><h4>My Farms</h4>
+   <center><h4>My Farms(<%= @user.farms.count %>)</h4>
 <%= link_to "Register Another Farm", new_farm_path, class: "btn btn-small btn-secondary"  %>
 </center>
    <hr>

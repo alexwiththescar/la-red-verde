@@ -87,5 +87,44 @@ class FarmsController < ApplicationController
     end
   end
 
+def follow
+  @farm = Farm.find(params[:id])
+
+  if current_user
+    
+      current_user.follow(@farm)
+      #RecommenderMailer.new_follower(@user).deliver if @user.notify_new_follower
+      
+  respond_to do |format|
+      if @farm.update_attributes(params[:farm])
+        format.html { redirect_to @farm, notice: "You are now following #{@farm.name}." }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @farm.errors, status: :unprocessable_entity }
+      end
+    end
+  else
+    flash[:error] = "You must <a href='/users/sign_in'>login</a> to follow #{@user.monniker}.".html_safe
+  end
+end
+
+def unfollow
+  @farm = Farm.find(params[:id])
+
+  current_user.stop_following(@farm)
+
+      
+  respond_to do |format|
+      if @farm.update_attributes(params[:farm])
+        format.html { redirect_to @farm, notice: "You are no longer following #{@farm.name}." }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @farm.errors, status: :unprocessable_entity }
+      end
+    end
+  
+end
   
 end
