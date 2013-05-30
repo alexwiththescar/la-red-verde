@@ -152,25 +152,20 @@ Yunquera ] ) %>
   </div>
   <div class="field">
   <%='Are You Willing To Swap For other Fresh Produce?    ' %><br>
-  <%= f.radio_button :swap, 'yes', :checked => true %> 
-  <%= label :swap_yes, 'Yes', :style => "display:inline" %>
-  <%= f.radio_button :organic, 'No', :style => "display:inline" %>
-  <%= label :organic_no, 'No', :style => "display:inline" %>
+  <%= f.radio_button :swap, true %><%= f.label 'Yes',:style => "display:inline" %><br />
+  <%= f.radio_button :swap, false %><%= f.label 'No' ,:style => "display:inline"%><br />
+
 </div><br>
   <div class="field">
   <%='Is it Organicly Grown?    ' %><br>
-  <%= f.radio_button :organic, 'organic', :checked => true %> 
-  <%= label :organic_yes, 'Yes', :style => "display:inline" %>
-  <%= f.radio_button :organic, 'No', :style => "display:inline" %>
-  <%= label :organic_no, 'No', :style => "display:inline" %>
+  <%= f.radio_button :organic, true %><%= f.label 'Yes', :style => "display:inline"  %><br />
+  <%= f.radio_button :organic, false %><%= f.label 'No', :style => "display:inline"  %><br />
 </div><br>
 <div style="display:inline"><div class="field">
   
   <%='Can you Deliver Locally?    ' %><br>
-  <%= f.radio_button :deliver, 'Yes', :checked => true %>
-  <%= label :deliver_yes, 'Yes',:style => "display:inline" %>
-  <%= f.radio_button :deliver, 'No', :style => "display:inline" %>
-  <%= label :deliver_no, 'No',  :style => "display:inline" %>
+   <%= f.radio_button :deliver, true %><%= f.label 'Yes', :style => "display:inline"  %><br />
+  <%= f.radio_button :deliver, false %><%= f.label 'No', :style => "display:inline"  %><br />
 </div></div><br>
 <div class="field">
     <%= f.label :description %><br />

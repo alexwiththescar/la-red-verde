@@ -24,7 +24,9 @@
 <center><div class="btn-group btn-group-vertical">
   <%= link_to "View Latest Product Listings", products_path, class: "btn btn-small btn-secondary"  %>
 <%= link_to "View All Farms", farms_path, class: "btn btn-small btn-secondary"  %>
-<%= link_to "Share a Plant", new_swap_path, class: "btn btn-small btn-secondary"  %></div></center><% end %>
+<%= link_to "Share a Plant", new_swap_path, class: "btn btn-small btn-secondary"  %>
+<br>
+<%= link_to "Edit My Profile", edit_user_registration_path, class: "btn btn-small btn-secondary"  %></div></center><% end %>
           </div>
            </div><!-- end nested row -->
     </div><!-- end span9 -->
@@ -49,20 +51,21 @@
  
   
     <center><h4>My Swaps(<%= @user.swaps.count %>)</h4>
+<% if correct_user?(@user) %>
 <%= link_to "Share Another Plant", new_swap_path, class: "btn btn-small btn-secondary"  %>
-
+<% end %>
     </center><hr>
 
 <%= render 'swap_grid' %>
 </ul>
 
 
-<% else %>
+<% else %><% if correct_user?(@user) %>
 
 <h5>To share and swap your favourite plants, click here!</h5>
 
 <%= link_to "Share a Plant", new_swap_path, class: "btn btn-small btn-secondary"  %>
-<% end %>
+<% end %><% end %>
 </div>
 
 <div class="span5">
@@ -70,16 +73,21 @@
 
  <% if @user.farms.any? %>
    <center><h4>My Farms(<%= @user.farms.count %>)</h4>
+<% if correct_user?(@user) %>
 <%= link_to "Register Another Farm", new_farm_path, class: "btn btn-small btn-secondary"  %>
+<% end %>
 </center>
    <hr>
 <%= render 'farm_grid' %>
-<% else %>
+<% else %><% if correct_user?(@user) %>
 <h5>To begin selling your own produce, even from your garden or allotment, please register a farm!</h5>
 <%= link_to "Register a Farm", new_farm_path, class: "btn btn-small btn-secondary"  %>
-
+<% else %>
+<% end %>
 <% end %>
 </div>  
+
+
 </div>  
 
 

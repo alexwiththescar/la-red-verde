@@ -20,8 +20,8 @@
 <h4>Ammount Available ::
 <%= @product.ammount %> Kilos</strong></h4>
 <span class="timestamp">
-<% distance = Geocoder::Calculations.distance_between([@product.latitude, @product.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
-<%= number_with_precision(distance, :precision => 0) %> Kilometers away from you</span><br>
+<% #distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
+<%# number_with_precision(distance, :precision => 0) %> Kilometers away from you</span><br>
 
 <%= link_to "Contact Seller", @product.farm, class: "btn btn-small btn-primary"  %>
  <%= link_to "Request Swap", @product.farm, class: "btn btn-small btn-primary"  %>

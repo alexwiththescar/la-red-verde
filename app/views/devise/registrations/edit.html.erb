@@ -1,10 +1,11 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<div class="span7">
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
+   <%= f.input :name, :required => true, :autofocus => true %>
+   <%= f.input :email, :required => true, :autofocus => true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -13,6 +14,145 @@
     <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
     <%= f.input :password_confirmation, :required => false %>
     <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+  </div>
+
+ 
+ 
+  <br>
+  <br>
+<div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :size => "30x10" %>
+  </div>
+  <div class="field">
+    <%= f.label 'Attach a profile picture for your account' %>
+<%= f.file_field :avatar %>
+
+
+</div>
+   <div class="field">
+    <%= f.label :street_name %>
+    <%= f.text_field :street_name %>
+  </div>
+   <div class="field">
+    <%= f.label :bldg_name,:style => "display:inline" %>
+    <%= f.text_field :bldg_name,:style => "display:inline"  %>
+  </div>
+   <div class="field">
+    <%= f.label :region %><%= f.select :region, options_for_select(%w[Alameda
+Alcaucín 
+Alfarnate 
+Alfarnatejo 
+Algarrobo 
+Algatocín 
+Alhaurín-de-la-Torre 
+Alhaurín-el-Grande 
+Almáchar 
+Almargen 
+Almogía 
+Álora 
+Alozaina 
+Alpandeire 
+Antequera 
+Árchez 
+Archidona 
+Ardales 
+Arenas 
+Arriate 
+Atajate 
+Benadalid 
+Benahavís 
+Benalauría 
+Benalmádena 
+Benamargosa 
+Benamocarra 
+Benaoján 
+Benarrabá 
+El-Borge 
+El-Burgo 
+Campillos 
+Canillas-de-Aceituno 
+Canillas-de-Albaida 
+Cañete-la-Real 
+Carratraca 
+Cartajima 
+Cártama 
+Casabermeja 
+Casarabonela 
+Casares 
+Coín 
+Colmenar-(Málaga) 
+Comares 
+Cómpeta 
+Cortes-de-la-Frontera 
+Cuevas-Bajas 
+Cuevas-de-San-Marcos 
+Cuevas-del-Becerro 
+Cútar 
+Estepona 
+Faraján 
+Frigiliana 
+Fuengirola 
+Fuente-de-Piedra 
+Gaucín 
+Genalguacil 
+Guaro 
+Humilladero 
+Igualeja 
+Istán 
+Iznate 
+Jimera-de-Líbar 
+Jubrique 
+Júzcar 
+Macharaviaya 
+Málaga 
+Manilva 
+Marbella 
+Mijas 
+Moclinejo 
+Mollina 
+Monda 
+Montejaque 
+Nerja 
+Ojén 
+Parauta 
+Periana 
+Pizarra 
+Pujerra 
+Rincón-de-la-Victoria 
+Riogordo 
+Ronda 
+Salares 
+Sayalonga 
+Sedella 
+Sierra-de-Yeguas 
+Teba 
+Tolox 
+Torremolinos 
+Torrox 
+Totalán 
+Valle-de-Abdalajís 
+Vélez-Málaga 
+Villanueva-de-Algaidas 
+Villanueva-de-Tapia 
+Villanueva-del-Rosario 
+Villanueva-del-Trabuco 
+Viñuela 
+Yunquera ] ) %>
+  </div>
+  <div class="field">
+    <%= f.label :post_code %>
+    <%= f.number_field :post_code %>
+  </div>
+  <div class="field">
+    <%= f.label :province %>
+   <%= f.select :province, options_for_select(%w[Malaga,España]) %>
+  </div>
+  
+  
+  <div class="field">
+    <%= f.label :contact_number %><br />
+    <%= f.number_field :contact_number %>
   </div>
 
   <div class="form-actions">
@@ -24,4 +164,4 @@
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back %></div></div>
