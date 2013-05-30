@@ -1,6 +1,12 @@
 TgnAgain::Application.routes.draw do
 
 
+  devise_for :users
+
+  mount Messaging::Engine => "/messaging"
+
+  devise_for :messaging_users
+
   resources :swaps
 
   resources :sessions, only: [:new, :create, :destroy]
