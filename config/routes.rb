@@ -20,7 +20,6 @@ resources :farms do
     get :unfollow
   end
 end
-mailboxes_for :users
 
   
 

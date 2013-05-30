@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :farms
   has_many :swaps
   has_secure_password
-  has_mailbox
+
    acts_as_follower
 #attr_accessor :avatar_file_name, :avatar_file_size, :avatar_content_type
 

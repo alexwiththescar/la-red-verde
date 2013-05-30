@@ -14,7 +14,7 @@ gem 'geocoder'
 gem 'pg_search'
 gem "wice_grid"
 gem 'haml-rails'
-gem "has_mailbox"
+
 gem "acts_as_follower"
 
 
