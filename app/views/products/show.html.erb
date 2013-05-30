@@ -23,8 +23,9 @@
 <% distance = Geocoder::Calculations.distance_between([@product.latitude, @product.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
 <%= number_with_precision(distance, :precision => 0) %> Kilometers away from you</span><br>
 
-<%= link_to "Contact Seller", new_mailboxes_path(:user_id => @product.farm.user.id, :subject => @product.name), class: "btn btn-small btn-secondary"  %>
- <%= link_to "View Farm", @product.farm, class: "btn btn-small btn-secondary"  %>
+<%= link_to "Contact Seller", new_mailboxes_path(:user_id => @product.farm.user.id, :subject => @product.name), class: "btn btn-small btn-primary"  %>
+ <%= link_to "Request Swap", @product.farm, class: "btn btn-small btn-primary"  %>
+ <%= link_to "View Farm", @product.farm, class: "btn btn-small btn-primary"  %>
  
  <% if current_user?(@product.farm.user) %>
   <%= link_to "delete", @product, class: "btn btn-small btn-secondary", method: :delete, confirm: "You sure?" %><% end %>

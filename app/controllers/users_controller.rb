@@ -26,6 +26,7 @@ end
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to The Growers Network!"
+      #@user1.send_message("Hi Subject","Hi Body !!!",@user)
       redirect_to @user
     else
       render 'new'
