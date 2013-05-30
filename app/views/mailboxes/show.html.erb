@@ -10,6 +10,7 @@
 			<div class="message ui-widget-content ui-corner-all">
 				<h5><%= raw @message_description %></h5>	
 				<p><%= @message.body %></p>
+				
 			</div>
 		<% unless params[:mailbox] == "outbox" %>
 			<p>
