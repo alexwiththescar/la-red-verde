@@ -1,9 +1,9 @@
 ActionMailer::Base.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :domain               => 'your.host.name',
-  :user_name            => '<your_username>', # full email address (user@your.host.name.com)
-  :password             => '<your_password>',
+  :domain               => 'la-red-verde.herokuapp.com',
+  :user_name            => 'laredverdeNOREPLY@gmail.com', # full email address (user@your.host.name.com)
+  :password             => 'GromGrom1',
   :authentication       => 'plain',
   :enable_starttls_auto => true
 }
