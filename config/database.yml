@@ -23,7 +23,7 @@ test:
   encoding: unicode
   database: tgn_test
   host: localhost
-  pool: 5
+  
   username: alexhick
   password:
   template: template0
@@ -32,9 +32,11 @@ production:
   adapter: postgresql
   encoding: unicode
   database: alexsplatform
-  host: postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT/
-
-  username: admin
-  password: Nb-mzwuqWQX1
-  template: template0
+  pool: 5
+  database: <%=ENV['OPENSHIFT_APP_NAME']%>
+  username: <%=ENV['OPENSHIFT_MYSQL_DB_USERNAME']%>
+  password: <%=ENV['OPENSHIFT_MYSQL_DB_PASSWORD']%>
+  # socket: <%=ENV['OPENSHIFT_MYSQL_DB_SOCKET']%>
+  host: <%=ENV['OPENSHIFT_MYSQL_DB_HOST']%>
+  port: <%=ENV['OPENSHIFT_MYSQL_DB_PORT']%>
 
