@@ -29,5 +29,12 @@ test:
   template: template0
 
 production:
-  adapter: pg
+  adapter: postgresql
+  encoding: unicode
+  database: alexsplatform
+  host: postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT/
+
+  username: admin
+  password: Nb-mzwuqWQX1
+  template: template0
 
