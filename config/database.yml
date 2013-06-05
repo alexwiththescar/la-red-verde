@@ -30,13 +30,3 @@ test:
 
 production:
   adapter: postgresql
-  encoding: unicode
-  database: alexsplatform
-  pool: 5
-  database: <%=ENV['OPENSHIFT_APP_NAME']%>
-  username: <%=ENV['OPENSHIFT_MYSQL_DB_USERNAME']%>
-  password: <%=ENV['OPENSHIFT_MYSQL_DB_PASSWORD']%>
-  # socket: <%=ENV['OPENSHIFT_MYSQL_DB_SOCKET']%>
-  host: <%=ENV['OPENSHIFT_MYSQL_DB_HOST']%>
-  port: <%=ENV['OPENSHIFT_MYSQL_DB_PORT']%>
-
