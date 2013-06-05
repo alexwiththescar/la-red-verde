@@ -2,10 +2,7 @@ class Product < ActiveRecord::Base
   attr_accessible :description, :farm_id, :name, :ammount, :price, :category, :pic, :longitude, :latitude
   belongs_to :farm
 
-include PgSearch
-  pg_search_scope :search_by_name, :against => [:name, :description]
-  multisearchable :against => [:name, :description, :farm]
-  
+
 def self.search(query)
   if query.present?
     search(query)

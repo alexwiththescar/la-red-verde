@@ -11,7 +11,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
               
 gem 'geocoder'
-gem 'pg_search'
+
 gem "wice_grid"
 gem 'haml-rails'
 
