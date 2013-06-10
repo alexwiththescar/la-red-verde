@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_many :swaps
   
 
-   acts_as_follower
+  has_mailbox
 #attr_accessor :avatar_file_name, :avatar_file_size, :avatar_content_type
 
 

@@ -3,9 +3,9 @@ TgnAgain::Application.routes.draw do
 
   devise_for :users
 
-  mount Messaging::Engine => "/messaging"
+  #mount Messaging::Engine => "/messaging"
 
-  devise_for :messaging_users
+ mailboxes_for :users
 
   resources :swaps
 

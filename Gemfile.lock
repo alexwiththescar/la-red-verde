@@ -145,6 +145,9 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
+    has_mailbox (1.5.5)
+      jquery-rails
+      will_paginate
     hike (1.2.3)
     i18n (0.6.4)
     journey (1.0.4)
@@ -284,6 +287,7 @@ DEPENDENCIES
   guard-rspec (= 0.5.5)
   guard-spork (= 0.3.2)
   haml-rails
+  has_mailbox
   jquery-rails
   mailboxer!
   messaging!
