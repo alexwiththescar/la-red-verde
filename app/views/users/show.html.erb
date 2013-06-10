@@ -21,12 +21,18 @@
           <div class="span3">
 <% if signed_in? %>
 
+<% if correct_user?(@user) %>
+
 <center><div class="btn-group btn-group-vertical">
   <%= link_to "View Latest Product Listings", products_path, class: "btn btn-small btn-secondary"  %>
 <%= link_to "View All Farms", farms_path, class: "btn btn-small btn-secondary"  %>
 <%= link_to "Share a Plant", new_swap_path, class: "btn btn-small btn-secondary"  %>
 <br>
-<%= link_to "Edit My Profile", edit_user_registration_path, class: "btn btn-small btn-secondary"  %></div></center><% end %>
+<%= link_to "Edit My Profile", edit_user_registration_path, class: "btn btn-small btn-secondary"  %></div></center>
+<% else %>
+<%= link_to "Send Message", new_mailboxes_path(:user_id => @user.id), class: "btn btn-small btn-secondary"  %></div></center>
+<% end %>
+<% end %>
           </div>
            </div><!-- end nested row -->
     </div><!-- end span9 -->
