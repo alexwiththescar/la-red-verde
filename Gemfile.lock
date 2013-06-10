@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: f55173018e246f2f8c196474cb85c7288491644c
+  revision: 1da9e4d6fed33987bdf8fb9a4f21d1ca902b1c7f
   specs:
     paperclip (3.4.2)
       activemodel (>= 3.0.0)
@@ -47,6 +47,18 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.1.2)
+    activeadmin (0.6.0)
+      arbre (>= 1.0.1)
+      bourbon (>= 1.0.0)
+      devise (>= 1.1.2)
+      fastercsv
+      formtastic (>= 2.0.0)
+      inherited_resources (>= 1.3.1)
+      jquery-rails (>= 1.0.0)
+      kaminari (>= 0.13.0)
+      meta_search (>= 0.9.2)
+      rails (>= 3.0.0)
+      sass (>= 3.1.0)
     activemodel (3.2.3)
       activesupport (= 3.2.3)
       builder (~> 3.0.0)
@@ -63,12 +75,17 @@ GEM
       multi_json (~> 1.0)
     acts_as_follower (0.1.1)
     annotate (2.4.1.beta1)
+    arbre (1.0.1)
+      activesupport (>= 3.0.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.3.0.1)
       sass (~> 3.2)
     bootstrap-will_paginate (0.0.6)
       will_paginate
+    bourbon (3.1.7)
+      sass (>= 3.2.0)
+      thor
     builder (3.0.4)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -120,10 +137,13 @@ GEM
       railties (>= 3.0.0)
     faker (1.0.1)
       i18n (~> 0.4)
-    ffi (1.8.1)
+    fastercsv (1.5.5)
+    ffi (1.9.0)
     foreigner (1.4.1)
       activerecord (>= 3.0.0)
     formatador (0.2.4)
+    formtastic (2.2.1)
+      actionpack (>= 3.0)
     geocoder (1.1.8)
     gherkin (2.12.0)
       multi_json (~> 1.3)
@@ -148,10 +168,14 @@ GEM
     has_mailbox (1.5.5)
       jquery-rails
       will_paginate
+    has_scope (0.5.1)
     hike (1.2.3)
     i18n (0.6.4)
+    inherited_resources (1.4.0)
+      has_scope (~> 0.5.0)
+      responders (~> 0.9)
     journey (1.0.4)
-    jquery-rails (3.0.0)
+    jquery-rails (2.3.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
@@ -167,12 +191,21 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta_search (1.1.3)
+      actionpack (~> 3.1)
+      activerecord (~> 3.1)
+      activesupport (~> 3.1)
+      polyamorous (~> 0.5.0)
     method_source (0.8.1)
     mime-types (1.23)
+    mini_portile (0.5.0)
     multi_json (1.7.6)
-    nokogiri (1.5.9)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
     pg (0.15.1)
+    polyamorous (0.5.0)
+      activerecord (~> 3.0)
     polyglot (0.3.3)
     pr_geohash (1.0.0)
     pry (0.9.12.2)
@@ -209,6 +242,8 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    responders (0.9.3)
+      railties (~> 3.1)
     rsolr (1.0.9)
       builder (>= 2.1.2)
     rspec (2.10.0)
@@ -272,6 +307,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activeadmin
   acts_as_follower
   annotate (~> 2.4.1.beta)
   bcrypt-ruby (= 3.0.1)
@@ -288,7 +324,7 @@ DEPENDENCIES
   guard-spork (= 0.3.2)
   haml-rails
   has_mailbox
-  jquery-rails
+  jquery-rails (= 2.3.0)
   mailboxer!
   messaging!
   paperclip!
