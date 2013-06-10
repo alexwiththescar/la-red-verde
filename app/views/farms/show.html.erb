@@ -31,7 +31,7 @@
 <div class="span1">
 	
 	<div class="btn-group btn-group-vertical">
-<% #if current_user.farm %>
+<% if correct_user?(@farm.user) %>
 <%= link_to 'Edit Farm Details', edit_farm_path(@farm), class: "btn btn-small btn-secondary" %> 
 
 <%= link_to 'Sell Product', new_farm_product_path(@farm), class: "btn btn-small btn-secondary" %> 
@@ -46,7 +46,7 @@
 <%= link_to "Follow", follow_farm_path(@user), class: "btn btn-small btn-secondary" %>
 <% end %>
 <%= link_to 'Contact Farmer', new_mailboxes_path(:user_id => @farm.user.id), class: "btn btn-small btn-secondary" %> 
-<% #end %>
+
 
 
 
@@ -66,11 +66,12 @@
 <%= render @farm.products %>
 </ul>
 
-<% else %><CENTER>
+<CENTER>
 <h5>To begin selling your own produce, list it here!</h5>
 <%= link_to 'Sell Product', new_farm_product_path(@farm), class: "btn btn-small btn-secondary" %> 
 <% end %></CENTER>
 
   </div>
-  
- <% end %>
+<% end %>
+<% end %>
+

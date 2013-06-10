@@ -2,6 +2,10 @@ class FarmsController < ApplicationController
   
   before_filter :authenticate_user!, :except => [:show, :index]
 
+def correct_user?(user)
+  user == current_user
+end
+
   def index
     @farms = Farm.all
 @farms_grid = initialize_grid(Farm,
