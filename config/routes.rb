@@ -1,6 +1,4 @@
 TgnAgain::Application.routes.draw do
-root to: "static_pages#home"
-
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -32,6 +30,9 @@ resources :farms do
 end
 
   
+root to: "static_pages#home"
+
+
 
 
   
