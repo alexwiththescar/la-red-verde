@@ -7,7 +7,7 @@ TgnAgain::Application.routes.draw do
 
   #mount Messaging::Engine => "/messaging"
 
- mailboxes_for :users
+ 
 
   resources :swaps
 
