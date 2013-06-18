@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
 
     if params[:reply_to]
       @reply_to = @user.received_messages.find(params[:reply_to])
-      @farm_id = @farm.find(params[:farm_id])
+     
         @message.to = @reply_to.sender.id
         @message.subject = "Re: #{@reply_to.subject}"
         @message.body = "\n\n*Original message*\n\n #{@reply_to.body}"

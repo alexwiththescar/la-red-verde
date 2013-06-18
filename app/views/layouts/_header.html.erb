@@ -17,7 +17,7 @@
           <% if signed_in? %>
         
             <li><%= link_to "Visit Farms", farms_path %></li>
-            <% if current_user.has_unread_messages? %>
+            <% if current_user.unread_messages? %>
             <li><%= link_to "Inbox (Unread Message)", user_messages_path(current_user) %></li>
           <% else %>
 
