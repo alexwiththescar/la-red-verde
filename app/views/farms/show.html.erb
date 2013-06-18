@@ -45,7 +45,7 @@
 <% else %>
 <%= link_to "Follow", follow_farm_path(@user), class: "btn btn-small btn-secondary" %>
 <% end %>
-<%= link_to 'Contact Farmer', new_mailboxes_path(:user_id => @farm.user.id), class: "btn btn-small btn-secondary" %> 
+<%= link_to 'Contact Farmer', new_user_message_path(:user_id => @farm.user.id, :farm_id => @farm.name), class: "btn btn-small btn-secondary" %> 
 
 
 

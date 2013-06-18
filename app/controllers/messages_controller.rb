@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   
   before_filter :set_user
+ 
   
   def index
     if params[:mailbox] == "sent"
@@ -19,13 +20,20 @@ class MessagesController < ApplicationController
 
     if params[:reply_to]
       @reply_to = @user.received_messages.find(params[:reply_to])
-      unless @reply_to.nil?
+      @farm_id = @farm.find(params[:farm_id])
         @message.to = @reply_to.sender.id
         @message.subject = "Re: #{@reply_to.subject}"
         @message.body = "\n\n*Original message*\n\n #{@reply_to.body}"
-      end
+      
+    elsif params[:user_id]
+        @message.to = User.find(params[:user_id]).id 
+end
+      if params[:farm_id]
+        
+        @message.subject = "Re: #{@farm_id}"
     end
   end
+  
   
   def create
     @message = Message.new(params[:message])
@@ -58,3 +66,5 @@ class MessagesController < ApplicationController
       @user = User.find(params[:user_id])
     end
 end
+
+
