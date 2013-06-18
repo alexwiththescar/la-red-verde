@@ -17,12 +17,12 @@
           <% if signed_in? %>
         
             <li><%= link_to "Visit Farms", farms_path %></li>
-            <% #if current_user.has_unread_messages? %>
+            <% if current_user.unread_messages? %>
             <li><%= link_to "Inbox (Unread Message)", user_messages_path(current_user) %></li>
-          <% #else %>
+          <% else %>
 
           <li><%= link_to "Inbox"  %></li>
-          <% #end %>
+          <% end %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 My Account <b class="caret"></b>

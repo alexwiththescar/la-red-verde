@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
 
     if params[:reply_to]
       @reply_to = @user.received_messages.find(params[:reply_to])
-      @farm_id = @farm.find(params[:farm_id])
+      
         @message.to = @reply_to.sender.id
         @message.subject = "Re: #{@reply_to.subject}"
         @message.body = "\n\n*Original message*\n\n #{@reply_to.body}"
@@ -29,10 +29,7 @@ class MessagesController < ApplicationController
     elsif params[:user_id]
         @message.to = User.find(params[:user_id]).id 
 end
-      if params[:farm_id]
-        
-        @message.subject = "Re: #{@farm_id}"
-    end
+      
   end
   
   
@@ -43,6 +40,7 @@ end
 
     if @message.save
       flash[:notice] = "Message sent"
+      UserMailer.message_email(@message.recipient).deliver!
       redirect_to user_messages_path(@user)
     else
       render :action => :new
