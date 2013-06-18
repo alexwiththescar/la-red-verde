@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
   
   before_filter :set_user
- 
+  before_filter :authenticate_user!
+  before_filter :correct_user, only: [:edit, :update, :destroy]
   
   def index
     if params[:mailbox] == "sent"
@@ -65,6 +66,11 @@ end
     def set_user
       @user = User.find(params[:user_id])
     end
+    def correct_user
+    @foo = Messages.find params[:id]
+    redirect_to signup_path unless current_user == @messages.user
+  end
 end
+
 
 
