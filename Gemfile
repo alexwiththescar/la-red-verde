@@ -11,7 +11,7 @@ gem 'jquery-rails', "2.3.0"
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
               
 gem 'geocoder'
-
+gem 'thin'
 gem "wice_grid"
 gem 'haml-rails'
 
