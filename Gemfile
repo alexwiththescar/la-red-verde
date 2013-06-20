@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 gem 'rails', '3.2.3'
-
+gem 'thin'
 gem 'bootstrap-sass', '~> 2.3.0.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '~> 1.0.1'
@@ -51,5 +51,5 @@ gem 'database_cleaner', '0.7.0'
 end
 group :production do
 gem 'pg'
-gem 'thin'
+
 end
