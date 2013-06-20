@@ -51,4 +51,5 @@ gem 'database_cleaner', '0.7.0'
 end
 group :production do
 gem 'pg'
+gem 'thin'
 end

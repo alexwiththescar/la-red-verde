@@ -1,8 +1,10 @@
 class MessagesController < ApplicationController
   
+  
+  before_filter :current_user, only: [:view, :edit, :update, :destroy]
   before_filter :set_user
-  before_filter :authenticate_user!
-  before_filter :correct_user, only: [:edit, :update, :destroy]
+ 
+  
   
   def index
     if params[:mailbox] == "sent"
@@ -43,7 +45,7 @@ end
 
     if @message.save
       flash[:notice] = "Message sent"
-      UserMailer.message_email(@message.recipient).deliver
+      UserMailer.message_notification(@message.recipient).deliver!
       redirect_to user_messages_path(@user)
     else
       render :action => :new
@@ -67,10 +69,13 @@ end
     def set_user
       @user = User.find(params[:user_id])
     end
-    def correct_user
-    @foo = Messages.find params[:id]
-    redirect_to signup_path unless current_user == @messages.user
-  end
+    
+    def current_user?(user)
+  user == current_user
+end
+  
+
+
 end
 
 
