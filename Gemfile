@@ -16,7 +16,7 @@ gem "wice_grid"
 gem 'haml-rails'
 
 gem "acts_as_follower"
-
+gem 'simple_form'
 #gem 'messaging', git: 'git://github.com/frodefi/rails-messaging.git'
 #gem 'mailboxer', git: 'git://github.com/ging/mailboxer.git'
 
@@ -25,7 +25,7 @@ gem  'dynamic_form'
 group :development do
 
 gem 'pg'
-gem 'simple_form'
+
  	
 gem 'annotate', '~> 2.4.1.beta'
 end
