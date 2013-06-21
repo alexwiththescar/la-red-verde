@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 gem 'rails', '3.2.3'
-gem 'thin'
+
 gem 'bootstrap-sass', '~> 2.3.0.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '~> 1.0.1'
@@ -17,15 +17,15 @@ gem 'haml-rails'
 
 gem "acts_as_follower"
 
-gem 'messaging', git: 'git://github.com/frodefi/rails-messaging.git'
-gem 'mailboxer', git: 'git://github.com/ging/mailboxer.git'
+#gem 'messaging', git: 'git://github.com/frodefi/rails-messaging.git'
+#gem 'mailboxer', git: 'git://github.com/ging/mailboxer.git'
 
 gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
 gem  'dynamic_form'
 group :development do
 
 gem 'pg'
-
+gem 'simple_form'
  	
 gem 'annotate', '~> 2.4.1.beta'
 end

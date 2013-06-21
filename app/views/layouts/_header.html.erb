@@ -21,7 +21,7 @@
             <li><%= link_to "Inbox (Unread Message)", user_messages_path(current_user) %></li>
           <% else %>
 
-          <li><%= link_to "Inbox"  %></li>
+          <li><%= link_to "Inbox", user_messages_path(current_user)  %></li>
           <% end %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">

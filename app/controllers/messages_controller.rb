@@ -43,7 +43,7 @@ end
 
     if @message.save
       flash[:notice] = "Message sent"
-      UserMailer.message_email(@message.recipient).deliver
+      UserMailer.welcome_email(@message.recipient).deliver!
       redirect_to user_messages_path(@user)
     else
       render :action => :new
