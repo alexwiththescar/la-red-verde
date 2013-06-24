@@ -6,7 +6,7 @@ g.blank_slate  do
   end
 
 g.column :name => 'Photo' do |product|
-    image_tag product.image_url.to_s
+    image_tag product.image_url(:thumb)
 
   end
 

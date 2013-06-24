@@ -1,7 +1,7 @@
 <%= define_grid(@farms_grid, hide_submit_button: true, hide_reset_button: true) do |g|
 
   g.column :name => 'farm' do |farm|
-    image_tag farm.farmpic.url(:thumb)
+    image_tag farm.image_url(:thumb)
 
   end
 
