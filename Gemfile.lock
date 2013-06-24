@@ -228,6 +228,7 @@ GEM
       json (~> 1.4)
     responders (0.9.3)
       railties (~> 3.1)
+    rmagick (2.13.2)
     rspec (2.10.0)
       rspec-core (~> 2.10.0)
       rspec-expectations (~> 2.10.0)
@@ -311,6 +312,7 @@ DEPENDENCIES
   jquery-rails (= 2.3.0)
   pg
   rails (= 3.2.13)
+  rmagick
   rspec-rails (= 2.10.0)
   sass-rails (= 3.2.4)
   simple-private-messages (= 0.0.0)!

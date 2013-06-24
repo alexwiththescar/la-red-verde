@@ -9,7 +9,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'jquery-rails', "2.3.0"
 gem 'carrierwave'
-              
+gem 'rmagick'
 gem 'geocoder'
 gem 'fog'
 gem "wice_grid"
