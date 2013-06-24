@@ -1,7 +1,7 @@
 <%= grid(@swaps_grid) do |g|
 
   g.column :name => 'Photo' do |swap|
-    image_tag swap.swappic.url(:thumb)
+    image_tag swap.image_url(:thumb)
 
   end
 
