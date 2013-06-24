@@ -11,7 +11,7 @@ gem 'jquery-rails', "2.3.0"
 gem 'carrierwave'
               
 gem 'geocoder'
-
+gem 'fog'
 gem "wice_grid"
 gem 'haml-rails'
 
