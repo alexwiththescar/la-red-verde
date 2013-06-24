@@ -1,26 +1,35 @@
 <% if user_signed_in? %>
-
+<div class="row-fluid">
+<div class="span12" style="background-color:#669900">
+<div class="pull-left" style="margin: 0px 20px 0px 0px;">
 <%= image_tag current_user.avatar_url(:thumb).to_s %>
-I am following <%= current_user.name %> Farms.
-                  
-    <div class="container">
-<div class="row">
-<div class="span4">
-            </div>
-<div class="span4">
-Nearby products :
-<ul>
-  
-  
-</ul>
 
-</div>
-<div class="span4"></div>
-</div>
+  </div>
+<div class="pull-left">
+  <h4>Welcome to La Red Verde</h4>
+  <p>You are following <%= current_user.follow_count %> Farms. </p>
+  <p>You have <%= current_user.unread_message_count %> New Messages</p>
 </div>
 
+  </div>
+  </div>
+
   
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- If user is not signed in...render this -->
 <% else %>
+
   <div class="center hero-unit" >
     <h2>Welcome To El Red Verde</h2>
 

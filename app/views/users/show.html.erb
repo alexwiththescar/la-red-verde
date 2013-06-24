@@ -18,19 +18,34 @@
 <% end %>
          </div>
 
-          <div class="span3">
+          <div class="span3" , style="background-color:#669900"><br>
 <% if signed_in? %>
 
 <% if correct_user?(@user) %>
 
 <center><div class="btn-group btn-group-vertical">
-  <%= link_to "View Latest Product Listings", products_path, class: "btn btn-small btn-secondary"  %>
-<%= link_to "View All Farms", farms_path, class: "btn btn-small btn-secondary"  %>
+
+<% if @user.farms.any? %>
+<%= link_to "Add New Produce", products_path, class: "btn btn-small btn-secondary"  %>
+<% else %>
+<%= link_to "Start Selling Produce", products_path, class: "btn btn-small btn-secondary"  %>
+  <% end %>  
 <%= link_to "Share a Plant", new_swap_path, class: "btn btn-small btn-secondary"  %>
 <br>
-<%= link_to "Edit My Profile", edit_user_registration_path, class: "btn btn-small btn-secondary"  %></div></center>
+<%= link_to "View All Product Listings", products_path, class: "btn btn-small btn-secondary"  %>
+<%= link_to "View All Farms", farms_path, class: "btn btn-small btn-secondary"  %>
+<%= link_to "View All Users", farms_path, class: "btn btn-small btn-secondary"  %>
+<br>
+<%= link_to "Got to Home Page", farms_path, class: "btn btn-small btn-secondary"  %>
+<%= link_to "Edit My Profile", edit_user_registration_path, class: "btn btn-small btn-secondary"  %>
+<br>
+<%= link_to "Log Out", farms_path, class: "btn btn-small btn-secondary"  %>
+</div><br><br><br></center>
 <% else %>
-<%= link_to "Send Message", new_user_message_path(:user_id => @user.id), class: "btn btn-small btn-secondary"  %></div></center>
+<%= link_to "Send Message", new_user_message_path(:user_id => @user.id), class: "btn btn-small btn-secondary"  %><br>
+<%= link_to "Back To My Profile", farms_path, class: "btn btn-small btn-secondary"  %>
+
+</div></center>
 <% end %>
 <% end %>
           </div>
