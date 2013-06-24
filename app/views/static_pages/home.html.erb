@@ -7,7 +7,7 @@
   </div>
 <div class="pull-left">
   <h4>Welcome to La Red Verde</h4>
-  <p>You are following <%= current_user.follow_count %> Farms. </p>
+  <p>You are following <%#= current_user.follow_count %> Farms. </p>
   <p>You have <%= current_user.unread_message_count %> New Messages</p>
 </div>
 
@@ -34,23 +34,22 @@
 <center><div class="btn-group btn-group-vertical">
 hello 4
 <% if current_user.farms.any? %>
-<%= link_to "Add New Produce", products_path, class: "btn btn-small btn-secondary"  %>
-<%= link_to "View My Farms", farms_path, class: "btn btn-small btn-secondary"  %>
+<%= link_to "View My Farms", '#', class: "btn btn-small btn-secondary"  %>
 
 <% else %>
-<%= link_to "Start Selling Produce", products_path, class: "btn btn-small btn-secondary"  %>
+<%= link_to "Start Selling Produce", new_farm_path, class: "btn btn-small btn-secondary"  %>
 <% end %>
 
 <%= link_to "Share a Plant", new_swap_path, class: "btn btn-small btn-secondary"  %>
 <br>
 <%= link_to "View All Product Listings", products_path, class: "btn btn-small btn-secondary"  %>
 <%= link_to "View All Farms", farms_path, class: "btn btn-small btn-secondary"  %>
-<%= link_to "View All Users", farms_path, class: "btn btn-small btn-secondary"  %>
+<%= link_to "View All Users", '#', class: "btn btn-small btn-secondary"  %>
 <br>
-<%= link_to "View My Profile", farms_path, class: "btn btn-small btn-secondary"  %>
-<%= link_to "View My Messages", farms_path, class: "btn btn-small btn-secondary"  %>
+<%= link_to "View My Profile", current_user, class: "btn btn-small btn-secondary"  %>
+<%= link_to "View My Messages", user_messages_path(current_user), class: "btn btn-small btn-secondary"  %>
 <br>
-<%= link_to "Sign Out", farms_path, class: "btn btn-small btn-secondary"  %><br><br><br>
+<%= link_to "Sign Out", destroy_user_session_path, method: "delete", class: "btn btn-small btn-secondary"  %><br><br><br>
 
 
 
