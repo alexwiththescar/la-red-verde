@@ -1,7 +1,10 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :farm_id, :name, :ammount, :price, :category, :pic, :longitude, :latitude
+  attr_accessible :description, :farm_id, :name, :ammount, :price, :category, :pic, :longitude, 
+  :latitude, :image
+
   belongs_to :farm
 
+ mount_uploader :image, ImageUploader
 
 def self.search(query)
   if query.present?
@@ -17,10 +20,10 @@ def self.get_products(params)
   self.where(conditions)
 end
 
-has_attached_file :pic, :styles => { :medium => "300x300>", :thumb => "150x150>", :large => "500x500>" },
-                  :url  => "/assets/products/:id/:style/:basename.:extension",
-                  :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension",
-                  :default_url => "/images/thumb/missing.png"
+# has_attached_file :pic, :styles => { :medium => "300x300>", :thumb => "150x150>", :large => "500x500>" },
+#                   :url  => "/assets/products/:id/:style/:basename.:extension",
+#                   :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension",
+#                   :default_url => "/images/thumb/missing.png"
 
 #validates_attachment_presence :pic
 #validates_attachment_size :pic, :less_than => 5.megabytes

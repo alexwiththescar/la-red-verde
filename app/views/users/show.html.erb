@@ -38,7 +38,7 @@
     </div><!-- end span9 -->
 
         <div class="span3">
-<%= image_tag current_user.avatar.url(:medium) %><br><br>
+<%= image_tag @user.image_url.to_s %><br><br>
 
 
     <%= image_tag "http://maps.google.com/maps/api/staticmap?size=650x400&sensor=false&zoom=10&markers=#{@user.latitude}%2C#{@user.longitude}" %> 

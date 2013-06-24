@@ -2,10 +2,10 @@ class Swap < ActiveRecord::Base
   attr_accessible :description, :name, :plant_type, :swap_file_name, :swappic, :swap_content_type, :swap_file_size, :swap_updated_at 
   belongs_to :user
 
-has_attached_file :swappic, :styles => { :medium => "300x300>", :thumb => "150x150>", :large => "500x500>" }, 
-  		:url  => "/assets/swaps/:id/:style/:basename.:extension",
-                  :path => ":rails_root/public/assets/swaps/:id/:style/:basename.:extension",
-                  :default_url => "/images/thumb/missing.png"
+# has_attached_file :swappic, :styles => { :medium => "300x300>", :thumb => "150x150>", :large => "500x500>" }, 
+#   		:url  => "/assets/swaps/:id/:style/:basename.:extension",
+#                   :path => ":rails_root/public/assets/swaps/:id/:style/:basename.:extension",
+#                   :default_url => "/images/thumb/missing.png"
 
 end
 # == Schema Information

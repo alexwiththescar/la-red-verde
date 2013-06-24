@@ -8,7 +8,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'jquery-rails', "2.3.0"
-gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
+gem 'carrierwave'
               
 gem 'geocoder'
 
