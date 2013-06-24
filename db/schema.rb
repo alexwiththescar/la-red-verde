@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624095129) do
+ActiveRecord::Schema.define(:version => 20130624114854) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20130624095129) do
     t.string   "farmpic_content_type"
     t.float    "farmpic_file_size"
     t.datetime "farmpic_updated_at"
+    t.string   "image"
   end
 
   create_table "follows", :force => true do |t|

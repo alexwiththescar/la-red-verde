@@ -14,7 +14,7 @@
 
 
 <p>
-  <% #image_tag @farm.farmpic.url(:medium) %>
+  <%= image_tag @farm.image_url %>
   <%= image_tag "http://maps.google.com/maps/api/staticmap?size=650x400&sensor=false&zoom=10&markers=#{@farm.latitude}%2C#{@farm.longitude}" %> 
 </p>
 </div>
