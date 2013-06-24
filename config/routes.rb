@@ -18,7 +18,7 @@ end
  
 
   resources :swaps
-
+resources :farms
   
   resources :products
   resources :farms do 

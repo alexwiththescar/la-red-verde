@@ -27,6 +27,7 @@
 
 <% if @user.farms.any? %>
 <%= link_to "Add New Produce", products_path, class: "btn btn-small btn-secondary"  %>
+<%= link_to "View My Farms", products_path, class: "btn btn-small btn-secondary"  %>
 <% else %>
 <%= link_to "Start Selling Produce", products_path, class: "btn btn-small btn-secondary"  %>
   <% end %>  
