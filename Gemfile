@@ -14,7 +14,7 @@ gem 'geocoder'
 gem 'fog'
 gem "wice_grid"
 gem 'haml-rails'
-
+gem "nested_form"
 gem "acts_as_follower"
 gem 'simple_form'
 #gem 'messaging', git: 'git://github.com/frodefi/rails-messaging.git'

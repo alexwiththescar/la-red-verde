@@ -1,42 +1,43 @@
 <div class="<%= cycle("even", "odd") %>">
+<div class="container"><br>
+
+<div class="row-fluid">
+  <div class="span2">
+    <%= image_tag farm.image_url %>
+  </div>
+
+  <div class="span2">
+    <%= farm.name %>
+  </div>
+
+  <div class="span4">
+    <span><%=  "   Location  ::  " %><%= farm.user.region %></span><br>
+    <span><%=  "   Can it be delivered  ::  " %><%= farm.deliver ? 'No' : 'Yes' %></span><br>
+    <span><%=  "   Is it Organic  ::  " %><%= farm.organic ? 'Yes' : 'No'  %></span><br>
+    <span class="timestamp">Created on <%= farm.created_at.strftime("%d %b. %Y") %> </span>
 
 
+  </div>
+  <div class="span4">
+<br>
+<br>
+<br>
 
-
-<div class="container">
-
-<div class="row">
-
-       <div class="span9">
-           <div class="row">
-         <div class="span6 pull-right">
-         	<h2><%= farm.name %></h2>
-  <span><%=  "   Is it Organic  ::  " %><%= farm.organic ? 'Yes' : 'No'  %></span><br>
-  <span><%=  "   Can it be delivered  ::  " %><%= farm.deliver ? 'No' : 'Yes' %></span><br><span class="timestamp">Listed on <%= farm.created_at.strftime("%d %b. %Y") %> </span>
-</div>
-
-          <div class="span3"><%= image_tag farm.farmpic.url(:medium) %></div>
-           </div><!-- end nested row -->
-    </div><!-- end span9 -->
-
-        <div class="span3"><br><br>
-<div class="btn-group btn-group-vertical">
-
-<%= link_to 'View Farm', farm, class: "btn btn-small btn-secondary" %> 
-<% if current_user?(farm.user) %>
-  <%= link_to "delete", farm, class: "btn btn-small btn-secondary", method: :delete, confirm: "You sure?" %><% end %>
-
-
-
-
-</div>
-
-
-
-        </div>
-
-    </div><!-- end parent row-->
-
+<%= link_to 'Add Another Product', new_farm_product_path(farm), class: "btn btn-small btn-secondary" %> 
+<%= link_to 'Edit Grow Spot', farm, class: "btn btn-small btn-secondary" %> 
+  </div>         
  </div><!-- end container -->  
-        </div>
- <hr>
+</div>
+
+<div class="row-fluid">
+  <div class="span2"></div>
+  <div class="span8">
+
+<% for product in farm.products do %>
+  <%= render :partial => "product", :locals => {  :product => product  } %>
+<% end %>
+
+  </div>
+  <div class="span2"></div>
+
+

@@ -12,11 +12,11 @@
           
           <% end %>
           <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Fresh Products", products_path %></li>
-          <li><%= link_to "Seeds and Cuttings to Swap", swaps_path %></li>
+          <li><%= link_to "Fresh Produce Listings", products_path %></li>
+          
           <% if signed_in? %>
         
-            <li><%= link_to "Visit Farms", farms_path %></li>
+            
             <% if current_user.unread_messages? %>
             <li><%= link_to "Inbox (Unread Message)", user_messages_path(current_user) %></li>
           <% else %>

@@ -1,0 +1,27 @@
+
+<hr>
+    <div class="row-fluid">
+    <div class="span3">
+      <div class="span12"> <%= image_tag product.image_url(:thumb) %> </div>  
+ </div>
+    <div class="span3">
+<h2><%= product.name %></h2>
+         <table>
+<tr>
+<td><strong>Ammount Available ::</strong></td>
+<td><center><%= product.ammount %></center></td>
+<td><strong>Kilos</strong></td>
+
+</tr>
+<tr>
+<td><strong>Price/Kilo ::</strong></td>
+<td><center><%= product.price %></center></td>
+<td><strong>Euros</strong></td>
+</tr></table>
+    </div>
+    <div class="span3 pull-right"><%= link_to "View Product", product, class: "btn btn-small btn-secondary"  %>
+<% if correct_user?(@user) %>
+  <%= link_to "delete", product, class: "btn btn-small btn-secondary", method: :delete, confirm: "You sure?" %><% end %></div>
+    </div>
+
+

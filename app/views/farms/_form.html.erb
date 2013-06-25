@@ -1,182 +1,102 @@
-<%= provide(:title, 'Register Your Farm...') %>
+<%= provide(:title, 'Register As A Grower...') %>
 
 
-<div class="span4"><br><br><br><br>
-<br>   
-<%= form_for(@farm) do |f| %>
+
+<div class="row-fluid">
+<div class="span6" style="margin: 0px 10px 0px 0px;">
+
+<%= nested_form_for @farm do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
-   <div class="field">
-    <%= f.label :street_name %><br />
-    <%= f.text_field :street_name %>
-  </div>
-   <div class="field">
-    <%= f.label :bldg_name %><br />
-    <%= f.text_field :bldg_name %>
-  </div>
-   <div class="field">
-    <%= f.label :region %><br />
-    <%= f.select :region, options_for_select(%w[Alameda
-Alcaucín 
-Alfarnate 
-Alfarnatejo 
-Algarrobo 
-Algatocín 
-Alhaurín_de_la_Torre 
-Alhaurín-el-Grande 
-Almáchar 
-Almargen 
-Almogía 
-Álora 
-Alozaina 
-Alpandeire 
-Antequera 
-Árchez 
-Archidona 
-Ardales 
-Arenas 
-Arriate 
-Atajate 
-Benadalid 
-Benahavís 
-Benalauría 
-Benalmádena 
-Benamargosa 
-Benamocarra 
-Benaoján 
-Benarrabá 
-El-Borge 
-El-Burgo 
-Campillos 
-Canillas-de-Aceituno 
-Canillas-de-Albaida 
-Cañete-la-Real 
-Carratraca 
-Cartajima 
-Cártama 
-Casabermeja 
-Casarabonela 
-Casares 
-Coín 
-Colmenar-(Málaga) 
-Comares 
-Cómpeta 
-Cortes-de-la-Frontera 
-Cuevas-Bajas 
-Cuevas-de-San-Marcos 
-Cuevas-del-Becerro 
-Cútar 
-Estepona 
-Faraján 
-Frigiliana 
-Fuengirola 
-Fuente-de-Piedra 
-Gaucín 
-Genalguacil 
-Guaro 
-Humilladero 
-Igualeja 
-Istán 
-Iznate 
-Jimera-de-Líbar 
-Jubrique 
-Júzcar 
-Macharaviaya 
-Málaga 
-Manilva 
-Marbella 
-Mijas 
-Moclinejo 
-Mollina 
-Monda 
-Montejaque 
-Nerja 
-Ojén 
-Parauta 
-Periana 
-Pizarra 
-Pujerra 
-Rincón-de-la-Victoria 
-Riogordo 
-Ronda 
-Salares 
-Sayalonga 
-Sedella 
-Sierra-de-Yeguas 
-Teba 
-Tolox 
-Torremolinos 
-Torrox 
-Totalán 
-Valle-de-Abdalajís 
-Vélez-Málaga 
-Villanueva-de-Algaidas 
-Villanueva-de-Tapia 
-Villanueva-del-Rosario 
-Villanueva-del-Trabuco 
-Viñuela 
-Yunquera ] ) %>
-  </div>
-  <div class="field">
-    <%= f.label :post_code %><br />
-    <%= f.number_field :post_code %>
-  </div>
-  <div class="field">
-    <%= f.label :province %><br />
-   <%= f.select :province, options_for_select(%w[Malaga,España]) %>
-  </div>
-  
-  
-  <div class="field">
-    <%= f.label :contact_number %><br />
-    <%= f.number_field :contact_number %>
-  </div>
+   <h2>Step 1 :: Describe Your Grow...</h2><center><p>Say Somthing about where and how you grow...</p></center>
 
-
-
-  </section>
-  </aside>
-  
-
-
-
-</div>
-<span class="span6"><br><br>
-    <div class="field"><br><br>
-    <%= f.label "Farm Name" %><br />
-    <%= f.text_field :name %>
+    <div class="field"><br>
+    <%= f.label "Farm Name (Optional)" %><br />
+    <%= f.text_field :name, :placeholder => "i.e. - 'My Garden' or 'Joe´s Farm'" %>
   </div>
   <div class="field">
     <%= f.label "Type of Farm?" %><br />
    <%= f.select :farmtype, options_for_select(["Private Grower","Farm"]) %>
   </div>
   <div class="field">
-  <%='Are You Willing To Swap For other Fresh Produce?    ' %><br>
+  <%= f.label 'Are You Willing To Swap For Other Fresh Produce?    ' %><br>
   <%= f.radio_button :swap, true %><%= f.label 'Yes',:style => "display:inline" %><br />
   <%= f.radio_button :swap, false %><%= f.label 'No' ,:style => "display:inline"%><br />
 
 </div><br>
-  <div class="field">
-  <%='Is it Organicly Grown?    ' %><br>
+  <div class="field" style="display:inline">
+  <%= f.label 'Is it Organicly Grown?    ' %><br>
   <%= f.radio_button :organic, true %><%= f.label 'Yes', :style => "display:inline"  %><br />
   <%= f.radio_button :organic, false %><%= f.label 'No', :style => "display:inline"  %><br />
 </div><br>
-<div style="display:inline"><div class="field">
+<div style="display:inline"><div class="field", style="display:inline">
   
-  <%='Can you Deliver Locally?    ' %><br>
+  <%= f.label 'Can you Deliver Locally?    ' %><br>
    <%= f.radio_button :deliver, true %><%= f.label 'Yes', :style => "display:inline"  %><br />
   <%= f.radio_button :deliver, false %><%= f.label 'No', :style => "display:inline"  %><br />
 </div></div><br>
+<div class="field", style="display:inline">
+    <%= f.label 'Say Somthing About Your Grow Spot...' %><br />
+    <%= f.text_area :description, :size => "30x10" , :placeholder => "Say somthing about how you grow....(Optional)"%>
+  </div>
+ 
+
+  </div>
+
+
+<%= f.simple_fields_for(:products) do |ff| %>
+
+<div class="span6" style="margin: 0px 0px 0px 10px;">
+<h2>Step 2 :: List A Product...</h2><center><p>Add your first product here to begin Selling, Swapping and Sharing your Produce...</p></center><br><br>
+
 <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :size => "30x10" %>
+    <%= ff.label 'Produce' %><br />
+    <%= ff.text_field :name, :placeholder => "i.e. - 'Apples' or 'Red Rose Cuttings'" %>
+  </div>
+ 
+  <div class="field">
+    <%= f.label  'How much do you have to sell?' %><br />
+    <%= ff.number_field :ammount, :placeholder => "" %>
   </div>
   <div class="field">
-    <%= f.label 'Attach a profile picture for your account' %>
-<%= f.file_field :image %><br /><br /><br /><br /><br /><br />
-<%= f.submit "Create Farm", class: "btn btn-large btn-primary" %>
-
-
+    <%= ff.label :price, 'Price per Kilo or Unit?' %><br />
+    <%= ff.number_field :price %>
   </div>
-</span>
+
+  <div class="field">
+    <%= ff.label :category %><br />
+   <%= ff.select :category, options_for_select(%w[ 
+   Vegatables
+   Fruit
+   Herbs
+   Edible-Flowers
+   Seeds
+   Seeds
+   Cuttings
+   Plantita´s
+   Other ] )%>
+  </div>
+
+  <div class="field">
+    <%= ff.label :description %><br />
+    <%= ff.text_area :description, :size => "30x10", :placeholder => "Describe what you have grown..."  %>
+  </div>
+<div class="field">
+<%= ff.label 'Attach a picture of your produce...' %>
+<%= ff.file_field :image %>
+<br><br><br><br><center><%= f.submit "Create Farm", class: "btn btn-large btn-primary" %>
+  </div>
+
+
+</div>
+</div>
+  
+
+<% end %>
+<%= f.label 'Attach a picture of where you grow...' %>
+<%= f.file_field :image %>
+
+
+</div>
+
 <% end %>

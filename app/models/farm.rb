@@ -1,11 +1,14 @@
 class Farm < ActiveRecord::Base
+  
   attr_accessible :content, :name, :user_id, :description, :street_name, :bldg_name, :region, :post_code, 
-  						:province, :contact_number, :farmtype, :swap, :organic, :deliver, :image
+  						:province, :contact_number, :swap, :organic, :farmtype, :deliver, :image, :products_attributes
+  
+
   belongs_to :user
   has_many :products
  acts_as_followable
   validates :user_id, presence: true
-
+accepts_nested_attributes_for :products
   mount_uploader :image, ImageUploader
   # has_attached_file :farmpic, :styles => { :medium => "300x300>", :thumb => "150x150>", :large => "500x500>" }, 
   # 		:url  => "/assets/farms/:id/:style/:basename.:extension",
