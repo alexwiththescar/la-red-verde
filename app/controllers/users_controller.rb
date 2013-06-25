@@ -14,8 +14,8 @@ class UsersController < ApplicationController
     #@products_grid = initialize_grid(Product)
 
     @farms = @user.farms
-    @farm_id = @user.farms.first
-    @products = Product.find(params[@farm_id])
+    
+    
     
   end
 

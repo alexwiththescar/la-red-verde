@@ -1,7 +1,7 @@
 class Farm < ActiveRecord::Base
   
   attr_accessible :content, :name, :user_id, :description, :street_name, :bldg_name, :region, :post_code, 
-  						:province, :contact_number, :swap, :organic, :deliver, :image, :products_attributes
+  						:province, :contact_number, :swap, :organic, :farmtype, :deliver, :image, :products_attributes
   
 
   belongs_to :user

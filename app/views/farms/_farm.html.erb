@@ -23,39 +23,22 @@
 <br>
 <br>
 
-<%= link_to 'Sell A Product', farm, class: "btn btn-small btn-secondary" %> 
+<%= link_to 'Sell A Product', new_farm_product_path(farm), class: "btn btn-small btn-secondary" %> 
 <%= link_to 'Edit Grow Spot', farm, class: "btn btn-small btn-secondary" %> 
-  </div>
-
-
-
-           
+  </div>         
  </div><!-- end container -->  
 </div>
-
-
-
 
 <div class="row-fluid">
   <div class="span2"></div>
   <div class="span8">
 
-<%= render @products %>
-
-
-
+<% for product in farm.products do %>
+  <%= render :partial => "product", :locals => {  :product => product  } %>
+<% end %>
 
   </div>
   <div class="span2"></div>
-
-
-
-
-
-
-
-
-
 
 <br>
 <br>
