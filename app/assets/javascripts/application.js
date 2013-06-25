@@ -15,6 +15,6 @@
 //= require bootstrap
 
 //= require wice_grid
-
+//= require jquery_nested_form
 
 //= require_tree .

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :region, 
     :description, :avatar, :street_name, :bldg_name, :post_code, :province, :contact_number, :avatar, 
-    :avatar_cache, :remove_avatar
+    :avatar_cache, :remove_avatar, :products_attributes, :product
 
   # attr_accessible :title, :body
 
@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
 
   has_many :farms
   has_many :swaps
-  
-  
+  has_many :products, :through => :farms
+ 
   # validates_presence_of   :image
   # validates_integrity_of  :image
   # validates_processing_of :image

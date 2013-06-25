@@ -1,38 +1,16 @@
 <div class="<%= cycle("even", "odd") %>">
- 
+ <div class="container">
 
+<div class="row-fluid">
+  <div class="span9">
+    <div class="row-fluid">
+      <div class="span3"> <%= image_tag product.image_url(:thumb) %> </div>  
 
-
-<div class="container">
-
-<div class="row">
-
-       <div class="span9">
-           <div class="row"><br><br><br><center>
-         <div class="span4 pull-left"><%= image_tag product.pic.url %></div>
-
-          <div class="span3"><center><h1><br><%= product.name %></h1><p><%= product.description %></p>
-<% if signed_in? %>
-<span class="timestamp">
-<% distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
-<%= number_with_precision(distance, :precision => 0) %> Kilometers away from you</span>
-<center> <% end %>
- <%= link_to "Contact Seller", product.farm, class: "btn btn-small btn-secondary"  %>
- <%= link_to "View Farm", product.farm, class: "btn btn-small btn-secondary"  %>
- <%= link_to "View Product", product, class: "btn btn-small btn-secondary"  %>
- <% if correct_user?(@user) %>
-  <%= link_to "delete", product, class: "btn btn-small btn-secondary", method: :delete, confirm: "You sure?" %><% end %>
-  </center>
-
-          </center></div>
-           </div><!-- end nested row -->
-    </div><!-- end span9 -->
-
-        <div class="span3"><br><br>
-   <center>
-<table>
+      <div class="span3"> 
+         <h2><%= product.name %></h2>
+         <table>
 <tr>
-<td><strong>Ammount ::</strong></td>
+<td><strong>Ammount Available ::</strong></td>
 <td><center><%= product.ammount %></center></td>
 <td><strong>Kilos</strong></td>
 
@@ -41,39 +19,23 @@
 <td><strong>Price/Kilo ::</strong></td>
 <td><center><%= product.price %></center></td>
 <td><strong>Euros</strong></td>
-
-</tr>
-<tr>
-<td><strong>Category ::</strong></td>
-<td><center></center></td>
-<td><strong><%= product.category %></strong></td>
-
-</tr>
-</table> <br><br>
-<center>
-<td><center><strong>Produced By</strong></center></td>
-<td></td>
-<td><%= product.farm.name %></td><br><br>
+</tr></table>
+      </div>     
+      
+      <div class="span3">   
+<%= link_to "View Product", product, class: "btn btn-small btn-secondary"  %>
+<% if correct_user?(@user) %>
+  <%= link_to "delete", product, class: "btn btn-small btn-secondary", method: :delete, confirm: "You sure?" %><% end %>
 
 
-<td><center><strong>Located in</strong></center></td>
-
-<td><%= product.farm.region %></td><br><br>
-
-
-<td><center><strong>Willing to Swap?</strong></center></td>
-<td><%= product.farm.swap ? 'Yes' : 'No'%></td>
+      </div>     
+          
 
 
-<br><br>
-
-        	</div>
-
-    </div><!-- end parent row-->
-
- </div><!-- end container -->  
-
-
-</div>
-
-
+<!-- 
+<%# if signed_in? %>
+<span class="timestamp">
+<%# distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
+<%#= number_with_precision(distance, :precision => 0) %></span>
+<center> <%# end %>
+ -->
