@@ -39,7 +39,9 @@
     <%= f.label 'Say Somthing About Your Grow Spot...' %><br />
     <%= f.text_area :description, :size => "30x10" , :placeholder => "Say somthing about how you grow....(Optional)"%>
   </div>
- 
+ <%= f.label 'Attach a picture of where you grow...' %>
+<%= f.file_field :image %>
+
 
   </div>
 
@@ -78,13 +80,21 @@
   </div>
 
   <div class="field">
-    <%= ff.label :description %><br />
+    <%= ff.label 'Describe Your Produce' %><br />
     <%= ff.text_area :description, :size => "30x10", :placeholder => "Describe what you have grown..."  %>
   </div>
-<div class="field">
+<div class="field" style="display:inline">
+      <%= ff.label 'Available from (Leave Blank if already in season)' %><br />
+      <%= ff.date_select :avail_from, {:prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }}, {:class => 'date-select'}  %>
+</div>
+<div class="field" style="display:inline">
+      <%= ff.label 'Available Untill' %><br />
+      <%= ff.date_select :avail_until, {:prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }}, {:class => 'date-select'}  %>
+</div><br>
+<div class="field"><br><br>
 <%= ff.label 'Attach a picture of your produce...' %>
-<%= ff.file_field :image %>
-<br><br><br><br><center><%= f.submit "Create Farm", class: "btn btn-large btn-primary" %>
+<%= ff.file_field :image  %>
+<br><br><br><br>
   </div>
 
 
@@ -93,10 +103,8 @@
   
 
 <% end %>
-<%= f.label 'Attach a picture of where you grow...' %>
-<%= f.file_field :image %>
-
-
 </div>
-
+<div class="row-fluid">
+<div class="span12" ><center><%= f.submit "List Produce", class: "btn btn-large btn-primary" %></div>
+</div>
 <% end %>
