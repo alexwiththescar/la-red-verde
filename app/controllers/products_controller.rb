@@ -2,13 +2,11 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-
-@q = Product.search(params[:q])
-  @products = @q.all
-@products_grid = initialize_grid(Product
+@products = Product.all
+  # @q = Product.search(params[:q])
+  # @products = @q.all
   
-  
-)
+  @products_grid = initialize_grid(Product)
 
 
    #@products = Product.where("name LIKE ?", "%#{params[:query]}%").order('created_at DESC')

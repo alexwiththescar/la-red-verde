@@ -8,11 +8,11 @@
 <%= nested_form_for @farm do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
-   <h2>Step 1 :: Describe Your Grow...</h2><br><p>Say Somthing about where you grow and how...</p>
+   <h2>Step 1 :: Describe Your Grow...</h2><center><p>Say Somthing about where and how you grow...</p></center>
 
-    <div class="field"><br><br>
+    <div class="field"><br>
     <%= f.label "Farm Name (Optional)" %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :placeholder => "i.e. - 'My Garden' or 'Joe´s Farm'" %>
   </div>
   <div class="field">
     <%= f.label "Type of Farm?" %><br />
@@ -37,30 +37,29 @@
 </div></div><br>
 <div class="field", style="display:inline">
     <%= f.label 'Say Somthing About Your Grow Spot...' %><br />
-    <%= f.text_area :description, :size => "30x10" %>
+    <%= f.text_area :description, :size => "30x10" , :placeholder => "Say somthing about how you grow....(Optional)"%>
   </div>
-  <div class="field">
-    <%= f.label 'Attach a picture of your Grow Spot (Optional)' %>
-  </div>
+ 
+
   </div>
 
 
 <%= f.simple_fields_for(:products) do |ff| %>
 
 <div class="span6" style="margin: 0px 0px 0px 10px;">
-<h2>Step 2 :: List A Product...</h2>
+<h2>Step 2 :: List A Product...</h2><center><p>Add your first product here to begin Selling, Swapping and Sharing your Produce...</p></center><br><br>
 
 <div class="field">
-    <%= ff.label :name %><br />
-    <%= ff.text_field :name %>
+    <%= ff.label 'Produce' %><br />
+    <%= ff.text_field :name, :placeholder => "i.e. - 'Apples' or 'Red Rose Cuttings'" %>
   </div>
  
   <div class="field">
     <%= f.label  'How much do you have to sell?' %><br />
-    <%= ff.number_field :ammount %>
+    <%= ff.number_field :ammount, :placeholder => "" %>
   </div>
   <div class="field">
-    <%= ff.label :price, 'Price per Kilo?' %><br />
+    <%= ff.label :price, 'Price per Kilo or Unit?' %><br />
     <%= ff.number_field :price %>
   </div>
 
@@ -80,10 +79,10 @@
 
   <div class="field">
     <%= ff.label :description %><br />
-    <%= ff.text_field :description %>
+    <%= ff.text_area :description, :size => "30x10", :placeholder => "Describe what you have grown..."  %>
   </div>
 <div class="field">
-<%= ff.label 'Attach a picture...' %>
+<%= ff.label 'Attach a picture of your produce...' %>
 <%= ff.file_field :image %>
 <br><br><br><br><center><%= f.submit "Create Farm", class: "btn btn-large btn-primary" %>
   </div>
@@ -94,7 +93,7 @@
   
 
 <% end %>
-<%= f.label 'Attach a picture...' %>
+<%= f.label 'Attach a picture of where you grow...' %>
 <%= f.file_field :image %>
 
 

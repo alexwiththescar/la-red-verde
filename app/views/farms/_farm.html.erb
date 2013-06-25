@@ -1,5 +1,5 @@
 <div class="<%= cycle("even", "odd") %>">
-<div class="container">
+<div class="container"><br>
 
 <div class="row-fluid">
   <div class="span2">
@@ -14,7 +14,7 @@
     <span><%=  "   Location  ::  " %><%= farm.user.region %></span><br>
     <span><%=  "   Can it be delivered  ::  " %><%= farm.deliver ? 'No' : 'Yes' %></span><br>
     <span><%=  "   Is it Organic  ::  " %><%= farm.organic ? 'Yes' : 'No'  %></span><br>
-    <span class="timestamp">Listed on <%= farm.created_at.strftime("%d %b. %Y") %> </span>
+    <span class="timestamp">Created on <%= farm.created_at.strftime("%d %b. %Y") %> </span>
 
 
   </div>
@@ -23,7 +23,7 @@
 <br>
 <br>
 
-<%= link_to 'Sell A Product', new_farm_product_path(farm), class: "btn btn-small btn-secondary" %> 
+<%= link_to 'Add Another Product', new_farm_product_path(farm), class: "btn btn-small btn-secondary" %> 
 <%= link_to 'Edit Grow Spot', farm, class: "btn btn-small btn-secondary" %> 
   </div>         
  </div><!-- end container -->  
@@ -40,6 +40,4 @@
   </div>
   <div class="span2"></div>
 
-<br>
-<br>
-<br>
+

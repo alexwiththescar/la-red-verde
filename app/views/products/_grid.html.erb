@@ -25,13 +25,13 @@ g.column :name => 'Status', :attribute => 'category',  detach_with_id: :category
            custom_filter: :auto
 
   g.column  name:  'Location', :model => 'Farm', attribute: 'region', detach_with_id: :location_filter do |product|
-    product.farm.region
+    
   end
   if signed_in?
   g.column  name:  "Distance  (in KM)", attribute: 'distance', html: {style: 'font-weight: bold; text-align: center'},  filter: false do |product|
 
-distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 })
-  number_with_precision(distance, :precision => 0) 
+# distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 })
+#   number_with_precision(distance, :precision => 0) 
     end
 end
 
@@ -40,11 +40,11 @@ g.column name:  'Added', attribute: 'distance', filter: false do |product|
   end
 
   g.column :name => 'Swap', :model => 'Farm', :attribute => 'swap', detach_with_id: :swap_filter do |product|
-    product.farm.swap? ? 'Yes' : 'No'
+    #product.farm.swap? ? 'Yes' : 'No'
   end
 
  g.column name:  'Producer', :model => 'Farm', attribute: 'name', detach_with_id: :producer_filter do |product|
-  product.farm.name
+  #product.farm.name
 end
 
   

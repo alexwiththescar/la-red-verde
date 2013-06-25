@@ -8,7 +8,7 @@ end
 
   def index
     @farms = Farm.all
-@farms_grid = initialize_grid(Farm,
+  @farms_grid = initialize_grid(Farm,
   :order => 'created_at',
   :order_direction => 'asc'
 )
@@ -53,8 +53,8 @@ end
 
     respond_to do |format|
       if @farm.save
-        format.html { redirect_to @farm, notice: 'Farm was successfully created.' }
-        format.json { render json: @farm, status: :created, location: @farm }
+        format.html { redirect_to @user, notice: 'Your Grow Spot was successfully created.' }
+        format.json { render json: @user, status: :created, location: @farm }
       else
         format.html { render action: "new" }
         format.json { render json: @farm.errors, status: :unprocessable_entity }
