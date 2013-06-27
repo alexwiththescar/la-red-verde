@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 19c0eef732fac35896a8a151226d7239bc757773
+  revision: 8c7049bfc1c10096de7c963240276b639ef79bd1
   specs:
     activeadmin (0.6.0)
       arbre (>= 1.0.1)
@@ -169,7 +169,7 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
-    lumberjack (1.0.3)
+    lumberjack (1.0.4)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)

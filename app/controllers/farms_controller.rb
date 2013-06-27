@@ -53,8 +53,8 @@ end
 
     respond_to do |format|
       if @farm.save
-        format.html { redirect_to @user, notice: 'Your Grow Spot was successfully created.' }
-        format.json { render json: @user, status: :created, location: @farm }
+        format.html { redirect_to current_user, notice: 'Your Grow Spot was successfully created.' }
+        format.json { render json: current_user, status: :created, location: @farm }
       else
         format.html { render action: "new" }
         format.json { render json: @farm.errors, status: :unprocessable_entity }

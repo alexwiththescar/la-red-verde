@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   acts_as_follower
 
-  has_many :farms
+  has_many :farms,  :dependent => :destroy
   has_many :swaps
   has_many :products, :through => :farms
  
