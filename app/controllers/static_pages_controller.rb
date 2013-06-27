@@ -10,7 +10,7 @@ end
   def help
   end
 
-  def about
+  def welcome
   end
 
    def search
