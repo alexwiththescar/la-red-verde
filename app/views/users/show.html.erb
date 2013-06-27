@@ -5,11 +5,17 @@
 
 <div class="row" ><br>
   <h1>
-<%= @user.name %>'s Profile</h1><hr>
-
+<%= @user.name %>'s Profile</h1>
+<center><% if correct_user?(@user) %>
+          <p>You are following <%= @user.follow_count %> Farms. </p>
+          <% else %>
+          <p>Following <%= @user.follow_count %> Farms. </p>
+          <% end %></center><hr> 
        <div class="span9">
            <div class="row">
          <div class="span6 pull-right">
+
+
 <center><h2>Location</h2><p> <%= @user.region %></p><br>
    <center> <h2>Contact</h2><p> <%= @user.email %></p><br></center>
   <% if @user.description.blank? %><% else %>
