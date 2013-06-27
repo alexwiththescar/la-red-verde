@@ -2,8 +2,8 @@ class StaticPagesController < ApplicationController
   def home
   	
 if signed_in?
-    @productsfollow = User.find(current_user).following_farms.includes(:products).collect{|u| u.products}.flatten
-  	@products = Product.all
+    productsfoll = User.find(current_user).following_farms.includes(:products).collect{|u| u.products}.flatten
+    @productsfollow = productsfoll.paginate(:page => params[:page], :per_page => 30)
   end
 end
 
