@@ -13,11 +13,10 @@ class UsersController < ApplicationController
        :conditions => {:user_id => current_user.id})
     #@products_grid = initialize_grid(Product)
 
-    @farms = @user.farms
-    
-    
-    
+    @farms = @user.farms    
   end
+
+   
 
   def new
   @user = User.new

@@ -4,7 +4,7 @@ TgnAgain::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  devise_for :users
+  devise_for :users, :controllers => {:confirmations => "confirmations"}
   ActiveAdmin.routes(self)
 
   #mount Messaging::Engine => "/messaging"
@@ -16,6 +16,12 @@ TgnAgain::Application.routes.draw do
     end
 end
  
+ devise_scope :user do
+    get "login", :to => "devise/sessions#new"
+    get "register", :to => "devise/registrations#new"
+    get "settings", :to => "devise/sessions#edit"
+    get "logout",   :to => "devise/sessions#destroy"    
+  end
 
   resources :swaps
 resources :farms

@@ -1,7 +1,10 @@
 class StaticPagesController < ApplicationController
   def home
-  	@productsfollow = User.find(current_user).following_farms.includes(:products).collect{|u| u.products}.flatten
+  	
+if signed_in?
+    @productsfollow = User.find(current_user).following_farms.includes(:products).collect{|u| u.products}.flatten
   	@products = Product.all
+  end
 end
 
   def help
