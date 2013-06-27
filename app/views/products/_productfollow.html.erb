@@ -2,13 +2,13 @@
 <hr>
 <div class="row-fluid">
  
-      <div class="span3"> <%= image_tag product.image_url(:thumb) %> </div>  
+      <div class="span3"> <%= image_tag @product.image_url(:thumb) %> </div>  
 
       <div class="span5"> 
-         <h2><%= product.name %></h2>
+         <h2><%= @product.name %></h2>
          <table>
 <tr>
-<td><strong>Ammount Ava    ilable ::</strong></td>
+<td><strong>Ammount Available ::</strong></td>
 <td><center><%= product.ammount %></center></td>
 <td><strong>Kilos</strong></td>
 

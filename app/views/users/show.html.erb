@@ -78,14 +78,14 @@
    
 <%= render @farms %></div>
 <% else %><div class="span6"><% if correct_user?(@user) %>
-<h5>To begin selling and swapping your own Produce, register a Grow Spot Now!</h5><br>
-<center><%= link_to "New Grow Spot!", new_farm_path, class: "btn btn-large btn-secondary"  %>
+<center> <h5>To begin selling and swapping your own Produce, List your products Now!</h5><br></center>
+<center><%= link_to "I am a Grower!", new_farm_path, class: "btn btn-large btn-secondary"  %>
 <% else %>
 <% end %>
 
 </div>  
 <div class="span6">
-<h5>If your not a grower yet, and just want to see whats being grown near you, Check out the Produce Listings!</h5><br>
+<center><h5>If your not a grower yet, and just want to see whats being grown near you, Check out the Produce Listings!</h5></center><br>
 <center><%= link_to "Search Produce", products_path, class: "btn btn-large btn-secondary"  %>
 <% end %>
 </div>  

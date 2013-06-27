@@ -17,8 +17,24 @@
   <div class="row-fluid">
     <div class="span9">
       <div class="row-fluid">
-        <div class="span6"><h2>Latest Products and Plants<hr></div>
-        <div class="span6"><h2>Listings From Farms I Follow<hr></div>
+        <div class="span6"><h2>Latest Listings<hr></h2>
+<%= render :partial => "product", :collection => @products.sort_by(&:created_at).reverse, :as => :product %>
+
+
+        </div>
+        <div class="span6"><h2>From my favourite growers...<hr></h2>
+<% if current_user.follow_count == 0  %>
+<%= render :partial => "product", :collection => @productsfollow.sort_by(&:created_at).reverse, :as => :product %>
+<% else %>
+<center> <p>You are not currently following any growers. As you are browsing produce, if you find a grower with lots of things you like, they click follow on there profile page to see all there latest listings.</p><br>
+<%= link_to "View Product Listings", products_path, class: "btn btn-success"  %>
+
+</center>
+<% end %>
+
+
+
+        </div>
         
         </div>
 
@@ -32,19 +48,10 @@
 
 
 <center><div class="btn-group btn-group-vertical">
-hello 4
-<% if current_user.farms.any? %>
-<%= link_to "View My Farms", '#', class: "btn btn-small btn-secondary"  %>
 
-<% else %>
-<%= link_to "Start Selling Produce", new_farm_path, class: "btn btn-small btn-secondary"  %>
-<% end %>
-
-<%= link_to "Share a Plant", new_swap_path, class: "btn btn-small btn-secondary"  %>
 <br>
-<%= link_to "View All Product Listings", products_path, class: "btn btn-small btn-secondary"  %>
-<%= link_to "View All Farms", farms_path, class: "btn btn-small btn-secondary"  %>
-<%= link_to "View All Users", '#', class: "btn btn-small btn-secondary"  %>
+<%= link_to "View Product Listings", products_path, class: "btn btn-small btn-secondary"  %>
+<%= link_to "View All Growers", farms_path, class: "btn btn-small btn-secondary"  %>
 <br>
 <%= link_to "View My Profile", current_user, class: "btn btn-small btn-secondary"  %>
 <%= link_to "View My Messages", user_messages_path(current_user), class: "btn btn-small btn-secondary"  %>
@@ -61,7 +68,6 @@ hello 4
     </div>
 
 <div class="span12" style="background-color:#669900">
-some text!
 </div>
 
   

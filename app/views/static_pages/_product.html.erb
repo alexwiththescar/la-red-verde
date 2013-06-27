@@ -1,0 +1,41 @@
+
+<div class="row-fluid" style="border-bottom:1px double green" >
+    <div class="span2">
+     <%= image_tag product.image_url(:thumb) %>
+
+          
+      </div>     
+
+    <div class="span7">
+   
+         <h5><%= product.name %></h2>
+    
+         <p> <span class="timestamp"><%= product.created_at.strftime("%d %b. %Y") %></span>
+<br>
+         	Grown by <%= product.farm.user.name %>
+
+         </p>
+
+
+    
+      </div>     
+
+    <div class="span3">
+    
+        <br>
+<%= link_to "View", product, class: "btn btn-mini btn-secondary" %>
+
+
+    
+      </div>     
+      </div>     
+          
+
+
+<!-- 
+<%# if signed_in? %>
+<span class="timestamp">
+<%# distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
+<%#= number_with_precision(distance, :precision => 0) %></span>
+<center> <%# end %>
+ -->

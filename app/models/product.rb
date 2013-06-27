@@ -3,7 +3,6 @@ class Product < ActiveRecord::Base
   :latitude, :image, :avail_from, :avail_until
 
   belongs_to :farm
-
  mount_uploader :image, ImageUploader
 
 def self.search(query)

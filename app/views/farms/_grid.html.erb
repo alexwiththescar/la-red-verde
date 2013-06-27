@@ -1,12 +1,12 @@
 <%= define_grid(@farms_grid, hide_submit_button: true, hide_reset_button: true) do |g|
 
   g.column :name => 'farm' do |farm|
-    image_tag farm.image_url(:thumb)
+    [image_tag farm.image_url(:thumb), { style: 'background-color: rgb(255, 255, 204);'}]
 
   end
 
 
-  g.column name:  'Name', attribute: 'name', detach_with_id: :name_filter
+  g.column name:  'Name', attribute: 'name', detach_with_id: :name_filter, style: 'background-color: rgb(255, 255, 204);'
   
 
   g.column name:  'Location', attribute: 'region', detach_with_id: :location_filter, custom_filter: :auto
