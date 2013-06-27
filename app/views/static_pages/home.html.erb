@@ -30,7 +30,7 @@
 <%= link_to "View Product Listings", products_path, class: "btn btn-success"  %>
 <% else %>
 
-<%= render :partial => "product", :collection => @productsfollow.sort_by(&:created_at).reverse, :as => :product %>
+<%= render :partial => "product", :collection => @productsfolling.sort_by(&:created_at).reverse,  :as => :product %>
 
 </center>
 <% end %>
