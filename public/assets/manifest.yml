@@ -1,12 +1,16 @@
 ---
 default.png: default-34051b5100cff86e0afb6a0f50eabffb.png
 default/index.png: default-34051b5100cff86e0afb6a0f50eabffb.png
+thumb_default.png: thumb_default-34051b5100cff86e0afb6a0f50eabffb.png
+thumb_default/index.png: thumb_default-34051b5100cff86e0afb6a0f50eabffb.png
 banner.png: banner-66b1372c2418af3c9b9b59a73919f1e0.png
 banner/index.png: banner-66b1372c2418af3c9b9b59a73919f1e0.png
 bg.jpg: bg-eca0f661e6ca46c7b868f213ba3fadd5.jpg
 bg/index.jpg: bg-eca0f661e6ca46c7b868f213ba3fadd5.jpg
 fallback/default.png: fallback/default-34051b5100cff86e0afb6a0f50eabffb.png
 fallback/default/index.png: fallback/default-34051b5100cff86e0afb6a0f50eabffb.png
+fallback/thumb_default.png: fallback/thumb_default-34051b5100cff86e0afb6a0f50eabffb.png
+fallback/thumb_default/index.png: fallback/thumb_default-34051b5100cff86e0afb6a0f50eabffb.png
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 active_admin.js: active_admin-34004591c252991d0dbd994ec30b812d.js

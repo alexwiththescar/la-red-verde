@@ -53,7 +53,7 @@
 <center><div class="btn-group btn-group-vertical">
 <% if current_user.farms.any? %>
 <% else %>
-<%= link_to "Register as a grower", products_path, class: "btn btn-small btn-secondary"  %>
+<%= link_to "Register as a grower", new_farm_path, class: "btn btn-small btn-secondary"  %>
 <% end %>
 
 <br>
