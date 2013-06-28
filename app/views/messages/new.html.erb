@@ -1,7 +1,10 @@
 <%= form_for @message, :url => user_messages_path(@user) do |f| %>
   <p>
-    To:<br /><%= @message.to %>
-    <%= f.text_field :to, :value => @message.to %>
+
+
+<br />
+    To:  <%= @name %><br />
+    <%= f.hidden_field :to, :value => @message.to %>
     <%= error_message_on @message, :to %>
   </p>
   <p>
