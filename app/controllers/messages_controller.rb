@@ -1,8 +1,8 @@
 class MessagesController < ApplicationController
   
- before_filter :set_user
+  before_filter :set_user
   before_filter :authenticate_user!
-  before_filter :correct_user, only: [:edit, :update, :destroy]
+  before_filter :correct_user
   
   def index
     if params[:mailbox] == "sent"
@@ -18,23 +18,24 @@ class MessagesController < ApplicationController
   
   def new
     @message = Message.new
+    #@recevier = User.find(params[:to]).id
 
     if params[:reply_to]
       @reply_to = @user.received_messages.find(params[:reply_to])
-     
+      
         @message.to = @reply_to.sender.id
         @message.subject = "Re: #{@reply_to.subject}"
         @message.body = "\n\n*Original message*\n\n #{@reply_to.body}"
       
-    elsif params[:user_id]
-        @message.to = User.find(params[:user_id]).id 
-end
-      if params[:farm_id]
+      elsif params[:replyto]
+        @message.to = User.find(params[:replyto]).id
+
+      elsif params[:farm_id]
         
         @message.subject = "Re: #{@farm_id}"
     end
   end
-  
+ 
   
   def create
     @message = Message.new(params[:message])
@@ -43,7 +44,6 @@ end
 
     if @message.save
       flash[:notice] = "Message sent"
-      UserMailer.welcome_email(@message.recipient).deliver!
       redirect_to user_messages_path(@user)
     else
       render :action => :new
@@ -65,7 +65,7 @@ end
   
   private
     def set_user
-      @user = User.find(params[:user_id])
+      @user = current_user
     end
 
     def correct_user
@@ -73,6 +73,4 @@ end
     redirect_to user_message_path unless current_user == @user
   end
 end
-
-
 
