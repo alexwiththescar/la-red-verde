@@ -18,3 +18,22 @@
 //= require jquery_nested_form
 
 //= require_tree .
+
+$(document).ready(function(){
+  // Hide div
+  $(".hidden_fields").css("display","none");
+
+  // Add onclick handler to checkbox w/ class 'toggle_hidden_fields'
+  $(".toggle_hidden_fields").click(function(){
+    if ($(".toggle_hidden_fields").is(":checked")) {
+      // Show the hidden div
+      $(".hidden_fields").show("fast");
+      $(".non_hidden_fields").hide("fast");
+    }
+    else {
+      // Otherwise, hide it
+      $(".non_hidden_fields").show("fast");
+      $(".hidden_fields").hide("fast");
+    }
+  });
+});

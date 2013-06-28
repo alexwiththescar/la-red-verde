@@ -1,3 +1,4 @@
+
 <%= form_for @message, :url => user_messages_path(@user) do |f| %>
   <p>
 
@@ -9,15 +10,51 @@
   </p>
   <p>
     Subject:<br />
-    <%= f.text_field :subject %>
+      <%= f.text_field :subject %>
+   
     <%= error_message_on @message, :subject %>
-    </p>
-    <p>
+   </p>
+
+<% if current_user.farms.includes(@products).any? %>
+<p><input id="toggle_hidden_fields" name="toggle_hidden_fields" type="checkbox" class="toggle_hidden_fields">
+Click here to suggest a swap? </p>
+
+
+<% end %>
+
+<div class="non_hidden_fields">
+<p>
       Message<br />
       <%= f.text_area :body %>
       <%= error_message_on @message, :body %>
     </p>
+    
+</div>
+
+<div class="hidden_fields">
+<p>
+    <%  if params[:product] %>
+      Message<br />
+      <%= f.text_area :body, :value => "I found your listing of #{@productname} and wondered if you would be interested in swaping then for some of me produce?
+
+      I have #{@swapproducts.map { |s| s.name }.join(', ')} listed at the moment.
+      
+      Please visit my profie to view them" %>
+      <%= error_message_on @message, :body %>
+    <% else %>
+      Message<br />
+      <%= f.text_area :body, :value => "Hello, I wondered if you would be interested in swaping some of your produce?
+
+      I have #{@swapproducts.map { |s| s.name }.join(', ')} listed at the moment.
+      
+      Please visit my profie to view them" %>
+      <%= error_message_on @message, :body %>
+    <% end %>
+
+
+    </p></div>
     <p>
       <%= submit_tag "Send" %>
     </p>
 <% end %>
+      

@@ -18,26 +18,30 @@ class MessagesController < ApplicationController
   
   def new
     @message = Message.new
+    @swapproducts = User.find(current_user).farms.includes(:products).collect{|u| u.products}.flatten
    
 
-    if params[:reply_to]
+     if params[:reply_to]
       @reply_to = @user.received_messages.find(params[:reply_to])
         unless @reply_to.nil?
-       
         @name =  @reply_to.sender.login
-
         @message.to = @reply_to.sender.id
         @message.subject = "Re: #{@reply_to.subject}"
         @message.body = "\n\n*Original message*\n\n #{@reply_to.body}"
-      end
+        end
+      
       elsif params[:replyto]
         @message.to = User.find(params[:replyto]).id
         @name = User.find(params[:replyto]).name
       
-      elsif params[:farm_id]
-        
-        @message.subject = "Re: #{@farm_id}"
-    end
+      elsif params[:product]
+        @message.to = User.find(params[:product]).id
+        @name = User.find(params[:product]).name
+        @productname = Product.find(params[:productname]).name
+        @message.subject = "A message about your #{@productname}..."
+
+
+     end
   
     
 

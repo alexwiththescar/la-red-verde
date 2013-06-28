@@ -6,11 +6,7 @@
 <div class="row" ><br>
   <h1>
 <%= @user.name %>'s Profile</h1>
-<center><% if correct_user?(@user) %>
-          <p>You are following <%= @user.follow_count %> Farms. </p>
-          <% else %>
-          <p>Following <%= @user.follow_count %> Farms. </p>
-          <% end %></center><hr> 
+<hr> 
        <div class="span9">
            <div class="row">
          <div class="span6 pull-right">
@@ -45,9 +41,12 @@
 <%= link_to "Sign Out", destroy_user_session_path, method: "delete", class: "btn btn-small btn-secondary"  %>
 </div><br><br><br></center>
 <% else %>
-<%= link_to "Send Message", {:controller => 'messages', :action => "new", :replyto => @user.id, :user_id => current_user},class: "btn btn-small btn-secondary"  %><br>
-<%= link_to "Back To My Profile", farms_path, class: "btn btn-small btn-secondary"  %>
+<center><div class="btn-group btn-group-vertical">
 
+<%= link_to "Message #{@user.name}", {:controller => 'messages', :action => "new", :replyto => @user.id, :user_id => current_user},class: "btn btn-small btn-secondary"  %><br>
+<%= link_to "Back To My Profile", farms_path, class: "btn btn-small btn-secondary"  %><br>
+
+</div>
 </div></center>
 <% end %>
 <% end %>
