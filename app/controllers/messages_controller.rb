@@ -22,20 +22,24 @@ class MessagesController < ApplicationController
 
     if params[:reply_to]
       @reply_to = @user.received_messages.find(params[:reply_to])
-      
+        unless @reply_to.nil?
+       
+        @name =  @reply_to.sender.login
+
         @message.to = @reply_to.sender.id
         @message.subject = "Re: #{@reply_to.subject}"
         @message.body = "\n\n*Original message*\n\n #{@reply_to.body}"
-      
+      end
       elsif params[:replyto]
         @message.to = User.find(params[:replyto]).id
-
+        @name = User.find(params[:replyto]).name
+      
       elsif params[:farm_id]
         
         @message.subject = "Re: #{@farm_id}"
     end
   
-    @name = User.find(params[:replyto]).name
+    
 
 
   end
@@ -48,7 +52,7 @@ class MessagesController < ApplicationController
 
     if @message.save
       flash[:notice] = "Message sent"
-      UserMailer.welcome_email(@message.recipient).deliver!
+      UserMailer.newmessage_email(@message.recipient).deliver!
       redirect_to user_messages_path(@user)
     else
       render :action => :new
