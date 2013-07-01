@@ -7,7 +7,7 @@
 
   </div>
 <div class="pull-left">
-  <h4>Welcome to La Red Verde</h4>
+  <h4>Hello <%= current_user.name %>,<br> Welcome to La Red Verde</h4>
   <p>You are following <%= current_user.follow_count %> Farms. </p>
   <p>You have <%= current_user.unread_message_count %> New Messages</p>
 </div>
@@ -18,12 +18,12 @@
   <div class="row-fluid">
     <div class="span9">
       <div class="row-fluid">
-        <div class="span6"><h2>Latest Listings<hr></h2>
+        <div class="span6"><h2>Latest Listings (<%= @productcount.count %>)<hr></h2>
 <%= render :partial => "product", :collection => @products.sort_by(&:created_at).reverse, :as => :product %>
 
-
+<center> <p><%= link_to "View all listings", products_path %> </p> </center>
         </div>
-        <div class="span6"><h2>From my favourite growers...<hr></h2>
+        <div class="span6"><h2>From my favourite growers...(<%= @productsfollingcount.count %>)<hr></h2>
 <% if current_user.follow_count == 0  %>
 
 <center> <p>You are not currently following any growers. As you are browsing produce, if you find a grower with lots of things you like, they click follow on there profile page to see all there latest listings.</p><br>
@@ -33,6 +33,8 @@
 <%= render :partial => "product", :collection => @productsfolling.sort_by(&:created_at).reverse,  :as => :product %>
 
 </center>
+<center> <p><%= link_to "View all listings" %> </p> </center>
+
 <% end %>
 
 

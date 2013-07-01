@@ -2,8 +2,11 @@ class StaticPagesController < ApplicationController
   def home
   	
 if signed_in?
-    @productsfolling = User.find(current_user).following_farms.includes(:products).collect{|u| u.products}.flatten
-    @products = Product.all
+    @productsfolling = User.find(current_user).following_farms.includes(:products).collect{|u| u.products}.flatten.last(5)
+    @productsfollingcount = User.find(current_user).following_farms.includes(:products).collect{|u| u.products}.flatten
+
+    @products = Product.all.last(5)
+    @productcount = Product.all
   end
 end
 
