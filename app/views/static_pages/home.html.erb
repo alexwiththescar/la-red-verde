@@ -33,7 +33,7 @@
 <%= render :partial => "product", :collection => @productsfolling.sort_by(&:created_at).reverse,  :as => :product %>
 
 </center>
-<center> <p><%= link_to "View all listings" %> </p> </center>
+<center> <p><%= link_to "View all listings", followed_products_path %> </p> </center>
 
 <% end %>
 

@@ -5,7 +5,7 @@ class Farm < ActiveRecord::Base
   
 
   belongs_to :user
-  has_many :products, :dependent => :destroy
+  has_many :products, :dependent => :destroy, :order => "created_at DESC"
  acts_as_followable
   validates :user_id, presence: true
 accepts_nested_attributes_for :products

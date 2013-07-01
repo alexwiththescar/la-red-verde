@@ -13,6 +13,12 @@ end
   def help
   end
 
+def followed_products
+    @products = User.find(current_user).following_farms.includes(:products).collect{|u| u.products}.flatten
+  
+
+  end
+
   def welcome
   end
 

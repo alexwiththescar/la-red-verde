@@ -1,0 +1,4 @@
+
+
+
+<%= render :partial => "followed_product", :collection => @products.sort_by(&:created_at).reverse,  :as => :product %>
