@@ -1,37 +1,27 @@
-<br><br><div class="">
-<h1><%= @farm.name %></h1>
-<!-- <center><p>Being followed by <%# @farm.followers_count %> people</p> -->
-
-<% if signed_in? %>
-
-
-
-
-
-</center><br><br><br>
-<div class="content">
-<div class="span3">
-
-
-<p>
-  <%= image_tag @farm.image_url %>
+    <div class="row-fluid">
+    <div class="span3">
+      <%= image_tag @farm.image_url %>
   <%= image_tag "http://maps.google.com/maps/api/staticmap?size=650x400&sensor=false&zoom=10&markers=#{@farm.latitude}%2C#{@farm.longitude}" %> 
-</p>
-</div>
-<div class="span6">
-	<h2>About Us...</h2><%= @farm.description %>
-<p> 
+      </div>
 
-  
-</p>
-<p>
+    <div class="span9">
+<h1><%= @farm.name %></h1>
+<center><span class="timestamp">Being followed by <%= @farm.followers_count %> people <br>
 
-</p>
-</div>
-<div class="span1">
 	
-	<div class="btn-group btn-group-vertical">
-<% if correct_user?(@farm.user) %>
+<% distance = Geocoder::Calculations.distance_between([@farm.latitude, @farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
+<%= number_with_precision(distance, :precision => 0) %> Kilometers away from you.</span>
+<center><br>
+<h2>About Us...</h2><%= @farm.description %>
+
+    </div>
+    </div>
+
+<div class="row-fluid">
+    <div class="span12">
+<center><div class="btn-group btn-group-horizontal">
+<hr>
+    <% if correct_user?(@farm.user) %>
 <%= link_to 'Edit Farm Details', edit_farm_path(@farm), class: "btn btn-small btn-secondary" %> 
 
 <%= link_to 'Sell Product', new_farm_product_path(@farm), class: "btn btn-small btn-secondary" %> 
@@ -45,33 +35,19 @@
 <% else %>
 <%= link_to "Follow", follow_farm_path(@farm), class: "btn btn-small btn-secondary" %>
 <% end %>
-<%= link_to 'Contact Farmer', new_user_message_path(:user_id => @farm.user.id, :farm_id => @farm.name), class: "btn btn-small btn-secondary" %> 
-
-
-
-
-  </div></div>
-
-
-
-
-</div></div><br><br><br><br><br>
+<%= link_to "Message Grower", {:controller => 'messages', :action => "new", :replyto => @farm.user.id, :user_id => current_user},class: "btn btn-small btn-secondary"  %>
+<% end %>
 <hr>
-<div class='span12'>
-<% if @farm.products.any? %>
+    </div>
+    </div>
+    </div>
+
+    <div class="row-fluid">
+    <div class="span12">
+
+    	<% if @farm.products.any? %>
 <center><h3>Our products(<%= @farm.products.count %>)</h3>
-<%= link_to 'Add Another Product', new_farm_product_path(@farm), class: "btn btn-small btn-secondary" %> </center>
-   <hr>
-   <ul class="users">
-<%= render @farm.products %>
-</ul>
-
-<CENTER>
-<h5>To begin selling your own produce, list it here!</h5>
-<%= link_to 'Sell Product', new_farm_product_path(@farm), class: "btn btn-small btn-secondary" %> 
-<% end %></CENTER>
-
-  </div>
+	<%= render @farm.products %>
 <% end %>
-<% end %>
-
+	 </div>
+    </div>

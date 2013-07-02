@@ -1,10 +1,10 @@
 
 <hr>
 <div class="row-fluid">
- 
+ <div class="span12">
       <div class="span3"> <%= image_tag product.image_url(:thumb) %> </div>  
 
-      <div class="span5"> 
+      <div class="span6"> 
          <h2><%= product.name %></h2>
          <table>
 <tr>
@@ -23,17 +23,16 @@
       <div class="span3">   
 <%= link_to "View Product", product, class: "btn btn-small btn-secondary"  %>
 <% if correct_user?(@user) %>
-  <%= link_to "delete", product, class: "btn btn-small btn-secondary", method: :delete, confirm: "You sure?" %><% end %>
+  <%= link_to "Delete", product, class: "btn btn-small btn-secondary", method: :delete, confirm: "You sure?" %>
+  <%= link_to "Edit", product, class: "btn btn-small btn-secondary" %><% end %>
 
 
       </div>     
+      </div>    </div>     
           
 
 
-<!-- 
-<%# if signed_in? %>
-<span class="timestamp">
-<%# distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
-<%#= number_with_precision(distance, :precision => 0) %></span>
-<center> <%# end %>
- -->
+
+
+
+
