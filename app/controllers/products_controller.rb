@@ -57,7 +57,7 @@ end
   def create
     @farm = Farm.find(params[:farm_id])
     @product = @farm.products.create(params[:product])
-    redirect_to farm_path(@farm)
+    redirect_to current_user
 end
 
   # PUT /products/1
