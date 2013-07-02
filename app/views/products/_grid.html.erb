@@ -30,8 +30,8 @@ g.column :name => 'Status', :attribute => 'category',  detach_with_id: :category
   if signed_in?
   g.column  name:  "Distance  (in KM)", attribute: 'distance', html: {style: 'font-weight: bold; text-align: center'},  filter: false do |product|
 
-# distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 })
-#   number_with_precision(distance, :precision => 0) 
+ distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 })
+   number_with_precision(distance, :precision => 0) 
     end
 end
 
