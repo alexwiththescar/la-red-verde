@@ -17,8 +17,7 @@ gem 'haml-rails'
 gem "nested_form"
 gem "acts_as_follower"
 gem 'simple_form'
-#gem 'messaging', git: 'git://github.com/frodefi/rails-messaging.git'
-#gem 'mailboxer', git: 'git://github.com/ging/mailboxer.git'
+gem 'gmaps4rails'
 
 gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
 gem  'dynamic_form'

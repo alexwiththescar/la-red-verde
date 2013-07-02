@@ -11,8 +11,8 @@
   </div>
 <div class="pull-left">
   <h4>Hello <%= current_user.name %>,<br> Welcome to La Red Verde</h4>
-  <p>You are following <%= current_user.follow_count %> Farms. </p>
-  <p>You have <%= current_user.unread_message_count %> New Messages</p>
+  <p>You are following <%= pluralize(current_user.follow_count, "Farm") %>  </p>
+  <p>You have <%= pluralize(current_user.unread_message_count, "New Message") %></p>
 </div>
 
   </div>

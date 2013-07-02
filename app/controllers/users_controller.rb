@@ -5,10 +5,10 @@ class UsersController < ApplicationController
   before_filter :admin_user, only: :destroy
   
   def show
+
+    
     @user = User.includes(farms: :products).find(params[:id]) 
-    @swaps_grid = initialize_grid(Swap,
-       :conditions => {:user_id => current_user.id}
-      )
+    
     @farms_grid = initialize_grid(Farm,
        :conditions => {:user_id => current_user.id})
     #@products_grid = initialize_grid(Product)

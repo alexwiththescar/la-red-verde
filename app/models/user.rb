@@ -41,7 +41,12 @@ class User < ActiveRecord::Base
   
   geocoded_by :address
   after_validation :geocode, :if => :region_changed?
+acts_as_gmappable
 
+def gmaps4rails_address
+#describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
+  "#{region}"
+end
 
   def feed
 Product.from_farms_followed_by(self)
