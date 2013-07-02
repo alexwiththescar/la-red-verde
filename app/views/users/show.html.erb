@@ -72,7 +72,7 @@
 <%= image_tag @user.avatar_url.to_s %>
 
 
-    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=650x400&sensor=false&zoom=10&markers=#{@user.latitude}%2C#{@user.longitude}" %>
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=650x400&sensor=false&zoom=10&markers=#{@user.latitude}%2C#{@user.longitude}" %><%= link_to "http://maps.google.com/maps/api/staticmap?size=650x400&sensor=false&zoom=10&markers=#{@user.latitude}%2C#{@user.longitude}" %>
 </div>
 
 
