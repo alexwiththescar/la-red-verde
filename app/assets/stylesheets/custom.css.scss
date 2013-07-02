@@ -1,6 +1,22 @@
 @import "bootstrap";
 
 
+
+/* for the map page -------------
+--------------------------------------*/
+#map img { 
+  max-width: none;
+}
+#map label { 
+  width: auto; display:inline; 
+} 
+
+
+
+
+
+
+
  .hometable
 {
 height:100px;

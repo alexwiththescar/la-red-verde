@@ -59,6 +59,7 @@ root to: "static_pages#home"
   match '/growers', to: 'farms#index'
   match 'followed_products', to: 'static_pages#followed_products'
   match 'i_am_following', to: 'static_pages#i_am_following'
+  match 'farm_map', to: 'static_pages#farm_map'
   
   match '/search', to: "static_pages#search"
   match '/help', to: "static_pages#help"

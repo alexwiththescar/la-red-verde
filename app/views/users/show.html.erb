@@ -59,7 +59,7 @@
 
 
 <div class="span6">
-	    
+
 
 
 <center><h2>Location</h2><p> <%= @user.region %></p><br>
@@ -90,6 +90,8 @@
 
    
 <%= render @farms %></div>
+<hr>
+<%= link_to "Add Another Location", new_farm_path, class: "btn btn-large btn-secondary"  %>
 <% else %>
 <div class="span6"><% if correct_user?(@user) %>
 <center> <h5>To begin selling and swapping your own Produce, List your products Now!</h5><br></center>

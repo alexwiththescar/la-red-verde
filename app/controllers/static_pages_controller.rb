@@ -10,12 +10,15 @@ if signed_in?
   end
 end
 
-  def help
+  def farm_map
 @json = Farm.all.to_gmaps4rails do |farm, marker|
     marker.infowindow render_to_string(:partial => "infowindow", :locals => { :farm => farm})
     marker.title "#{farm.name}"
   end
+end
 
+
+def help
   end
 
 
