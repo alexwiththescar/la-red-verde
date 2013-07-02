@@ -22,9 +22,9 @@
 <center><div class="btn-group btn-group-horizontal">
 <hr>
     <% if correct_user?(@farm.user) %>
-<%= link_to 'Edit Farm Details', edit_farm_path(@farm), class: "btn btn-small btn-secondary" %> 
+<%= link_to 'Edit Location Details', edit_farm_path(@farm), class: "btn btn-small btn-secondary" %> 
 
-<%= link_to 'Sell Product', new_farm_product_path(@farm), class: "btn btn-small btn-secondary" %> 
+<%= link_to 'List A Product', new_farm_product_path(@farm), class: "btn btn-small btn-secondary" %> 
 
 
 <%= link_to 'Back to my Profile', current_user, class: "btn btn-small btn-secondary"  %>

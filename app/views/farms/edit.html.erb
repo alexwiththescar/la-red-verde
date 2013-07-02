@@ -1,6 +1,180 @@
-<h1>Editing farm</h1>
+<h1>Edit Growing Location</h1>
 
-<%= render 'form' %>
+
+<div class="row-fluid">
+<div class="span3"></div>
+
+<div class="span6" style="margin: 0px 10px 0px 0px;">
+
+<%= nested_form_for @farm do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+
+    <div class="field"><br>
+    <%= f.label "Farm Name (Optional)" %><br />
+    <%= f.text_field :name, :placeholder => "i.e. - 'My Garden' or 'Joe´s Farm'" %>
+  </div>
+  <div class="field">
+    <%= f.label "Type of Farm?" %><br />
+   <%= f.select :farmtype, options_for_select(["Private Grower","Farm"]) %>
+  </div>
+  <div class="field">
+  <%= f.label 'Are You Willing To Swap For Other Fresh Produce?    ' %><br>
+  <%= f.radio_button :swap, true %><%= f.label 'Yes',:style => "display:inline" %><br />
+  <%= f.radio_button :swap, false %><%= f.label 'No' ,:style => "display:inline"%><br />
+
+</div><br>
+  <div class="field" style="display:inline">
+  <%= f.label 'Is it Organicly Grown?    ' %><br>
+  <%= f.radio_button :organic, true %><%= f.label 'Yes', :style => "display:inline"  %><br />
+  <%= f.radio_button :organic, false %><%= f.label 'No', :style => "display:inline"  %><br />
+</div><br>
+<div style="display:inline"><div class="field", style="display:inline">
+  
+  <%= f.label 'Can you Deliver Locally?    ' %><br>
+   <%= f.radio_button :deliver, true %><%= f.label 'Yes', :style => "display:inline"  %><br />
+  <%= f.radio_button :deliver, false %><%= f.label 'No', :style => "display:inline"  %><br />
+</div></div><br>
+
+<p><input id="toggle_hidden_fields" name="toggle_hidden_fields" type="checkbox" class="toggle_hidden_fields">
+Click here if you are growing at a different location.</p>
+
+<div class="hidden_fields">
+ <div class="field">
+    <%= f.label :street_name %><br />
+    <%= f.text_field :street_name, :value => current_user.street_name %>
+  </div>
+   <div class="field">
+    <%= f.label :bldg_name %><br />
+    <%= f.text_field :bldg_name, :value => current_user.bldg_name %>
+  </div>
+   <div class="field">
+    <%= f.label :region %><br />
+    <%= f.select :region, options_for_select(%w[Alameda
+Alcaucín 
+Alfarnate 
+Alfarnatejo 
+Algarrobo 
+Algatocín 
+Alhaurín_de_la_Torre 
+Alhaurín-el-Grande 
+Almáchar 
+Almargen 
+Almogía 
+Álora 
+Alozaina 
+Alpandeire 
+Antequera 
+Árchez 
+Archidona 
+Ardales 
+Arenas 
+Arriate 
+Atajate 
+Benadalid 
+Benahavís 
+Benalauría 
+Benalmádena 
+Benamargosa 
+Benamocarra 
+Benaoján 
+Benarrabá 
+El-Borge 
+El-Burgo 
+Campillos 
+Canillas-de-Aceituno 
+Canillas-de-Albaida 
+Cañete-la-Real 
+Carratraca 
+Cartajima 
+Cártama 
+Casabermeja 
+Casarabonela 
+Casares 
+Coín 
+Colmenar-(Málaga) 
+Comares 
+Cómpeta 
+Cortes-de-la-Frontera 
+Cuevas-Bajas 
+Cuevas-de-San-Marcos 
+Cuevas-del-Becerro 
+Cútar 
+Estepona 
+Faraján 
+Frigiliana 
+Fuengirola 
+Fuente-de-Piedra 
+Gaucín 
+Genalguacil 
+Guaro 
+Humilladero 
+Igualeja 
+Istán 
+Iznate 
+Jimera-de-Líbar 
+Jubrique 
+Júzcar 
+Macharaviaya 
+Málaga 
+Manilva 
+Marbella 
+Mijas 
+Moclinejo 
+Mollina 
+Monda 
+Montejaque 
+Nerja 
+Ojén 
+Parauta 
+Periana 
+Pizarra 
+Pujerra 
+Rincón-de-la-Victoria 
+Riogordo 
+Ronda 
+Salares 
+Sayalonga 
+Sedella 
+Sierra-de-Yeguas 
+Teba 
+Tolox 
+Torremolinos 
+Torrox 
+Totalán 
+Valle-de-Abdalajís 
+Vélez-Málaga 
+Villanueva-de-Algaidas 
+Villanueva-de-Tapia 
+Villanueva-del-Rosario 
+Villanueva-del-Trabuco 
+Viñuela 
+Yunquera ] ), :value => current_user.region %>
+  </div>
+  <div class="field">
+    <%= f.label :post_code %><br />
+    <%= f.number_field :post_code, :value => current_user.post_code %>
+  </div>
+  <div class="field">
+    <%= f.label :province %><br />
+   <%= f.select :province, options_for_select(%w[Malaga,España]) %>
+  </div>
+  
+
+
+</div>
+<br>
+<div class="field", style="display:inline">
+    <%= f.label 'Say Somthing About Your Growing...' %><br />
+    <%= f.text_area :description, :size => "30x10" , :placeholder => "Say somthing about how you grow....(Optional)"%>
+  </div>
+ <%= f.label 'Attach a picture of where you grow...' %>
+<%= f.file_field :image %>
+<br><br><center> <%= f.submit "Update", class: "btn btn-large btn-primary" %></center>
+
+  </div>
+<% end %>
+<div class="span3"></div>
+<div class="span12">
 
 <%= link_to 'Show', @farm %> |
-<%= link_to 'Back', farms_path %>
+<%= link_to 'Back', farms_path %></div>

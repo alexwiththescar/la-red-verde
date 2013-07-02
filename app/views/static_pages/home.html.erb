@@ -2,6 +2,9 @@
 
 <div class="row-fluid">
 <div class="span12" style="background-color:#669900">
+<div class="pull-right">
+<%= image_tag '/images/homelogo.png' %>
+</div>
 <div class="pull-left" style="margin: 0px 20px 0px 0px;">
 <%= image_tag current_user.avatar_url(:thumb).to_s %>
 
@@ -21,19 +24,19 @@
         <div class="span6"><h2>Latest Listings (<%= @productcount.count %>)<hr></h2>
 <%= render :partial => "product", :collection => @products.sort_by(&:created_at).reverse, :as => :product %>
 
-<center> <p><%= link_to "View all listings", products_path %> </p> </center>
+<center> <p><hr><%= link_to "View all listings", products_path %></p> </center>
         </div>
         <div class="span6"><h2>From my favourite growers...(<%= @productsfollingcount.count %>)<hr></h2>
 <% if current_user.follow_count == 0  %>
 
 <center> <p>You are not currently following any growers. As you are browsing produce, if you find a grower with lots of things you like, they click follow on there profile page to see all there latest listings.</p><br>
-<%= link_to "View Product Listings", products_path, class: "btn btn-success"  %>
+<%= link_to "View All Listings", products_path, class: "btn btn-success"  %>
 <% else %>
 
 <%= render :partial => "product", :collection => @productsfolling.sort_by(&:created_at).reverse,  :as => :product %>
 
 </center>
-<center> <p><%= link_to "View all listings", followed_products_path %> </p> </center>
+<center> <hr><p><%= link_to "View all Followed Products", followed_products_path %>  - <%= link_to "See Who I Follow", i_am_following_path %></p> </center>
 
 <% end %>
 
@@ -76,10 +79,6 @@
     </div>
     </div>
 
-<div class="span12" style="background-color:#669900">
-</div>
-
-  
 
 
 

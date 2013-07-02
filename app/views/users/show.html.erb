@@ -1,7 +1,21 @@
 
 <div class="container">
 <div class="row-fluid">
-  <h1><%= @user.name %>'s Profile</h1>
+<div class="span12">
+<div class="span3">
+</div>
+
+<div class="span6">
+<h1><%= @user.name %>'s Profile<hr></h1></div>
+<div class="span3">
+
+<div class="timestamp"><br>
+	Member since <%= @user.confirmed_at.strftime("%d %b. %Y") %><br>
+	Last online <%= @user.last_sign_in_at.strftime("%d %b. %Y") %>
+</div>
+</div>
+</div>
+
 
 <div class="span12">
 <div class="row-fluid">
@@ -47,7 +61,6 @@
 <div class="span6">
 
 <center><h2>Location</h2><p> <%= @user.region %></p><br>
-   <center> <h2>Contact</h2><p> <%= @user.email %></p><br></center>
   
   <% if @user.description.blank? %>
    <center><h2>About Us</h2><p> <%= @user.description %></p><br>
@@ -66,7 +79,7 @@
 </div>
 </div>
 
-<hr>
+
 <div class="row-fluid">
 <div class="span12">
 
