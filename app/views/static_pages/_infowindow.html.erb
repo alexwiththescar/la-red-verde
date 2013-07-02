@@ -1,2 +1,5 @@
-<h1><%= farm.name %></h1>
-<h2><%= farm.user.name %></h2>
+<center> <h4><%= farm.name %></h4></center>
+<center> <h5><%= farm.user.name %></h4></center>
+<p>	Products Available:<br><% for product in farm.products do %>
+<%= product.name %>,
+<% end %></p>
