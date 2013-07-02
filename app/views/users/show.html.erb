@@ -1,36 +1,25 @@
 
-<% provide(:title, @user.name) %>
-
 <div class="container">
+<div class="row-fluid">
+  <h1><%= @user.name %>'s Profile</h1>
 
-<div class="row" ><br>
-  <h1>
-<%= @user.name %>'s Profile</h1>
-<hr> 
-       <div class="span9">
-           <div class="row">
-         <div class="span6 pull-right">
+<div class="span12">
+<div class="row-fluid">
+<div class="span3" style="background-color:#669900">
 
-
-<center><h2>Location</h2><p> <%= @user.region %></p><br>
-   <center> <h2>Contact</h2><p> <%= @user.email %></p><br></center>
-  <% if @user.description.blank? %><% else %>
-   <center><h2>About Us</h2><p> <%= @user.description %></p><br>
-<% end %>
-         </div>
-
-          <div class="span3" , style="background-color:#669900"><br>
-<% if signed_in? %>
 
 <% if correct_user?(@user) %>
 
 <center><div class="btn-group btn-group-vertical">
 
-<% if @user.farms.any? %>
+<% if @user.farms.any? %><br>
+<br>
+
 <%= link_to "Add A Product", '#', class: "btn btn-small btn-secondary"  %>
 <% else %>
 <%= link_to "Register as a Grower", new_farm_path, class: "btn btn-small btn-secondary"  %>
-  <% end %>  
+  <% end %> 
+
 <br>
 <%= link_to "View All Product Listings", products_path, class: "btn btn-small btn-secondary"  %>
 <%= link_to "View All Users", '#', class: "btn btn-small btn-secondary"  %>
@@ -39,33 +28,43 @@
 <%= link_to "Edit My Profile", edit_user_registration_path, class: "btn btn-small btn-secondary"  %>
 <br>
 <%= link_to "Sign Out", destroy_user_session_path, method: "delete", class: "btn btn-small btn-secondary"  %>
-</div><br><br><br></center>
+</div></center><br>
+<br>
 <% else %>
-<center><div class="btn-group btn-group-vertical">
+
+<center><div class="btn-group btn-group-vertical"><br><br>
+
 
 <%= link_to "Message #{@user.name}", {:controller => 'messages', :action => "new", :replyto => @user.id, :user_id => current_user},class: "btn btn-small btn-secondary"  %><br>
-<%= link_to "Back To My Profile", current_user, class: "btn btn-small btn-secondary"  %><br>
+<%= link_to "Back To My Profile", current_user, class: "btn btn-small btn-secondary"  %><br><br>
+
+</div></center><% end %>
 
 </div>
-</div></center>
+
+
+
+<div class="span6">
+
+<center><h2>Location</h2><p> <%= @user.region %></p><br>
+   <center> <h2>Contact</h2><p> <%= @user.email %></p><br></center>
+  
+  <% if @user.description.blank? %>
+   <center><h2>About Us</h2><p> <%= @user.description %></p><br>
 <% end %>
-<% end %>
-          </div>
-           </div><!-- end nested row -->
-    </div><!-- end span9 -->
-
-        <div class="span3">
-<%= image_tag @user.avatar_url.to_s %><br><br>
+</div>
+<div class="span3">
+<%= image_tag @user.avatar_url.to_s %>
 
 
-    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=650x400&sensor=false&zoom=10&markers=#{@user.latitude}%2C#{@user.longitude}" %> 
-        </div>
-
-    </div><!-- end parent row-->
-
- </div><!-- end container -->  
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=650x400&sensor=false&zoom=10&markers=#{@user.latitude}%2C#{@user.longitude}" %>
+</div>
 
 
+
+
+</div>
+</div>
 
 <hr>
 <div class="row-fluid">
@@ -76,22 +75,26 @@
 
    
 <%= render @farms %></div>
-<% else %><div class="span6"><% if correct_user?(@user) %>
+<% else %>
+<div class="span6"><% if correct_user?(@user) %>
 <center> <h5>To begin selling and swapping your own Produce, List your products Now!</h5><br></center>
 <center><%= link_to "I am a Grower!", new_farm_path, class: "btn btn-large btn-secondary"  %>
-<% else %>
-<% end %>
+
 
 </div>  
 <div class="span6">
 <center><h5>If your not a grower yet, and just want to see whats being grown near you, Check out the Produce Listings!</h5></center><br>
 <center><%= link_to "Search Produce", products_path, class: "btn btn-large btn-secondary"  %>
+
+</div>  
+</div>  
+</div>  
+
+
 <% end %>
-</div>  
-</div>  
+<% end %>
 
 
 
 
-  
-  
+

@@ -1,0 +1,24 @@
+<hr>
+    <div class="row-fluid">
+    <div class="span12">
+    <div class="span3"><%= image_tag farm.user.avatar.url(:thumb) %>
+</div>
+    <div class="span8">
+    	 <h5><%= farm.user.name %></h5>
+<p><%= farm.name %></p>
+</div>
+    <div class="span3 pull-left">
+<%= link_to "Unfollow", unfollow_farm_path(farm), class: "btn btn-small btn-secondary" %>
+ <%= link_to "View Profile", @user, class: "btn btn-small btn-secondary"  %>
+
+    </div>
+   
+
+
+
+
+
+
+
+</div>
+</div>
