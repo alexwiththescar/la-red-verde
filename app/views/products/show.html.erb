@@ -20,17 +20,22 @@
 <h4>Ammount Available ::
 <%= @product.ammount %> Kilos</strong></h4>
 <span class="timestamp">
-<% #distance = Geocoder::Calculations.distance_between([product.farm.latitude, product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
-<%# number_with_precision(distance, :precision => 0) %> Kilometers away from you</span><br>
+<% distance = Geocoder::Calculations.distance_between([@product.farm.latitude, @product.farm.longitude], [current_user.latitude,current_user.longitude],{:units => :km, :precision => 2 }) %>
+<%= number_with_precision(distance, :precision => 0) %> Kilometers away from you</span><br>
 
+
+ 
+ <% if correct_user?(@product.farm.user) %>
+  <%= link_to "Edit", @product, class: "btn btn-small btn-warning" %>
+ 
+  <%= link_to "Delete", @product, class: "btn btn-small btn-warning", method: :delete, confirm: "You sure?" %>
+
+<% else %>
 <%= link_to "Contact Seller", {:controller => 'messages', :action => "new", :product => @product.farm.user.id, :user_id => current_user, :productname => @product.id}, class: "btn btn-small btn-primary"  %>
- <%= link_to "Request Swap", @product.farm, class: "btn btn-small btn-primary"  %>
  <%= link_to "View Farm", @product.farm, class: "btn btn-small btn-primary"  %>
- 
- 
-  <%= link_to "delete", @product, class: "btn btn-small btn-secondary", method: :delete, confirm: "You sure?" %>
 
 
+<% end %>
 </div>
 <div class="span5"><br><br>
    <center>

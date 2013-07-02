@@ -35,6 +35,135 @@
    <%= f.radio_button :deliver, true %><%= f.label 'Yes', :style => "display:inline"  %><br />
   <%= f.radio_button :deliver, false %><%= f.label 'No', :style => "display:inline"  %><br />
 </div></div><br>
+
+<p><input id="toggle_hidden_fields" name="toggle_hidden_fields" type="checkbox" class="toggle_hidden_fields">
+Click here if you are growing at a different location.</p>
+
+<div class="hidden_fields">
+ <div class="field">
+    <%= f.label :street_name %><br />
+    <%= f.text_field :street_name, :value => current_user.street_name %>
+  </div>
+   <div class="field">
+    <%= f.label :bldg_name %><br />
+    <%= f.text_field :bldg_name, :value => current_user.bldg_name %>
+  </div>
+   <div class="field">
+    <%= f.label :region %><br />
+    <%= f.select :region, options_for_select(%w[Alameda
+Alcaucín 
+Alfarnate 
+Alfarnatejo 
+Algarrobo 
+Algatocín 
+Alhaurín_de_la_Torre 
+Alhaurín-el-Grande 
+Almáchar 
+Almargen 
+Almogía 
+Álora 
+Alozaina 
+Alpandeire 
+Antequera 
+Árchez 
+Archidona 
+Ardales 
+Arenas 
+Arriate 
+Atajate 
+Benadalid 
+Benahavís 
+Benalauría 
+Benalmádena 
+Benamargosa 
+Benamocarra 
+Benaoján 
+Benarrabá 
+El-Borge 
+El-Burgo 
+Campillos 
+Canillas-de-Aceituno 
+Canillas-de-Albaida 
+Cañete-la-Real 
+Carratraca 
+Cartajima 
+Cártama 
+Casabermeja 
+Casarabonela 
+Casares 
+Coín 
+Colmenar-(Málaga) 
+Comares 
+Cómpeta 
+Cortes-de-la-Frontera 
+Cuevas-Bajas 
+Cuevas-de-San-Marcos 
+Cuevas-del-Becerro 
+Cútar 
+Estepona 
+Faraján 
+Frigiliana 
+Fuengirola 
+Fuente-de-Piedra 
+Gaucín 
+Genalguacil 
+Guaro 
+Humilladero 
+Igualeja 
+Istán 
+Iznate 
+Jimera-de-Líbar 
+Jubrique 
+Júzcar 
+Macharaviaya 
+Málaga 
+Manilva 
+Marbella 
+Mijas 
+Moclinejo 
+Mollina 
+Monda 
+Montejaque 
+Nerja 
+Ojén 
+Parauta 
+Periana 
+Pizarra 
+Pujerra 
+Rincón-de-la-Victoria 
+Riogordo 
+Ronda 
+Salares 
+Sayalonga 
+Sedella 
+Sierra-de-Yeguas 
+Teba 
+Tolox 
+Torremolinos 
+Torrox 
+Totalán 
+Valle-de-Abdalajís 
+Vélez-Málaga 
+Villanueva-de-Algaidas 
+Villanueva-de-Tapia 
+Villanueva-del-Rosario 
+Villanueva-del-Trabuco 
+Viñuela 
+Yunquera ] ), :value => current_user.region %>
+  </div>
+  <div class="field">
+    <%= f.label :post_code %><br />
+    <%= f.number_field :post_code, :value => current_user.post_code %>
+  </div>
+  <div class="field">
+    <%= f.label :province %><br />
+   <%= f.select :province, options_for_select(%w[Malaga,España]) %>
+  </div>
+  
+
+
+</div>
+<br>
 <div class="field", style="display:inline">
     <%= f.label 'Say Somthing About Your Grow Spot...' %><br />
     <%= f.text_area :description, :size => "30x10" , :placeholder => "Say somthing about how you grow....(Optional)"%>
