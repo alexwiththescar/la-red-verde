@@ -64,16 +64,15 @@
 
 <center><h2>Location</h2><p> <%= @user.region %></p><br>
   
-  <% if @user.description.blank? %>
-   <center><h2>About Us</h2><p> <%= @user.description %></p><br>
+  <% if @user.description.blank? %><% else %>
+   <center><h2>About Me</h2><p> <%= @user.description %></p><br>
 <% end %>
 </div>
 <div class="span3">
 <%= image_tag @user.avatar_url.to_s %>
+<hr>
 
-
-    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=650x400&sensor=false&zoom=10&markers=#{@user.latitude}%2C#{@user.longitude}" %><%= link_to "http://maps.google.com/maps/api/staticmap?size=650x400&sensor=false&zoom=10&markers=#{@user.latitude}%2C#{@user.longitude}" %>
-</div>
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=650x400&sensor=false&zoom=10&markers=#{@user.latitude}%2C#{@user.longitude}" %></div>
 
 
 

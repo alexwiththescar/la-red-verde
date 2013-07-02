@@ -21,11 +21,11 @@ g.column :name => 'Photo' do |product|
 
 
 
-g.column :name => 'Status', :attribute => 'category',  detach_with_id: :category_filter, 
+g.column :name => 'Category', :attribute => 'category',  detach_with_id: :category_filter, 
            custom_filter: :auto
 
   g.column  name:  'Location', :model => 'Farm', attribute: 'region', detach_with_id: :location_filter do |product|
-    
+    product.farm.region
   end
   if signed_in?
   g.column  name:  "Distance  (in KM)", attribute: 'distance', html: {style: 'font-weight: bold; text-align: center'},  filter: false do |product|
@@ -39,12 +39,10 @@ g.column name:  'Added', attribute: 'distance', filter: false do |product|
     product.created_at.to_s(:short)
   end
 
-  g.column :name => 'Swap', :model => 'Farm', :attribute => 'swap', detach_with_id: :swap_filter do |product|
-    #product.farm.swap? ? 'Yes' : 'No'
-  end
+  
 
- g.column name:  'Producer', :model => 'Farm', attribute: 'name', detach_with_id: :producer_filter do |product|
-  #product.farm.name
+ g.column name:  'Grower', :model => 'Farm', attribute: 'name', detach_with_id: :producer_filter do |product|
+  product.farm.user.name
 end
 
   
